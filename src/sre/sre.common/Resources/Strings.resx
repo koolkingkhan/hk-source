@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Application_ClearLockStatus" xml:space="preserve">
+    <value>Clearing all locks for user {0} </value>
+  </data>
+  <data name="Application_Customize" xml:space="preserve">
+    <value>Customize {0}</value>
+  </data>
+  <data name="Application_ExitApplication" xml:space="preserve">
+    <value>Exit '{0}'</value>
+  </data>
+  <data name="Application_InvalidArgument" xml:space="preserve">
+    <value>Unrecognized runtime environment supplied [{0}], should be either : {1}</value>
+  </data>
+  <data name="Application_LoggingConsole" xml:space="preserve">
+    <value>Logging Console - {0}</value>
+  </data>
+  <data name="Application_LoginDialogHeaderDev" xml:space="preserve">
+    <value>{0} Sprint {1} (Rev {2})</value>
+  </data>
+  <data name="Application_LoginDialogHeaderProd" xml:space="preserve">
+    <value>{0} {1} (Revision {2})</value>
+  </data>
+  <data name="Application_LoginPrompt" xml:space="preserve">
+    <value>Please enter your production WebSSO password</value>
+  </data>
+  <data name="Application_MissingTibcoSetting" xml:space="preserve">
+    <value>One or more Tibco settings are missing for {0} [{1}]</value>
+  </data>
+  <data name="Application_RetrieveLockStatus" xml:space="preserve">
+    <value>Lock status is being retrieved, please wait</value>
+  </data>
+  <data name="Clipboard_ConfirmCopy" xml:space="preserve">
+    <value>Please confirm you wish to paste {0} item(s) into the {1} cell ?</value>
+  </data>
+  <data name="Clipboard_Copy" xml:space="preserve">
+    <value>Copy selected to clipboard</value>
+  </data>
+  <data name="Clipboard_Failed2Paste" xml:space="preserve">
+    <value>Error attempting to paste into cell {0}{1}{2}{3}{4}</value>
+  </data>
+  <data name="Clipboard_FailedElement" xml:space="preserve">
+    <value>This occurred on  row {0} found in the clipboard buffer</value>
+  </data>
+  <data name="Clipboard_FilterSelected" xml:space="preserve">
+    <value>The row that has been selected for copying to clipboard  contains no meaningful information.</value>
+  </data>
+  <data name="Clipboard_NothingSelected" xml:space="preserve">
+    <value>No records selected</value>
+  </data>
+  <data name="Clipboard_PasteMoreThenOneRowError" xml:space="preserve">
+    <value>You have attempted to paste in {0} row(s). Only a single item is supported!</value>
+  </data>
+  <data name="Clipboard_PasteOnlyInFilterRow" xml:space="preserve">
+    <value>You can only paste values into the filter row.</value>
+  </data>
+  <data name="Clipboard_PasteOnlySupportedInDynamicFilter" xml:space="preserve">
+    <value>You can only paste into the Filter Bar and the column must be a non-checkbox listbox.</value>
+  </data>
+  <data name="Clipboard_Readonly" xml:space="preserve">
+    <value>Cannot paste into  {0} as this is a readonly cell.</value>
+  </data>
+  <data name="Clipboard_SelectSingleCellOrRow" xml:space="preserve">
+    <value>To paste into the grid, position your cursor on a single cell or row</value>
+  </data>
+  <data name="Clipboard_SelectSingleCellOrRowForPaste" xml:space="preserve">
+    <value>To paste a value, position your cursor on the Filter Bar and ensure only a single column is selected.</value>
+  </data>
+  <data name="Clipboard_TextRequired" xml:space="preserve">
+    <value>Please ensure that only TEXT is pasted into this cell</value>
+  </data>
+  <data name="ColumnChooser_DefaultViewName" xml:space="preserve">
+    <value>{0} with {1} columns</value>
+  </data>
+  <data name="ColumnChooser_GridNullError" xml:space="preserve">
+    <value>Expected a valid non-null grid !</value>
+  </data>
+  <data name="ColumnChooser_InvalidViewName" xml:space="preserve">
+    <value>Please {0} a valid View name</value>
+  </data>
+  <data name="ColumnChooser_LoadTitle" xml:space="preserve">
+    <value>Select the VIEW profile that you wish to load</value>
+  </data>
+  <data name="ColumnChooser_NoItems" xml:space="preserve">
+    <value>No items have been added to the Current pane, View cannot be saved.</value>
+  </data>
+  <data name="ColumnChooser_NoProfilesExist" xml:space="preserve">
+    <value>No View profiles currently exist. Save a profile first.</value>
+  </data>
+  <data name="ColumnChooser_NoSelectionMade" xml:space="preserve">
+    <value>Select the Views that you wish to remove</value>
+  </data>
+  <data name="ColumnChooser_NoViewRemoved" xml:space="preserve">
+    <value>There was a problem removing selected views. No views removed.</value>
+  </data>
+  <data name="ColumnChooser_OnlyXViewRemoved" xml:space="preserve">
+    <value>Only {0} view(s) have been removed</value>
+  </data>
+  <data name="ColumnChooser_Overwrite" xml:space="preserve">
+    <value>View name already exists, overwriite ?</value>
+  </data>
+  <data name="ColumnChooser_SaveTitle" xml:space="preserve">
+    <value>Enter a name for the View that you wish to save</value>
+  </data>
+  <data name="ColumnChooser_SelectColumns" xml:space="preserve">
+    <value>Select Columns ...</value>
+  </data>
+  <data name="ColumnChooser_SelectSingleColumn" xml:space="preserve">
+    <value>To re-order, please select a single row only</value>
+  </data>
+  <data name="ColumnChooser_ViewMaintenanceTitle" xml:space="preserve">
+    <value>Select the views you wish to remove</value>
+  </data>
+  <data name="ColumnChooser_ViewRemoved" xml:space="preserve">
+    <value>All selected views have successfully been removed</value>
+  </data>
+  <data name="Configuration_InvalidSection" xml:space="preserve">
+    <value>The &lt;{0}&gt; section is not defined in the application configuration file.</value>
+  </data>
+  <data name="Configuration_WriteableConfigFile" xml:space="preserve">
+    <value>Writeable_Config_file.xml</value>
+  </data>
+  <data name="Dialog_AbortOperation" xml:space="preserve">
+    <value>Abort operation ?</value>
+  </data>
+  <data name="Dialog_ErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Dialog_InformationTitle" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Dialog_QuestionTitle" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Dialog_WarningTitle" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Exception_ArgumentException" xml:space="preserve">
+    <value>Illegal argument has been supplied : </value>
+  </data>
+  <data name="Exception_ArgumentNotGridControl" xml:space="preserve">
+    <value>Argument supplied is not a GridControl:</value>
+  </data>
+  <data name="Exception_ArgumentNotGridDataBoundGridControl" xml:space="preserve">
+    <value>Argument supplied is not a GridDataBoundGridControl:</value>
+  </data>
+  <data name="Exception_ArgumentNotGridGroupingControl" xml:space="preserve">
+    <value>Argument supplied is not a GridGroupingControl:</value>
+  </data>
+  <data name="Exception_CannotReadStream" xml:space="preserve">
+    <value>There was a problem trying to read from stream :{0}</value>
+  </data>
+  <data name="Exception_DialogTitle" xml:space="preserve">
+    <value>UBS AG - XXXX</value>
+  </data>
+  <data name="Exception_ErrorLoadingView" xml:space="preserve">
+    <value>Could not load view :{0}{1}{2}</value>
+  </data>
+  <data name="Exception_ErrorSavingView" xml:space="preserve">
+    <value>There was a problem trying to {0} this View. Is the view name valid ?</value>
+  </data>
+  <data name="Exception_ExpectedSchemaColumn" xml:space="preserve">
+    <value>Expected column : {0} in the schema !</value>
+  </data>
+  <data name="Exception_GridNotSet" xml:space="preserve">
+    <value>The grid to persist has not been defined (Null)</value>
+  </data>
+  <data name="Exception_InvalidCharacters" xml:space="preserve">
+    <value>The following characters cannot be entered in {0} field :</value>
+  </data>
+  <data name="Exception_InvalidCharactersHeader" xml:space="preserve">
+    <value>Invalid Characters</value>
+  </data>
+  <data name="Exception_LoadGridSchema" xml:space="preserve">
+    <value>There was a problem trying to  load grid schema :{0}</value>
+  </data>
+  <data name="Exception_MaxCharacters" xml:space="preserve">
+    <value>Field   [{0}]  cannot exceed {0} characters</value>
+  </data>
+  <data name="Exception_MaxCharactersHeader" xml:space="preserve">
+    <value>Maximum Characters</value>
+  </data>
+  <data name="Exception_NotImplemented" xml:space="preserve">
+    <value>Code has not been implemented for this action :</value>
+  </data>
+  <data name="Exception_PleaseOverride" xml:space="preserve">
+    <value>Please override this base method and provide the descendant functionality</value>
+  </data>
+  <data name="Exception_ProgramLogicError" xml:space="preserve">
+    <value>Program logic exception with message '{0}'</value>
+  </data>
+  <data name="Exception_ProgramLogicError1" xml:space="preserve">
+    <value>Program logic exception with message '{0}'</value>
+  </data>
+  <data name="Exception_RestoreLNF" xml:space="preserve">
+    <value>There was a problem trying to deserialize the Grid LNF</value>
+  </data>
+  <data name="Exception_RestoreSchema" xml:space="preserve">
+    <value>There was a problem trying to deserialize the Grid Schema</value>
+  </data>
+  <data name="Exception_SaveGridSchema" xml:space="preserve">
+    <value>There was a problem trying to create grid schema :{0}</value>
+  </data>
+  <data name="Exception_SaveLNF" xml:space="preserve">
+    <value>There was a problem trying to serialize the Grid LNF</value>
+  </data>
+  <data name="Exception_SaveSchema" xml:space="preserve">
+    <value>There was a problem trying to serialize the Grid Schema</value>
+  </data>
+  <data name="Exception_SchemaReadError" xml:space="preserve">
+    <value>There was a problem trying to read the Grid Schema/LNF file</value>
+  </data>
+  <data name="Exception_UnableToCreateDirectory" xml:space="preserve">
+    <value>There was a problem to create the following directory :{0}</value>
+  </data>
+  <data name="Exception_UnableToCreateFile" xml:space="preserve">
+    <value>There was a problem to create the following file:</value>
+  </data>
+  <data name="Exception_UnknownMessage" xml:space="preserve">
+    <value>An unknown error has occurred</value>
+  </data>
+  <data name="Export_GridExportedNoRows" xml:space="preserve">
+    <value>There are no rows to export</value>
+  </data>
+  <data name="Export_GridExportedOk" xml:space="preserve">
+    <value>The grid has successfully been exported to Excel</value>
+  </data>
+  <data name="Export_GridExportedTitle" xml:space="preserve">
+    <value>Export Completed</value>
+  </data>
+  <data name="Export_Header1" xml:space="preserve">
+    <value> {0} rows successfully exported to Excel</value>
+  </data>
+  <data name="Export_Header2" xml:space="preserve">
+    <value>Rows exported : {0}</value>
+  </data>
+  <data name="Export_JobSubmitted" xml:space="preserve">
+    <value>Export to {0} job has been submitted. You will be notified once this completes</value>
+  </data>
+  <data name="Export_JobSubmittedTitle" xml:space="preserve">
+    <value>Export Scheduled</value>
+  </data>
+  <data name="Export_NoTradesToExport" xml:space="preserve">
+    <value>Grid is empty or there was an error exporting trades</value>
+  </data>
+  <data name="Export_QueuedMessage" xml:space="preserve">
+    <value>Export to Excel is in progress. Excel will be launched once done.</value>
+  </data>
+  <data name="Filter_Availableitems" xml:space="preserve">
+    <value>Available:{0}</value>
+  </data>
+  <data name="Filter_CheckedItems" xml:space="preserve">
+    <value>Selected:{0}</value>
+  </data>
+  <data name="Filter_ClearAllFilters" xml:space="preserve">
+    <value>Do you wish to clear all existing filters on this grid ?</value>
+  </data>
+  <data name="Filter_CurrentFilter" xml:space="preserve">
+    <value> (Current Filter)</value>
+  </data>
+  <data name="Filter_CurrentlyFiltersExist" xml:space="preserve">
+    <value>Currently filters exist</value>
+  </data>
+  <data name="Filter_DateFormat" xml:space="preserve">
+    <value>d MMM yyyy</value>
+  </data>
+  <data name="Filter_DateTimeFormat" xml:space="preserve">
+    <value>r</value>
+  </data>
+  <data name="Filter_ExtendedFilterMessage" xml:space="preserve">
+    <value>{0} item(s) above not shown because of other column filters</value>
+  </data>
+  <data name="Filter_FilterCount" xml:space="preserve">
+    <value>Number of filters currently in use is </value>
+  </data>
+  <data name="Filter_FiltersApplied2Column" xml:space="preserve">
+    <value>Filters already applied to column :</value>
+  </data>
+  <data name="Filter_FiltersForColumn" xml:space="preserve">
+    <value>Filters for column : </value>
+  </data>
+  <data name="Filter_InvalidOperation_GGCNotSet" xml:space="preserve">
+    <value>GroupingControl has not been set</value>
+  </data>
+  <data name="Filter_ItemsToChooseFrom" xml:space="preserve">
+    <value>Items to choose from</value>
+  </data>
+  <data name="Filter_NoFiltersToClear" xml:space="preserve">
+    <value>You currently have no filters to clear</value>
+  </data>
+  <data name="Filter_NoMoreSelections" xml:space="preserve">
+    <value>Grid already filtered by item(s) above</value>
+  </data>
+  <data name="Filter_NoRecordsFound" xml:space="preserve">
+    <value>No records found - nothing to filter</value>
+  </data>
+  <data name="Filter_NoSelectionMade" xml:space="preserve">
+    <value>No filter values selected  - Select one or more items then press OK.</value>
+  </data>
+  <data name="Filter_UseExistingFilters" xml:space="preserve">
+    <value>Do you wish to use existing filters ?</value>
+  </data>
+  <data name="Grid_AbortLoad" xml:space="preserve">
+    <value>Abort load ?</value>
+  </data>
+  <data name="Grid_CancelledTitle" xml:space="preserve">
+    <value>Operation cancelled.</value>
+  </data>
+  <data name="Grid_CancelLoad" xml:space="preserve">
+    <value>Cancellation request pending...</value>
+  </data>
+  <data name="Grid_CancelLoadTitle" xml:space="preserve">
+    <value>Please be patient</value>
+  </data>
+  <data name="Grid_OperationCancelled" xml:space="preserve">
+    <value>Operation cancelled.{0}Trades shown  {1}  out of a possible {2}</value>
+  </data>
+  <data name="Grid_SuccessTitle" xml:space="preserve">
+    <value>Operation completed successfully.</value>
+  </data>
+  <data name="Heartbeat_AvailableHeader" xml:space="preserve">
+    <value>Services running smoothly</value>
+  </data>
+  <data name="Heartbeat_AvailableTooltip" xml:space="preserve">
+    <value>All backend services are running without interruption</value>
+  </data>
+  <data name="Heartbeat_ServersDownMessage" xml:space="preserve">
+    <value>Backend servers are down - you have limited services!</value>
+  </data>
+  <data name="Heartbeat_ServersDownSplashMessage" xml:space="preserve">
+    <value>One or more connections with backend servers has been lost, disruption may occur</value>
+  </data>
+  <data name="Heartbeat_UnavailableHeader" xml:space="preserve">
+    <value>Services Unavailable</value>
+  </data>
+  <data name="Heartbeat_UnavailableTooltip" xml:space="preserve">
+    <value>One or more backend services is unavailable, disruption may occur</value>
+  </data>
+  <data name="Heartbeat_UnknownHeader" xml:space="preserve">
+    <value>Unknow Services</value>
+  </data>
+  <data name="Heartbeat_UnknownTooltip" xml:space="preserve">
+    <value>An unknown status code has been returned ??</value>
+  </data>
+  <data name="InputForm_ValueRequired" xml:space="preserve">
+    <value>A value is required</value>
+  </data>
+  <data name="InvalidOperation_GGCNotSet" xml:space="preserve">
+    <value>GroupingControl has not been set</value>
+  </data>
+  <data name="InvalidOperation_NoColumnSet" xml:space="preserve">
+    <value>Column list has not been set [DDLB/Dynamic]</value>
+  </data>
+  <data name="Keyboard_CapsOff" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Keyboard_CapsOn" xml:space="preserve">
+    <value>CAPS</value>
+  </data>
+  <data name="Keyboard_CapsOnMessageContent" xml:space="preserve">
+    <value>Having Caps Lock on may cause you to enter your password incorrectly</value>
+  </data>
+  <data name="Keyboard_CapsOnMessageFooter" xml:space="preserve">
+    <value>You should press Caps Lock to turn it off before entering your password</value>
+  </data>
+  <data name="Keyboard_CapsOnMessageHeader" xml:space="preserve">
+    <value>Caps lock is on</value>
+  </data>
+  <data name="Keyboard_InsertOff" xml:space="preserve">
+    <value>OVR</value>
+  </data>
+  <data name="Keyboard_InsertOn" xml:space="preserve">
+    <value>INS</value>
+  </data>
+  <data name="Keyboard_NumOff" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Keyboard_NumOn" xml:space="preserve">
+    <value>NUM</value>
+  </data>
+  <data name="Keyboard_ScrollOff" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Keyboard_ScrollOn" xml:space="preserve">
+    <value>SCROLL</value>
+  </data>
+  <data name="Login_CancelTTT" xml:space="preserve">
+    <value>Cancel logging in to {0}</value>
+  </data>
+  <data name="Login_DevEnvironment" xml:space="preserve">
+    <value>dev</value>
+  </data>
+  <data name="Login_DevMode" xml:space="preserve">
+    <value>DEVMODE</value>
+  </data>
+  <data name="Login_DevOffshoreEnvironment" xml:space="preserve">
+    <value>dev_os</value>
+  </data>
+  <data name="Login_EnvironmentKey" xml:space="preserve">
+    <value>ENV</value>
+  </data>
+  <data name="Login_LinuxDevOsEnvironment" xml:space="preserve">
+    <value>linux_dev_os</value>
+  </data>
+  <data name="Login_LinuxProdEnvironment" xml:space="preserve">
+    <value>linux_prod</value>
+  </data>
+  <data name="Login_LinuxUatEnvironment" xml:space="preserve">
+    <value>linux_uat</value>
+  </data>
+  <data name="Login_NotLoggedIn" xml:space="preserve">
+    <value>&lt;Not logged in&gt;</value>
+  </data>
+  <data name="Login_OkTTT" xml:space="preserve">
+    <value>Attempt to login using credentials supplied</value>
+  </data>
+  <data name="Login_PasswordHelp" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="Login_ProdEnvironment" xml:space="preserve">
+    <value>prod</value>
+  </data>
+  <data name="Login_UatEnvironment" xml:space="preserve">
+    <value>uat</value>
+  </data>
+  <data name="Login_UIDKey" xml:space="preserve">
+    <value>UID</value>
+  </data>
+  <data name="Login_UserIDHelp" xml:space="preserve">
+    <value>Enter your LDAP ID</value>
+  </data>
+  <data name="Login_VersionString" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="Popup_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Popup_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Popup_CopyAll" xml:space="preserve">
+    <value>Copy All</value>
+  </data>
+  <data name="Popup_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Popup_Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="Popup_JumpColumn" xml:space="preserve">
+    <value>Jump to column ...</value>
+  </data>
+  <data name="Popup_LoadView" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="Popup_Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Popup_PrintPreview" xml:space="preserve">
+    <value>Print Preview</value>
+  </data>
+  <data name="Popup_SaveView" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Popup_SelectColumns" xml:space="preserve">
+    <value>Columns...</value>
+  </data>
+  <data name="PortfolioForm_Title" xml:space="preserve">
+    <value>Create Portfolio Pricing Job</value>
+  </data>
+  <data name="Preferences_DefaultViewName" xml:space="preserve">
+    <value>CustomDefaultView_{0}_Columns</value>
+  </data>
+  <data name="Preferences_LoadError" xml:space="preserve">
+    <value>There was a problem trying to load user preferences file  [{0}]</value>
+  </data>
+  <data name="Preference_HomeDriveNotSet" xml:space="preserve">
+    <value>Home drive is not set - defaulting to: </value>
+  </data>
+  <data name="Progress_RequestHeader" xml:space="preserve">
+    <value>Request Sent</value>
+  </data>
+  <data name="Schema_RemovedFiles" xml:space="preserve">
+    <value>Schema files successfully removed from your home drive.</value>
+  </data>
+  <data name="Schema_RemovedFilesHeader" xml:space="preserve">
+    <value>Schema Cleanup</value>
+  </data>
+  <data name="Security_NoAccess" xml:space="preserve">
+    <value>{0}, you do not have access to this part of the system.</value>
+  </data>
+  <data name="Spring_ConfigError" xml:space="preserve">
+    <value>There was a problem trying to load Spring Configuration information for enviroment [{0}]</value>
+  </data>
+  <data name="Spring_ObjectNotFound" xml:space="preserve">
+    <value>The object called {0} cannot be found in the Application Context. Check spelling.</value>
+  </data>
+  <data name="Sprint_Desc" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sprint_Number" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Status_AmberMessage" xml:space="preserve">
+    <value>System is exceeding normal usage</value>
+  </data>
+  <data name="Status_CallingMartiniService" xml:space="preserve">
+    <value>Calling Martini service - Please stand by ...</value>
+  </data>
+  <data name="Status_ClearingFilters" xml:space="preserve">
+    <value>Clearing all filters</value>
+  </data>
+  <data name="Status_Critical" xml:space="preserve">
+    <value>Critical</value>
+  </data>
+  <data name="Status_FieldEnvironment" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="Status_FieldEnvironmentTT" xml:space="preserve">
+    <value>You are running '{0}' in '{1}' mode. Connected to server {2} on port {3}</value>
+  </data>
+  <data name="Status_FieldUsername" xml:space="preserve">
+    <value>Logged in user</value>
+  </data>
+  <data name="Status_FieldUsernameTT" xml:space="preserve">
+    <value>'{0}' has successfully logged into '{1}' application.</value>
+  </data>
+  <data name="Status_FieldVersion" xml:space="preserve">
+    <value>Running Version</value>
+  </data>
+  <data name="Status_FieldVersionTT" xml:space="preserve">
+    <value>'{0}', the current version of the ADT executable that you are running is '{1}'.</value>
+  </data>
+  <data name="Status_FilteredMessage" xml:space="preserve">
+    <value>Filtered {0}/{1} rows</value>
+  </data>
+  <data name="Status_GreenMessage" xml:space="preserve">
+    <value>System is running normally</value>
+  </data>
+  <data name="Status_Hint" xml:space="preserve">
+    <value>Hint:Minimizing and Maximizing the application will rapidly free memory </value>
+  </data>
+  <data name="Status_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Status_ReadyPrompt" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Status_RedMessage" xml:space="preserve">
+    <value>System is using more memory then recommended</value>
+  </data>
+  <data name="Status_TradesToProcess" xml:space="preserve">
+    <value>Trades to process:{0}</value>
+  </data>
+  <data name="Status_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Tibco_TimeoutError" xml:space="preserve">
+    <value>The named service below timed out: {0}{1}{2} Either re-perform the user action or restart the GUI</value>
+  </data>
+  <data name="TT_ConfigureGrid" xml:space="preserve">
+    <value>Configure grid columns</value>
+  </data>
+  <data name="TT_ExitApplication" xml:space="preserve">
+    <value>Click to exit the '{0}' application</value>
+  </data>
+  <data name="TT_ExportGrid" xml:space="preserve">
+    <value>Export the current grid contents to Excel</value>
+  </data>
+  <data name="TT_PrintGrid" xml:space="preserve">
+    <value>Print the current active grid</value>
+  </data>
+  <data name="TT_PrintPreviewGrid" xml:space="preserve">
+    <value>Show a print preview of the current grid</value>
+  </data>
+  <data name="TT_SearchGrid" xml:space="preserve">
+    <value>Search for information within the grid</value>
+  </data>
+  <data name="Preferences_DefaultConfigDirectory" xml:space="preserve">
+    <value>PLEASE_SET_TO_APP_NAME</value>
+  </data>
+  <data name="Preferences_DefaultPrivatePath" xml:space="preserve">
+    <value>/dnp/{0}/guiconfig/</value>
+  </data>
+  <data name="Preferences_DefaultSchemaName" xml:space="preserve">
+    <value>GridModel</value>
+  </data>
+  <data name="Preferences_DefaultSchemaNameExtension" xml:space="preserve">
+    <value>.Schema.XML</value>
+  </data>
+  <data name="Login_LinuxDevFiEnvironment" xml:space="preserve">
+    <value>linux_dev_fi</value>
+  </data>
+  <data name="Popup_RowSelection" xml:space="preserve">
+    <value>Row selection</value>
+  </data>
+  <data name="Pin_RemovePinColumns" xml:space="preserve">
+    <value>Are you sure you wish to remove existing pinned columns ?</value>
+  </data>
+  <data name="Popup_ClearPin" xml:space="preserve">
+    <value>Remove Pinned Columns</value>
+  </data>
+  <data name="Popup_Pin" xml:space="preserve">
+    <value>Pin columns</value>
+  </data>
+  <data name="Msg_AppErr" xml:space="preserve">
+    <value>APPLICATION ERROR</value>
+  </data>
+  <data name="Msg_Asterisk" xml:space="preserve">
+    <value>*********************************************</value>
+  </data>
+  <data name="Msg_DInfo" xml:space="preserve">
+    <value>   DEBUG INFO     </value>
+  </data>
+  <data name="Msg_Env" xml:space="preserve">
+    <value>Environment = {0}</value>
+  </data>
+  <data name="Msg_ErrTtl" xml:space="preserve">
+    <value>**ERROR**</value>
+  </data>
+  <data name="Msg_Startup" xml:space="preserve">
+    <value>{0} '(Version [ {1} ] )' startup in progress for {2}</value>
+  </data>
+  <data name="Msg_Host" xml:space="preserve">
+    <value>Host name: {0}{1}</value>
+  </data>
+  <data name="Msg_HostAddr" xml:space="preserve">
+    <value>Host address {0}: {1}{2}</value>
+  </data>
+  <data name="Msg_InExp" xml:space="preserve">
+    <value>INNER EXCEPION {0}{1}{2}</value>
+  </data>
+  <data name="Msg_Msg" xml:space="preserve">
+    <value>MESSAGE {0}{1}{2}</value>
+  </data>
+  <data name="Msg_Score" xml:space="preserve">
+    <value>_________________</value>
+  </data>
+  <data name="Msg_SInfoTtl" xml:space="preserve">
+    <value>***System Info***</value>
+  </data>
+  <data name="Msg_Src" xml:space="preserve">
+    <value>SOURCE {0}{1}{2}</value>
+  </data>
+  <data name="Msg_StckTrc" xml:space="preserve">
+    <value>STACK TRACE {0}{1}{2}</value>
+  </data>
+  <data name="Msg_User" xml:space="preserve">
+    <value>Username: {0}{1}</value>
+  </data>
+  <data name="Msg_Version" xml:space="preserve">
+    <value>Version = {0}</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Application_Title" xml:space="preserve">
+    <value>RulesEngine</value>
+  </data>
+  <data name="Msg_DstngshdNm" xml:space="preserve">
+    <value>Distinguished Name is: {0}{1}</value>
+  </data>
+  <data name="Msg_Mlddrs" xml:space="preserve">
+    <value>Email Address: {0}{1}</value>
+  </data>
+  <data name="Msg_Mplyd" xml:space="preserve">
+    <value>Employee Id: {0}{1}</value>
+  </data>
+  <data name="Msg_Shutdown" xml:space="preserve">
+    <value>{0} '(Version [ {1} ] )' shutdown in progress for {2}</value>
+  </data>
+  <data name="Msg_UsrPrncplNm" xml:space="preserve">
+    <value>User Principal Name: {0}{1}</value>
+  </data>
+  <data name="Msg_VcTlNm" xml:space="preserve">
+    <value>Voice Telephone Number: {0}{1}</value>
+  </data>
+</root>

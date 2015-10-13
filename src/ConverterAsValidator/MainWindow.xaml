@@ -1,0 +1,67 @@
+﻿<Window x:Class="ConverterAsValidator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converterAsValidator="clr-namespace:ConverterAsValidator"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow" Height="350" MinWidth="400">
+    <Window.Resources>
+        <converterAsValidator:MyConverter x:Key="TheConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" 
+                 BorderBrush="{Binding ElementName=tbName, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=name_background}"/>
+        <TextBox Name="tbId" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" 
+                 BorderBrush="{Binding ElementName=tbId, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=id_background}"/>
+        <TextBox Name="tbAge" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" 
+                 BorderBrush="{Binding ElementName=tbAge, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=age_background}"/>
+        <TextBox Name="tbSalary" Grid.Row="3" Grid.Column="1" Margin="5,5,5,0" 
+                 BorderBrush="{Binding ElementName=tbSalary, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_background}"/>
+
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblName" Grid.Row="0"/>
+        <Label Content="Id" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblId" Grid.Row="1" />
+        <Label Content="Age" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblAge" Grid.Row="2" />
+        <Label Content="Salary" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblSalary" Grid.Row="3" 
+               Background="{Binding ElementName=tbSalary, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_lblbackground}"
+               Foreground="{Binding ElementName=tbSalary, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_foreground}"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblNameErr" Grid.Row="0" Grid.Column="2"
+                   Text="{Binding ElementName=tbName, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=name_message}"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblIdErr" Grid.Row="1" Grid.Column="2"
+                   Text="{Binding ElementName=tbId, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=id_message}"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblAgeErr" Grid.Row="2" Grid.Column="2"
+                   Text="{Binding ElementName=tbAge, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=age_message}"/>
+      
+        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblSalaryErr" Grid.Row="3" Grid.Column="2"
+                   Text="{Binding ElementName=tbSalary, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_message}"
+                   Background="{Binding ElementName=tbSalary, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_lblbackground}"
+                   Foreground="{Binding ElementName=tbSalary, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_foreground}"/>
+
+
+        <TextBox Name="tbSalary2" Grid.Row="4" Grid.Column="1" Margin="5,5,5,0" 
+                 BorderBrush="{Binding ElementName=tbSalary2, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_background}"/>
+        
+
+        <Label Content="Salary" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblSalary2" Grid.Row="4" 
+               Background="{Binding ElementName=tbSalary2, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_lblbackground}"
+               Foreground="{Binding ElementName=tbSalary2, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_foreground}"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblSalaryErr2" Grid.Row="4" Grid.Column="2"
+                   Text="{Binding ElementName=tbSalary2, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_message}"
+                   Background="{Binding ElementName=tbSalary2, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_lblbackground}"
+                   Foreground="{Binding ElementName=tbSalary2, Path=Text, Converter={StaticResource TheConverter}, ConverterParameter=salary_foreground}"/>
+    </Grid>
+</Window>

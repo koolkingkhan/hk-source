@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RoutesAndTravelTimes>
+    <RouteMetadata From="A" To="B" Time="3" />
+    <RouteMetadata From="B" To="A" Time="3" />
+    <RouteMetadata From="A" To="D" Time="6" />
+    <RouteMetadata From="B" To="C" Time="7" />
+    <RouteMetadata From="C" To="D" Time="8" />
+    <RouteMetadata From="D" To="E" Time="9" />
+    <RouteMetadata From="E" To="D" Time="9" />
+    <RouteMetadata From="D" To="C" Time="9" />
+    <RouteMetadata From="D" To="B" Time="5" />
+    <RouteMetadata From="C" To="E" Time="3" />
+  </RoutesAndTravelTimes>
+</Routes>
