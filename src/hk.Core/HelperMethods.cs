@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Xml.Linq;
+using System.Xml.Schema;
 
 namespace hk.Core
 {
@@ -32,6 +34,20 @@ namespace hk.Core
             int totalSumOfNumbers = (lastNumber * (lastNumber + 1)) / 2;
 
             return totalSumOfNumbers - actualSum;
+        }
+
+        public static bool ValidateXml(string xml, string xsd, string targetNamespace)
+        {
+            XmlSchemaSet schemas = new XmlSchemaSet();
+            schemas.Add(targetNamespace, xsd);
+
+            XDocument doc = XDocument.Load(xml);
+            string msg = "";
+            doc.Validate(schemas, (o, e) =>
+            {
+                msg += e.Message + Environment.NewLine;
+            });
+            return string.IsNullOrEmpty(msg);
         }
     }
 }
