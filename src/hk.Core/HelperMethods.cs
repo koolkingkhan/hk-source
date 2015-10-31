@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace hk.Core
 {
@@ -34,6 +38,59 @@ namespace hk.Core
             int totalSumOfNumbers = (lastNumber * (lastNumber + 1)) / 2;
 
             return totalSumOfNumbers - actualSum;
+        }
+
+        public static bool TryDeserialize<TMyType>(XmlTextReader stream, out TMyType t)
+        {
+            t = default(TMyType);
+
+            if (null == stream)
+            {
+                return false;
+            }
+
+            bool success = false;
+
+            try
+            {
+                XmlSerializer deserializer = new XmlSerializer(typeof(TMyType));
+                t = (TMyType)deserializer.Deserialize(stream);
+                success = true;
+            }
+            catch (InvalidOperationException e)
+            {
+                string errorMessage = string.Format("Failed to deserialize object, error: {0}", e.Message);
+                Debug.WriteLine(errorMessage);
+            }
+
+            return success;
+        }
+
+        public static bool TrySerialize<TMyType>(TMyType t, string location)
+        {
+            if (null == t)
+            {
+                return false;
+            }
+
+            try
+            {
+                var settings = new XmlWriterSettings { OmitXmlDeclaration = true, Indent = true };
+
+                var namespaces = new XmlSerializerNamespaces();
+                namespaces.Add(string.Empty, string.Empty);
+
+                using (var writer = XmlWriter.Create(location, settings))
+                {
+                    XmlSerializer xml = new XmlSerializer(typeof(TMyType));
+                    xml.Serialize(writer, t, namespaces);
+                    return true;
+                } 
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public static bool ValidateXml(string xml, string xsd, string targetNamespace)
