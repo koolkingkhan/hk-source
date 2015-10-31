@@ -146,7 +146,7 @@ namespace hk.Core.Tests
                 }
             }
 
-            throw new ArgumentException("No XmlEnumAttribute code exists for type " + typeof(T).ToString() + " corresponding to value of " + value);
+            throw new ArgumentException("No XmlEnumAttribute code exists for type " + typeof(T) + " corresponding to value of " + value);
         }
 
         private static void ApplyRuleGroupValue(Rule rule, RuleGroups ruleGroup)

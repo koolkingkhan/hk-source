@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using hk.Core;
 using hk.QuickestRouteFinder.Interfaces;
 
 namespace hk.QuickestRouteFinder
@@ -59,37 +60,16 @@ namespace hk.QuickestRouteFinder
                 return _routes;
             }
 
-            using (XmlTextReader stream = new XmlTextReader(new StringReader(document.InnerXml)))
+            using (MemoryStream stream = new MemoryStream())
             {
-                return TryDeserialize(stream, out _routes) ? _routes : default(T);
+                document.Save(stream);
+                stream.Flush();
+                stream.Position = 0;
+                return HelperMethods.TryDeserialize(stream, out _routes) ? _routes : default(T);
+
             }
         }
-
-        private bool TryDeserialize<TMyType>(XmlTextReader stream, out TMyType t)
-        {
-            t = default(TMyType);
-
-            if (null == stream)
-            {
-                return false;
-            }
-
-            bool success = false;
-
-            try
-            {
-                XmlSerializer deserializer = new XmlSerializer(typeof(TMyType));
-                t = (TMyType)deserializer.Deserialize(stream);
-                success = true;
-            }
-            catch (InvalidOperationException e)
-            {
-                string errorMessage = string.Format("Failed to deserialize object, error: {0}", e.Message);
-                Debug.WriteLine(errorMessage);
-            }
-
-            return success;
-        }
+        
 
         private bool TrySerialize<TMyType>()
         {
