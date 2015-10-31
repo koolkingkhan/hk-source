@@ -6,7 +6,6 @@ namespace hk.Core
     [XmlRoot(ElementName = "settings", IsNullable = false)]
     public class Settings
     {
-
         [XmlElement("singularRule")]
         public Rule[] SingularRule { get; set; }
 
@@ -18,70 +17,66 @@ namespace hk.Core
     [Serializable]
     public class Rule
     {
+        private ArgumentType[] _argument;
 
-        private ArgumentType[] argumentField;
+        private string _name;
 
-        private string nameField;
+        private string _description;
 
-        private string descriptionField;
+        private bool _enabled;
 
-        private bool enabledField;
+        private bool _enabledSpecified;
 
-        private bool enabledFieldSpecified;
+        private int _ruleGroupId;
 
-        private int ruleGroupIdField;
+        private bool _ruleGroupIdSpecified;
 
-        private bool ruleGroupIdFieldSpecified;
+        private RuleGroups _ruleGroupName;
 
-        private ruleGroupsEnums ruleGroupNameField;
+        private bool _ruleGroupNameSpecified;
 
-        private bool ruleGroupNameFieldSpecified;
+        private int _ruleId;
 
-        private int ruleIdField;
+        private bool _toggleable;
 
-        private bool toggleableField;
-
-        private bool toggleableFieldSpecified;
-
+        private bool _toggleableSpecified;
 
         [XmlElement("argument")]
         public ArgumentType[] Argument
         {
             get
             {
-                return this.argumentField;
+                return _argument;
             }
             set
             {
-                this.argumentField = value;
+                _argument = value;
             }
         }
-
 
         [XmlAttribute("name")]
         public string Name
         {
             get
             {
-                return this.nameField;
+                return _name;
             }
             set
             {
-                this.nameField = value;
+                _name = value;
             }
         }
-
 
         [XmlAttribute("description")]
         public string Description
         {
             get
             {
-                return this.descriptionField;
+                return _description;
             }
             set
             {
-                this.descriptionField = value;
+                _description = value;
             }
         }
 
@@ -91,11 +86,11 @@ namespace hk.Core
         {
             get
             {
-                return this.enabledField;
+                return _enabled;
             }
             set
             {
-                this.enabledField = value;
+                _enabled = value;
             }
         }
 
@@ -105,11 +100,11 @@ namespace hk.Core
         {
             get
             {
-                return this.enabledFieldSpecified;
+                return _enabledSpecified;
             }
             set
             {
-                this.enabledFieldSpecified = value;
+                _enabledSpecified = value;
             }
         }
 
@@ -119,11 +114,11 @@ namespace hk.Core
         {
             get
             {
-                return this.ruleGroupIdField;
+                return _ruleGroupId;
             }
             set
             {
-                this.ruleGroupIdField = value;
+                _ruleGroupId = value;
             }
         }
 
@@ -133,25 +128,25 @@ namespace hk.Core
         {
             get
             {
-                return this.ruleGroupIdFieldSpecified;
+                return _ruleGroupIdSpecified;
             }
             set
             {
-                this.ruleGroupIdFieldSpecified = value;
+                _ruleGroupIdSpecified = value;
             }
         }
 
 
         [XmlAttribute("ruleGroupName")]
-        public ruleGroupsEnums RuleGroupName
+        public RuleGroups RuleGroupName
         {
             get
             {
-                return this.ruleGroupNameField;
+                return _ruleGroupName;
             }
             set
             {
-                this.ruleGroupNameField = value;
+                _ruleGroupName = value;
             }
         }
 
@@ -161,11 +156,11 @@ namespace hk.Core
         {
             get
             {
-                return this.ruleGroupNameFieldSpecified;
+                return _ruleGroupNameSpecified;
             }
             set
             {
-                this.ruleGroupNameFieldSpecified = value;
+                _ruleGroupNameSpecified = value;
             }
         }
 
@@ -175,11 +170,11 @@ namespace hk.Core
         {
             get
             {
-                return this.ruleIdField;
+                return _ruleId;
             }
             set
             {
-                this.ruleIdField = value;
+                _ruleId = value;
             }
         }
 
@@ -189,11 +184,11 @@ namespace hk.Core
         {
             get
             {
-                return this.toggleableField;
+                return _toggleable;
             }
             set
             {
-                this.toggleableField = value;
+                _toggleable = value;
             }
         }
 
@@ -203,11 +198,11 @@ namespace hk.Core
         {
             get
             {
-                return this.toggleableFieldSpecified;
+                return _toggleableSpecified;
             }
             set
             {
-                this.toggleableFieldSpecified = value;
+                _toggleableSpecified = value;
             }
         }
     }
@@ -217,310 +212,298 @@ namespace hk.Core
     [Serializable]
     public class ArgumentType
     {
+        private Keys _id;
 
-        private keyEnums idField;
+        private bool _idSpecified;
 
-        private bool idFieldSpecified;
+        private Types _type;
 
-        private typeEnums typeField;
+        private bool _typeSpecified;
 
-        private bool typeFieldSpecified;
-
-        private string valueField;
-
+        private string _value;
 
         [XmlAttribute("id")]
-        public keyEnums Id
+        public Keys Id
         {
             get
             {
-                return this.idField;
+                return _id;
             }
             set
             {
-                this.idField = value;
+                _id = value;
             }
         }
-
 
         [XmlIgnore]
         public bool IdSpecified
         {
             get
             {
-                return this.idFieldSpecified;
+                return _idSpecified;
             }
             set
             {
-                this.idFieldSpecified = value;
+                _idSpecified = value;
             }
         }
 
-
         [XmlAttribute("type")]
-        public typeEnums Type
+        public Types Type
         {
             get
             {
-                return this.typeField;
+                return _type;
             }
             set
             {
-                this.typeField = value;
+                _type = value;
             }
         }
-
 
         [XmlIgnore]
         public bool TypeSpecified
         {
             get
             {
-                return this.typeFieldSpecified;
+                return _typeSpecified;
             }
             set
             {
-                this.typeFieldSpecified = value;
+                _typeSpecified = value;
             }
         }
 
-
-        [XmlText()]
+        [XmlText]
         public string Value
         {
             get
             {
-                return this.valueField;
+                return _value;
             }
             set
             {
-                this.valueField = value;
+                _value = value;
             }
         }
     }
 
-
-
     [Serializable]
-    public enum keyEnums
+    public enum Keys
     {
+        [XmlEnum("ruleGroupName")]
+        RuleGroupName,
 
+        [XmlEnum("softRejectCountToHardReject")]
+        SoftRejectCountToHardReject,
 
-        ruleGroupName,
+        [XmlEnum("checkBidEconomics")]
+        CheckBidEconomics,
 
+        [XmlEnum("bidEconThreshold")]
+        BidEconThreshold,
 
-        softRejectCountToHardReject,
+        [XmlEnum("cptyGroupName")]
+        CptyGroupName,
 
+        [XmlEnum("minFee")]
+        MinFee,
 
-        checkBidEconomics,
+        [XmlEnum("minFeeUSD")]
+        MinFeeUsd,
 
+        [XmlEnum("kipCodes")]
+        KipCodes,
 
-        bidEconThreshold,
+        [XmlEnum("externalSystems")]
+        ExternalSystems,
 
+        [XmlEnum("reasonCodes")]
+        ReasonCodes,
 
-        cptyGroupName,
+        [XmlEnum("counterparties")]
+        Counterparties,
 
+        [XmlEnum("counterpartyExceptions")]
+        CounterpartyExceptions,
 
-        minFee,
+        [XmlEnum("productTypes")]
+        ProductTypes,
 
+        [XmlEnum("assetClass")]
+        AssetClass,
 
-        minFeeUSD,
+        [XmlEnum("quotationCountries")]
+        QuotationCountries,
 
+        [XmlEnum("quotationCountryExceptions")]
+        QuotationCountryExceptions,
 
-        kipCodes,
+        [XmlEnum("isins")]
+        Isins,
 
+        [XmlEnum("isSpecialSecurity")]
+        IsSpecialSecurity,
 
-        externalSystems,
+        [XmlEnum("businessState")]
+        BusinessState,
 
+        [XmlEnum("straightToFirm")]
+        StraightToFirm,
 
-        reasonCodes,
+        [XmlEnum("straightToDI")]
+        StraightToDi,
 
+        [XmlEnum("usdValue")]
+        UsdValue,
 
-        counterparties,
+        [XmlEnum("requestedUsdValue")]
+        RequestedUsdValue,
 
+        [XmlEnum("bid")]
+        Bid,
 
-        counterpartyExceptions,
+        [XmlEnum("offer")]
+        Offer,
 
+        [XmlEnum("feeDifferentFromSoft")]
+        FeeDifferentFromSoft,
 
-        productTypes,
+        [XmlEnum("allocatedQtyDifferentFromSoft")]
+        AllocatedQtyDifferentFromSoft,
 
+        [XmlEnum("bidOfferRange")]
+        BidOfferRange,
 
-        assetClass,
+        [XmlEnum("currency")]
+        Currency,
 
+        [XmlEnum("totalAvailable")]
+        TotalAvailable,
 
-        quotationCountries,
+        [XmlEnum("valueToGo")]
+        ValueToGo,
 
+        [XmlEnum("daysToRecordDate")]
+        DaysToRecordDate,
 
-        quotationCountryExceptions,
+        [XmlEnum("daysToMaturity")]
+        DaysToMaturity,
 
+        [XmlEnum("daysToExDividendDate")]
+        DaysToExDividendDate,
 
-        isins,
+        [XmlEnum("totalAvailMinusDCCAlloc")]
+        TotalAvailMinusDccAlloc,
 
+        [XmlEnum("DCCAlloc")]
+        DccAlloc,
 
-        isSpecialSecurity,
+        [XmlEnum("totalClientsHolding")]
+        TotalClientsHolding,
 
+        [XmlEnum("totalAllocationValue")]
+        TotalAllocationValue,
 
-        businessState,
+        [XmlEnum("checkBilateralReceivedGreaterThanDCCAlloc")]
+        CheckBilateralReceivedGreaterThanDccAlloc,
 
+        [XmlEnum("totalRestricted")]
+        TotalRestricted,
 
-        straightToFirm,
+        [XmlEnum("percentageAllocated")]
+        PercentageAllocated,
 
+        [XmlEnum("dividendRate")]
+        DividendRate,
 
-        straightToDI,
+        [XmlEnum("setNextRuleGroup")]
+        SetNextRuleGroup,
 
+        [XmlEnum("outcome")]
+        Outcome,
 
-        usdValue,
+        [XmlEnum("linkedOutcome")]
+        LinkedOutcome,
 
+        [XmlEnum("kipCode")]
+        KipCode,
 
-        requestedUsdValue,
+        [XmlEnum("checkIfBidLessThanOffer")]
+        CheckIfBidLessThanOffer,
 
+        [XmlEnum("checkIfBidGreaterThanOffer")]
+        CheckIfBidGreaterThanOffer,
 
-        bid,
+        [XmlEnum("amendOfferToMatchBid")]
+        AmendOfferToMatchBid,
 
+        [XmlEnum("setOffer")]
+        SetOffer,
 
-        offer,
+        [XmlEnum("applyDefaultMinFeeForCCY")]
+        ApplyDefaultMinFeeForCcy,
 
-
-        feeDifferentFromSoft,
-
-
-        allocatedQtyDifferentFromSoft,
-
-
-        bidOfferRange,
-
-
-        currency,
-
-
-        totalAvailable,
-
-
-        valueToGo,
-
-
-        daysToRecordDate,
-
-
-        daysToMaturity,
-
-
-        daysToExDividendDate,
-
-
-        totalAvailMinusDCCAlloc,
-
-
-        DCCAlloc,
-
-
-        totalClientsHolding,
-
-
-        totalAllocationValue,
-
-
-        checkBilateralReceivedGreaterThanDCCAlloc,
-
-
-        totalRestricted,
-
-
-        percentageAllocated,
-
-
-        dividendRate,
-
-
-        setNextRuleGroup,
-
-
-        outcome,
-
-
-        linkedOutcome,
-
-
-        kipCode,
-
-
-        checkIfBidLessThanOffer,
-
-
-        checkIfBidGreaterThanOffer,
-
-
-        amendOfferToMatchBid,
-
-
-        setOffer,
-
-
-        applyDefaultMinFeeForCCY,
-
-
-        setMinFee,
+        [XmlEnum("setMinFee")]
+        SetMinFee
     }
 
 
 
     [Serializable]
-    public enum typeEnums
+    public enum Types
     {
+        [XmlEnum("boolean")]
+        Boolean,
 
+        [XmlEnum("string")]
+        String,
 
-        boolean,
+        [XmlEnum("integer")]
+        Integer,
 
+        [XmlEnum("decimal")]
+        Decimal,
 
-        @string,
+        [XmlEnum("originating_systems")]
+        OriginatingSystems,
 
+        [XmlEnum("counterparties")]
+        Counterparties,
 
-        integer,
+        [XmlEnum("product_types")]
+        ProductTypes,
 
+        [XmlEnum("securities")]
+        Securities,
 
-        @decimal,
+        [XmlEnum("security_classifications")]
+        SecurityClassifications,
 
+        [XmlEnum("countries")]
+        Countries,
 
-        originating_systems,
+        [XmlEnum("business_states")]
+        BusinessStates,
 
+        [XmlEnum("kip_codes")]
+        KipCodes,
 
-        counterparties,
+        [XmlEnum("reason_codes")]
+        ReasonCodes,
 
-
-        product_types,
-
-
-        securities,
-
-
-        security_classifications,
-
-
-        countries,
-
-
-        business_states,
-
-
-        kip_codes,
-
-
-        reason_codes,
-
-
-        outcome,
+        [XmlEnum("outcome")]
+        Outcome
     }
 
-
-
     [Serializable]
-    public enum ruleGroupsEnums
+    public enum RuleGroups
     {
-
+        [XmlEnum("")]
+        None,
 
         [XmlEnum("Setup")]
         Setup,
-
 
         [XmlEnum("Emergency Switch")]
         EmergencySwitch,
@@ -528,74 +511,56 @@ namespace hk.Core
         [XmlEnum("Health Check")]
         HealthCheck,
 
-
         [XmlEnum("EQ - Reference Data Check")]
         EqReferenceDataCheck,
-
 
         [XmlEnum("FI - Reference Data Check")]
         FiReferenceDataCheck,
 
-
         [XmlEnum("EQ - Availability Restrictions")]
         EqAvailabilityRestrictions,
-
 
         [XmlEnum("FI - Availability Restrictions")]
         FiAvailabilityRestrictions,
 
-
         [XmlEnum("EQ - Instrument Restrictions")]
         EqInstrumentRestrictions,
-
 
         [XmlEnum("FI - Instrument Restrictions")]
         FiInstrumentRestrictions,
 
-
         [XmlEnum("Common Order Checks")]
         CommonOrderChecks,
-
 
         [XmlEnum("EQ - Warms Trades")]
         EqWarmsTrades,
 
-
         [XmlEnum("EQ - Big Tickets")]
         EqBigTickets,
-
 
         [XmlEnum("EQ - Small Tickets")]
         EqSmallTickets,
 
-
         [XmlEnum("EQ - General Tickets")]
         EqGeneralTickets,
-
 
         [XmlEnum("Offer Restrictions")]
         OfferRestrictions,
 
-
         [XmlEnum("EQ - Counterparty Restrictions")]
         EqCounterpartyRestrictions,
-
 
         [XmlEnum("FI - Counterparty Restrictions")]
         FiCounterpartyRestrictions,
 
-
         [XmlEnum("EquiLend Order Checks")]
         EquiLendOrderChecks,
-
 
         [XmlEnum("BondLend Order Checks")]
         BondLendOrderChecks,
 
-
         [XmlEnum("EQ - Maelstrom Order Checks")]
         EqMaelstromOrderChecks,
-
 
         [XmlEnum("FI - Maelstrom Order Checks")]
         FiMaelstromOrderChecks,
@@ -603,20 +568,14 @@ namespace hk.Core
         [XmlEnum("Highlight")]
         Highlight,
 
-
         [XmlEnum("Final Decisions")]
-        FinalDecisions,
-
-
-        [XmlEnum("")]
-        None,
+        FinalDecisions
     }
 
 
     [Serializable]
-    public partial class Table
+    public class Table
     {
-
         private Rule[] _tabularRules;
 
         private string _description;
@@ -625,7 +584,7 @@ namespace hk.Core
 
         private int _ruleGroupId;
 
-        private ruleGroupsEnums _ruleGroupName;
+        private RuleGroups _ruleGroupName;
 
         private bool _ruleGroupNameSpecified;
 
@@ -633,115 +592,107 @@ namespace hk.Core
 
         private bool _templateIdSpecified;
 
-
         [XmlElement("tabularRule")]
         public Rule[] TabularRule
         {
             get
             {
-                return this._tabularRules;
+                return _tabularRules;
             }
             set
             {
-                this._tabularRules = value;
+                _tabularRules = value;
             }
         }
-
 
         [XmlAttribute("description")]
         public string Description
         {
             get
             {
-                return this._description;
+                return _description;
             }
             set
             {
-                this._description = value;
+                _description = value;
             }
         }
-
 
         [XmlAttribute("name")]
         public string Name
         {
             get
             {
-                return this._name;
+                return _name;
             }
             set
             {
-                this._name = value;
+                _name = value;
             }
         }
-
 
         [XmlAttribute("ruleGroupId")]
         public int RuleGroupId
         {
             get
             {
-                return this._ruleGroupId;
+                return _ruleGroupId;
             }
             set
             {
-                this._ruleGroupId = value;
+                _ruleGroupId = value;
             }
         }
 
-
         [XmlAttribute("ruleGroupName")]
-        public ruleGroupsEnums RuleGroupName
+        public RuleGroups RuleGroupName
         {
             get
             {
-                return this._ruleGroupName;
+                return _ruleGroupName;
             }
             set
             {
-                this._ruleGroupName = value;
+                _ruleGroupName = value;
             }
         }
-
 
         [XmlIgnore]
         public bool RuleGroupNameSpecified
         {
             get
             {
-                return this._ruleGroupNameSpecified;
+                return _ruleGroupNameSpecified;
             }
             set
             {
-                this._ruleGroupNameSpecified = value;
+                _ruleGroupNameSpecified = value;
             }
         }
-
 
         [XmlAttribute("templateId")]
         public int TemplateId
         {
             get
             {
-                return this._templateId;
+                return _templateId;
             }
             set
             {
-                this._templateId = value;
+                _templateId = value;
             }
         }
-
 
         [XmlIgnore]
         public bool TemplateIdSpecified
         {
             get
             {
-                return this._templateIdSpecified;
+                return _templateIdSpecified;
             }
             set
             {
-                this._templateIdSpecified = value;
+                _templateIdSpecified = value;
             }
         }
     }

@@ -72,6 +72,25 @@ namespace hk.Core.Tests
         }
 
         [TestMethod]
+        public void TestDeserializeSettings()
+        {
+            string xml = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xml");
+            Assert.IsTrue(File.Exists(xml));
+
+            using (Stream reader = File.Open(xml, FileMode.Open))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(reader);
+
+                using (XmlTextReader stream = new XmlTextReader(new StringReader(doc.InnerXml)))
+                {
+                    Settings settings;
+                    Assert.IsTrue(HelperMethods.TryDeserialize(stream, out settings));
+                }
+            }
+        }
+
+        [TestMethod, Ignore]
         public void TestSerializeSettings()
         {
             string xml = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xml");
@@ -91,21 +110,21 @@ namespace hk.Core.Tests
                     {
                         foreach (Rule rule in table.TabularRule)
                         {
-                            if (table.RuleGroupName != ruleGroupsEnums.None)
+                            if (table.RuleGroupName != RuleGroups.None)
                             {
                                 ApplyRuleGroupValue(rule, rule.RuleGroupName);
                             }
                             else
                             {
-                                var rulGroupName = rule.Argument.FirstOrDefault(g => g.IdSpecified && g.Id == keyEnums.ruleGroupName);
+                                var rulGroupName = rule.Argument.FirstOrDefault(g => g.IdSpecified && g.Id == Keys.RuleGroupName);
                                 if (rulGroupName != null)
                                 {
-                                    var value = GetCode<ruleGroupsEnums>(rulGroupName.Value);
+                                    var value = GetCode<RuleGroups>(rulGroupName.Value);
                                     ApplyRuleGroupValue(rule, value);
                                 }
                                 else if (table.Name.Equals("Modification Rules", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    ApplyRuleGroupValue(rule, ruleGroupsEnums.None);
+                                    ApplyRuleGroupValue(rule, RuleGroups.None);
                                 }
                             }
                         }
@@ -141,77 +160,77 @@ namespace hk.Core.Tests
             throw new ArgumentException("No XmlEnumAttribute code exists for type " + typeof(T).ToString() + " corresponding to value of " + value);
         }
 
-        private static void ApplyRuleGroupValue(Rule rule, ruleGroupsEnums ruleGroup)
+        private static void ApplyRuleGroupValue(Rule rule, RuleGroups ruleGroup)
         {
             switch (ruleGroup)
             {
-                case ruleGroupsEnums.Setup:
+                case RuleGroups.Setup:
                     rule.RuleId += 1000;
                     break;
-                case ruleGroupsEnums.HealthCheck:
+                case RuleGroups.HealthCheck:
                     rule.RuleId += 3000;
                     break;
-                case ruleGroupsEnums.EqReferenceDataCheck:
+                case RuleGroups.EqReferenceDataCheck:
                     rule.RuleId += 4000;
                     break;
-                case ruleGroupsEnums.FiReferenceDataCheck:
+                case RuleGroups.FiReferenceDataCheck:
                     rule.RuleId += 5000;
                     break;
-                case ruleGroupsEnums.EqAvailabilityRestrictions:
+                case RuleGroups.EqAvailabilityRestrictions:
                     rule.RuleId += 6000;
                     break;
-                case ruleGroupsEnums.FiAvailabilityRestrictions:
+                case RuleGroups.FiAvailabilityRestrictions:
                     rule.RuleId += 7000;
                     break;
-                case ruleGroupsEnums.EqInstrumentRestrictions:
+                case RuleGroups.EqInstrumentRestrictions:
                     rule.RuleId += 8000;
                     break;
-                case ruleGroupsEnums.FiInstrumentRestrictions:
+                case RuleGroups.FiInstrumentRestrictions:
                     rule.RuleId += 9000;
                     break;
-                case ruleGroupsEnums.CommonOrderChecks:
+                case RuleGroups.CommonOrderChecks:
                     rule.RuleId += 10000;
                     break;
-                case ruleGroupsEnums.EqWarmsTrades:
+                case RuleGroups.EqWarmsTrades:
                     rule.RuleId += 11000;
                     break;
-                case ruleGroupsEnums.EqBigTickets:
+                case RuleGroups.EqBigTickets:
                     rule.RuleId += 12000;
                     break;
-                case ruleGroupsEnums.EqSmallTickets:
+                case RuleGroups.EqSmallTickets:
                     rule.RuleId += 13000;
                     break;
-                case ruleGroupsEnums.EqGeneralTickets:
+                case RuleGroups.EqGeneralTickets:
                     rule.RuleId += 14000;
                     break;
-                case ruleGroupsEnums.OfferRestrictions:
+                case RuleGroups.OfferRestrictions:
                     rule.RuleId += 15000;
                     break;
-                case ruleGroupsEnums.EqCounterpartyRestrictions:
+                case RuleGroups.EqCounterpartyRestrictions:
                     rule.RuleId += 16000;
                     break;
-                case ruleGroupsEnums.FiCounterpartyRestrictions:
+                case RuleGroups.FiCounterpartyRestrictions:
                     rule.RuleId += 17000;
                     break;
-                case ruleGroupsEnums.EquiLendOrderChecks:
+                case RuleGroups.EquiLendOrderChecks:
                     rule.RuleId += 18000;
                     break;
-                case ruleGroupsEnums.BondLendOrderChecks:
+                case RuleGroups.BondLendOrderChecks:
                     rule.RuleId += 19000;
                     break;
-                case ruleGroupsEnums.EqMaelstromOrderChecks:
+                case RuleGroups.EqMaelstromOrderChecks:
                     rule.RuleId += 20000;
                     break;
-                case ruleGroupsEnums.FiMaelstromOrderChecks:
+                case RuleGroups.FiMaelstromOrderChecks:
                     rule.RuleId += 21000;
                     break;
-                case ruleGroupsEnums.Highlight:
+                case RuleGroups.Highlight:
                     rule.RuleId += 22000;
                     break;
-                case ruleGroupsEnums.None:
+                case RuleGroups.None:
                     rule.RuleId += 23000;
                     break;
-                case ruleGroupsEnums.FinalDecisions:
+                case RuleGroups.FinalDecisions:
                     rule.RuleId += 25000;
                     break;
             }
