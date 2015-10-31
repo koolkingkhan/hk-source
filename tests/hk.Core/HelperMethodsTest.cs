@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,9 +12,22 @@ namespace hk.Core.Tests
     public class HelperMethodsTest
     {
         private Stopwatch _stopwatch;
+        private static readonly string XmlPath = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xml");
+        private static readonly string XsdPath = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xsd");
 
         public TestContext TestContext { get; set; }
 
+        [ClassInitialize]
+        public static void ClassInitialise(TestContext context)
+        {
+            Assert.IsTrue(File.Exists(XmlPath));
+            Assert.IsTrue(File.Exists(XsdPath));
+        }
+
+        [ClassCleanup]
+        public static void ClassCleanUp()
+        {
+        }
 
         [TestInitialize]
         public void Setup()
@@ -28,7 +40,7 @@ namespace hk.Core.Tests
         public void Cleanup()
         {
             _stopwatch.Stop();
-            System.Diagnostics.Debug.WriteLine("{0}: {1}", TestContext.TestName, _stopwatch.Elapsed);
+            Debug.WriteLine("{0}: {1}", TestContext.TestName, _stopwatch.Elapsed);
         }
 
         [TestMethod]
@@ -64,94 +76,71 @@ namespace hk.Core.Tests
         [TestMethod]
         public void TestValidateXml()
         {
-            string xml = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xml");
-            string xsd = Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xsd");
-            Assert.IsTrue(File.Exists(xml));
-            Assert.IsTrue(File.Exists(xsd));
-            Assert.IsTrue(HelperMethods.ValidateXml(xml, xsd, string.Empty));
+            Assert.IsTrue(HelperMethods.ValidateXml(XmlPath, XsdPath, string.Empty));
         }
 
         [TestMethod]
         public void TestDeserializeSettings()
         {
-            string xml = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xml");
-            Assert.IsTrue(File.Exists(xml));
-
-            using (Stream reader = File.Open(xml, FileMode.Open))
+            using (FileStream stream = new FileStream(XmlPath, FileMode.Open))
             {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(reader);
-
-                using (XmlTextReader stream = new XmlTextReader(new StringReader(doc.InnerXml)))
-                {
-                    Settings settings;
-                    Assert.IsTrue(HelperMethods.TryDeserialize(stream, out settings));
-                }
+                Settings settings;
+                Assert.IsTrue(HelperMethods.TryDeserialize(stream, out settings));
             }
         }
 
         [TestMethod, Ignore]
         public void TestSerializeSettings()
         {
-            string xml = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xml");
-            Assert.IsTrue(File.Exists(xml));
             Settings settings;
 
-            using (Stream reader = File.Open(xml, FileMode.Open))
+            using (FileStream stream = new FileStream(XmlPath, FileMode.Open))
             {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(reader);
+                Assert.IsTrue(HelperMethods.TryDeserialize(stream, out settings));
 
-                using (XmlTextReader stream = new XmlTextReader(new StringReader(doc.InnerXml)))
+                foreach (Table table in settings.Table)
                 {
-                    Assert.IsTrue(HelperMethods.TryDeserialize(stream, out settings));
-
-                    foreach (Table table in settings.Table)
+                    foreach (Rule rule in table.TabularRule)
                     {
-                        foreach (Rule rule in table.TabularRule)
+                        if (table.RuleGroupName != RuleGroups.None)
                         {
-                            if (table.RuleGroupName != RuleGroups.None)
+                            ApplyRuleGroupValue(rule, rule.RuleGroupName);
+                        }
+                        else
+                        {
+                            var rulGroupName = rule.Argument.FirstOrDefault(g => g.IdSpecified && g.Id == Keys.RuleGroupName);
+                            if (rulGroupName != null)
                             {
-                                ApplyRuleGroupValue(rule, rule.RuleGroupName);
+                                var value = GetCode<RuleGroups>(rulGroupName.Value);
+                                ApplyRuleGroupValue(rule, value);
                             }
-                            else
+                            else if (table.Name.Equals("Modification Rules", StringComparison.OrdinalIgnoreCase))
                             {
-                                var rulGroupName = rule.Argument.FirstOrDefault(g => g.IdSpecified && g.Id == Keys.RuleGroupName);
-                                if (rulGroupName != null)
-                                {
-                                    var value = GetCode<RuleGroups>(rulGroupName.Value);
-                                    ApplyRuleGroupValue(rule, value);
-                                }
-                                else if (table.Name.Equals("Modification Rules", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    ApplyRuleGroupValue(rule, RuleGroups.None);
-                                }
+                                ApplyRuleGroupValue(rule, RuleGroups.None);
                             }
                         }
                     }
                 }
             }
 
-            Assert.IsTrue(HelperMethods.TrySerialize(settings, xml));
+            Assert.IsTrue(HelperMethods.TrySerialize(settings, XmlPath));
         }
 
         public static string GetXmlAttrNameFromEnumValue<T>(T pEnumVal)
         {
-            // http://stackoverflow.com/q/3047125/194717
             Type type = pEnumVal.GetType();
             FieldInfo info = type.GetField(Enum.GetName(typeof(T), pEnumVal));
             XmlEnumAttribute att = (XmlEnumAttribute)info.GetCustomAttributes(typeof(XmlEnumAttribute), false)[0];
-            //If there is an xmlattribute defined, return the name
 
             return att.Name;
         }
+
         public static T GetCode<T>(string value)
         {
-            // http://stackoverflow.com/a/3073272/194717
-            foreach (object o in System.Enum.GetValues(typeof(T)))
+            foreach (object o in Enum.GetValues(typeof(T)))
             {
                 T enumValue = (T)o;
-                if (GetXmlAttrNameFromEnumValue<T>(enumValue).Equals(value, StringComparison.OrdinalIgnoreCase))
+                if (GetXmlAttrNameFromEnumValue(enumValue).Equals(value, StringComparison.OrdinalIgnoreCase))
                 {
                     return (T)o;
                 }

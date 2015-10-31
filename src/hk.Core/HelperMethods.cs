@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
@@ -39,7 +40,7 @@ namespace hk.Core
             return totalSumOfNumbers - actualSum;
         }
 
-        public static bool TryDeserialize<TMyType>(XmlTextReader stream, out TMyType t)
+        public static bool TryDeserialize<TMyType>(Stream stream, out TMyType t)
         {
             t = default(TMyType);
 
