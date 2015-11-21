@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hussain.Blotters", "src\BlotterCode\Hussain.Blotters\Hussain.Blotters.csproj", "{76FC47E6-988A-4272-AB8B-CA6AB260BBA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hussain.Infra", "src\BlotterCode\Hussain.Infra\Hussain.Infra.csproj", "{E9A501B8-AF78-4F85-9EFE-EB6A3055C59A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hussain.Services", "src\BlotterCode\Hussain.Services\Hussain.Services.csproj", "{62470CD2-97E1-443C-80F0-7DD2CFAC11FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hussain.Startup", "src\BlotterCode\Hussain.Startup\Hussain.Startup.csproj", "{D5FBB462-091F-4E6C-B436-0D408D91A69B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hussain.Statusbars", "src\BlotterCode\Hussain.Statusbars\Hussain.Statusbars.csproj", "{64AE70A2-8716-4F90-A467-622494D22475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hussain.Toolbars", "src\BlotterCode\Hussain.Toolbars\Hussain.Toolbars.csproj", "{8C655A5D-A988-4345-BFB1-BEBD537829C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76FC47E6-988A-4272-AB8B-CA6AB260BBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FC47E6-988A-4272-AB8B-CA6AB260BBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FC47E6-988A-4272-AB8B-CA6AB260BBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FC47E6-988A-4272-AB8B-CA6AB260BBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A501B8-AF78-4F85-9EFE-EB6A3055C59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A501B8-AF78-4F85-9EFE-EB6A3055C59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A501B8-AF78-4F85-9EFE-EB6A3055C59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A501B8-AF78-4F85-9EFE-EB6A3055C59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62470CD2-97E1-443C-80F0-7DD2CFAC11FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62470CD2-97E1-443C-80F0-7DD2CFAC11FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62470CD2-97E1-443C-80F0-7DD2CFAC11FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62470CD2-97E1-443C-80F0-7DD2CFAC11FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FBB462-091F-4E6C-B436-0D408D91A69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FBB462-091F-4E6C-B436-0D408D91A69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FBB462-091F-4E6C-B436-0D408D91A69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FBB462-091F-4E6C-B436-0D408D91A69B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64AE70A2-8716-4F90-A467-622494D22475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64AE70A2-8716-4F90-A467-622494D22475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64AE70A2-8716-4F90-A467-622494D22475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64AE70A2-8716-4F90-A467-622494D22475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C655A5D-A988-4345-BFB1-BEBD537829C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C655A5D-A988-4345-BFB1-BEBD537829C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C655A5D-A988-4345-BFB1-BEBD537829C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C655A5D-A988-4345-BFB1-BEBD537829C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
