@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using Rhino.Mocks;
+﻿using Moq;
+using NUnit.Framework;
 
 namespace hk.TaxCalculator.Tests
 {
@@ -14,8 +14,8 @@ namespace hk.TaxCalculator.Tests
         {
             const int expected = 30;
 
-            ITaxCalculator mock = MockRepository.GenerateStub<ITaxCalculator>();
-            mock.Stub(t => t.GetTax(Arg<int>.Is.Anything)).Return(5.0M);
+            var mock = new Mock<ITaxCalculator>();
+            mock.Setup(t => t.GetTax(It.IsAny<decimal>())).Returns(5.0M);
             Product prod = new Product
             {
                 Id = 123,
@@ -23,7 +23,7 @@ namespace hk.TaxCalculator.Tests
                 RawPrice = 25.0M
             };
 
-            decimal calculatedTax = prod.GetPriceWithTax(mock);
+            decimal calculatedTax = prod.GetPriceWithTax(mock.Object);
             
             Assert.AreEqual(expected, calculatedTax);
         }

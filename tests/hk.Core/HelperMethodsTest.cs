@@ -13,18 +13,26 @@ namespace hk.Core.Tests
     public class HelperMethodsTest
     {
         private Stopwatch _stopwatch;
-        private static string XmlPath;
-        private static string XsdPath;
+        private static string _xmlPath;
+        private static string _xsdPath;
 
-        public TestContext TestContext { get; set; }
+        static string GetTestDataFolder(string testDataFolder)
+        {
+            string startupPath = AppDomain.CurrentDomain.BaseDirectory;
+            var pathItems = startupPath.Split(Path.DirectorySeparatorChar);
+            string projectPath = String.Join(Path.DirectorySeparatorChar.ToString(), pathItems.Take(pathItems.Length - 3));
+            return Path.Combine(projectPath, testDataFolder);
+        }
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            XmlPath = Path.GetFullPath(@"X:\Work\SOURCE\tests\hk.Core\SampleXML\settings.xml");
-            XsdPath = Path.GetFullPath(@"X:\Work\SOURCE\tests\hk.Core\SampleXML\settings.xsd");
-            Assert.IsTrue(File.Exists(XmlPath));
-            Assert.IsTrue(File.Exists(XsdPath));
+            string testDataFolder = GetTestDataFolder("SampleXML");
+
+            _xmlPath = Path.Combine(testDataFolder, "settings.xml");
+            _xsdPath = Path.Combine(testDataFolder, "settings.xsd");
+            Assert.IsTrue(File.Exists(_xmlPath));
+            Assert.IsTrue(File.Exists(_xsdPath));
         }
 
         [SetUp]
@@ -74,25 +82,25 @@ namespace hk.Core.Tests
         [Test]
         public void TestValidateXml()
         {
-            Assert.IsTrue(HelperMethods.ValidateXml(XmlPath, XsdPath, string.Empty));
+            Assert.IsTrue(HelperMethods.ValidateXml(_xmlPath, _xsdPath, string.Empty));
         }
 
         [Test]
         public void TestDeserializeSettings()
         {
-            using (FileStream stream = new FileStream(XmlPath, FileMode.Open))
+            using (FileStream stream = new FileStream(_xmlPath, FileMode.Open))
             {
                 Settings settings;
                 Assert.IsTrue(HelperMethods.TryDeserialize(stream, out settings));
             }
         }
 
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.Ignore]
+        [Ignore("Ignore this test")]
         public void TestSerializeSettings()
         {
             Settings settings;
 
-            using (FileStream stream = new FileStream(XmlPath, FileMode.Open))
+            using (FileStream stream = new FileStream(_xmlPath, FileMode.Open))
             {
                 Assert.IsTrue(HelperMethods.TryDeserialize(stream, out settings));
 
@@ -121,7 +129,7 @@ namespace hk.Core.Tests
                 }
             }
 
-            Assert.IsTrue(HelperMethods.TrySerialize(settings, XmlPath));
+            Assert.IsTrue(HelperMethods.TrySerialize(settings, _xmlPath));
         }
 
         public static string GetXmlAttrNameFromEnumValue<T>(T pEnumVal)

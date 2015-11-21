@@ -19,97 +19,97 @@
     <argument type="integer">3</argument>
   </singularRule>
   <table description="Template to set conversion for SOFT_REJECT to HARD_REJECT" name="RuleGroup Configuration" ruleGroupId="1000" ruleGroupName="Setup" templateId="1300">
-    <tabularRule name="Default Conversion" ruleId="47000">
+    <tabularRule name="Default Conversion" ruleId="70000">
       <argument type="string" />
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="Health Check Soft Reject Conversion" ruleId="47001">
+    <tabularRule name="Health Check Soft Reject Conversion" ruleId="70001">
       <argument type="string">Health Check</argument>
       <argument type="integer">3</argument>
     </tabularRule>
-    <tabularRule name="EQ - Reference Data Check Conversion" enabled="false" ruleId="47002">
+    <tabularRule name="EQ - Reference Data Check Conversion" enabled="false" ruleId="70002">
       <argument type="string">EQ - Reference Data Check</argument>
       <argument type="integer">3</argument>
     </tabularRule>
-    <tabularRule name="FI - Reference Data Check Conversion" enabled="false" ruleId="47003">
+    <tabularRule name="FI - Reference Data Check Conversion" enabled="false" ruleId="70003">
       <argument type="string">FI - Reference Data Check</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - Availability Restrictions Conversion" enabled="false" ruleId="47004">
+    <tabularRule name="EQ - Availability Restrictions Conversion" enabled="false" ruleId="70004">
       <argument type="string">EQ - Availability Restrictions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="FI - Availability Restrictions Conversion" enabled="false" ruleId="47005">
+    <tabularRule name="FI - Availability Restrictions Conversion" enabled="false" ruleId="70005">
       <argument type="string">FI - Availability Restrictions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - Instrument Restrictions Conversion" enabled="false" ruleId="47006">
+    <tabularRule name="EQ - Instrument Restrictions Conversion" enabled="false" ruleId="70006">
       <argument type="string">EQ - Instrument Restrictions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="FI - Instrument Restrictions Conversion" enabled="false" ruleId="47007">
+    <tabularRule name="FI - Instrument Restrictions Conversion" enabled="false" ruleId="70007">
       <argument type="string">FI - Instrument Restrictions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="Common Order Checks Conversion" enabled="false" ruleId="47008">
+    <tabularRule name="Common Order Checks Conversion" enabled="false" ruleId="70008">
       <argument type="string">Common Order Checks</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - Warms Trades Conversion" enabled="false" ruleId="47009">
+    <tabularRule name="EQ - Warms Trades Conversion" enabled="false" ruleId="70009">
       <argument type="string">EQ - Warms Trades</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - Big Tickets Conversion" enabled="false" ruleId="47010">
+    <tabularRule name="EQ - Big Tickets Conversion" enabled="false" ruleId="70010">
       <argument type="string">EQ - Big Tickets</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - Small Tickets Conversion" enabled="false" ruleId="47011">
+    <tabularRule name="EQ - Small Tickets Conversion" enabled="false" ruleId="70011">
       <argument type="string">EQ - Small Tickets</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - General Tickets Conversion" enabled="false" ruleId="47012">
+    <tabularRule name="EQ - General Tickets Conversion" enabled="false" ruleId="70012">
       <argument type="string">EQ - General Tickets</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - Counterparty Restrictions Conversion" enabled="false" ruleId="47013">
+    <tabularRule name="EQ - Counterparty Restrictions Conversion" enabled="false" ruleId="70013">
       <argument type="string">EQ - Counterparty Restrictions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="FI - Counterparty Restrictions Conversion" enabled="false" ruleId="47014">
+    <tabularRule name="FI - Counterparty Restrictions Conversion" enabled="false" ruleId="70014">
       <argument type="string">FI - Counterparty Restrictions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EquiLend Order Checks Conversion" enabled="false" ruleId="47015">
+    <tabularRule name="EquiLend Order Checks Conversion" enabled="false" ruleId="70015">
       <argument type="string">EquiLend Order Checks</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="BondLend Order Checks Conversion" enabled="false" ruleId="47016">
+    <tabularRule name="BondLend Order Checks Conversion" enabled="false" ruleId="70016">
       <argument type="string">BondLend Order Checks</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="EQ - Bloomberg Order Checks Conversion" enabled="false" ruleId="47017">
+    <tabularRule name="EQ - Bloomberg Order Checks Conversion" enabled="false" ruleId="70017">
       <argument type="string">EQ - Bloomberg Order Checks</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="FI - Bloomberg Order Checks Conversion" enabled="false" ruleId="47018">
+    <tabularRule name="FI - Bloomberg Order Checks Conversion" enabled="false" ruleId="70018">
       <argument type="string">FI - Bloomberg Order Checks</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="Offer Restrictions Conversion" enabled="false" ruleId="47019">
+    <tabularRule name="Offer Restrictions Conversion" enabled="false" ruleId="70019">
       <argument type="string">Offer Restrictions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="Final Decisions Conversion" enabled="false" ruleId="47021">
+    <tabularRule name="Final Decisions Conversion" enabled="false" ruleId="70021">
       <argument type="string">Final Decisions</argument>
       <argument type="integer">2</argument>
     </tabularRule>
-    <tabularRule name="Setup Conversion" enabled="true" ruleId="47022">
+    <tabularRule name="Setup Conversion" enabled="true" ruleId="70022">
       <argument type="string">Setup</argument>
       <argument type="integer">10</argument>
     </tabularRule>
   </table>
   <table description="Template to define a Warms Trade" name="Warms" ruleGroupId="1000" ruleGroupName="Setup" templateId="1100">
-    <tabularRule name="Is Warms: Fee" ruleId="47100">
+    <tabularRule name="Is Warms: Fee" ruleId="70100">
       <argument type="originating_systems" />
       <argument type="counterparties" />
       <argument type="counterparties" />
@@ -122,7 +122,7 @@
       <argument type="string"> &gt;=0.5B &amp;&amp; &lt;=10B</argument>
       <argument type="string" />
     </tabularRule>
-    <tabularRule name="Is Warms: Rebate" ruleId="47101">
+    <tabularRule name="Is Warms: Rebate" ruleId="70101">
       <argument type="originating_systems" />
       <argument type="counterparties" />
       <argument type="counterparties" />
@@ -137,19 +137,19 @@
     </tabularRule>
   </table>
   <table description="Economic checks of an ruleId" name="Economic Checks" ruleGroupId="18000" ruleGroupName="EquiLend Order Checks" templateId="18400">
-    <tabularRule name="Warms bid economics ok" ruleId="64400">
+    <tabularRule name="Warms bid economics ok" ruleId="87400">
       <argument type="kip_codes">kip.warmTrade</argument>
       <argument type="string" />
       <argument type="boolean">true</argument>
       <argument type="outcome">MOD_B1</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms bid economics ok" ruleId="64401">
+    <tabularRule name="Non-Warms bid economics ok" ruleId="87401">
       <argument type="kip_codes">kip.nonWarmTrade</argument>
       <argument type="string" />
       <argument type="boolean">true</argument>
       <argument type="outcome">MOD_A1</argument>
     </tabularRule>
-    <tabularRule name="Bid economics not ok" ruleId="64402">
+    <tabularRule name="Bid economics not ok" ruleId="87402">
       <argument type="kip_codes">kip.bidEconomicsNotOk</argument>
       <argument type="string" />
       <argument type="boolean">false</argument>
@@ -157,163 +157,163 @@
     </tabularRule>
   </table>
   <table description="Counterparty Params Table for Economics" name="Order Economics Counterparty Parameters" ruleGroupId="18000" ruleGroupName="Common Order Checks" templateId="18300">
-    <tabularRule name="Default Warms cpty threshold" ruleId="64300">
+    <tabularRule name="Default Warms cpty threshold" ruleId="87300">
       <argument type="counterparties" />
       <argument type="integer">50</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms DEUTSCHE_BANK cpty threshold" ruleId="64301">
+    <tabularRule name="Warms DEUTSCHE_BANK cpty threshold" ruleId="87301">
       <argument type="counterparties">DEUTSCHE_BANK</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms BANK_OF_IRELAND cpty threshold" ruleId="64302">
+    <tabularRule name="Warms BANK_OF_IRELAND cpty threshold" ruleId="87302">
       <argument type="counterparties">BANK_OF_IRELAND</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms NOMURA cpty threshold" ruleId="64303">
+    <tabularRule name="Warms NOMURA cpty threshold" ruleId="87303">
       <argument type="counterparties">NOMURA</argument>
       <argument type="integer">25</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms JP_MORGAN cpty threshold" ruleId="64304">
+    <tabularRule name="Warms JP_MORGAN cpty threshold" ruleId="87304">
       <argument type="counterparties">JP_MORGAN</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms HSBC cpty threshold" ruleId="64305">
+    <tabularRule name="Warms HSBC cpty threshold" ruleId="87305">
       <argument type="counterparties">HSBC</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms GOLDMAN_SACHS cpty threshold" ruleId="64306">
+    <tabularRule name="Warms GOLDMAN_SACHS cpty threshold" ruleId="87306">
       <argument type="counterparties">GOLDMAN_SACHS</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms MERRILL_LYNCH cpty threshold" ruleId="64307">
+    <tabularRule name="Warms MERRILL_LYNCH cpty threshold" ruleId="87307">
       <argument type="counterparties">MERRILL_LYNCH</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms BANK_OF_AMERICA cpty threshold" ruleId="64308">
+    <tabularRule name="Warms BANK_OF_AMERICA cpty threshold" ruleId="87308">
       <argument type="counterparties">BANK_OF_AMERICA</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms BARCLAYS cpty threshold" ruleId="64309">
+    <tabularRule name="Warms BARCLAYS cpty threshold" ruleId="87309">
       <argument type="counterparties">BARCLAYS</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Default Non-Warms cpty threshold" ruleId="64310">
+    <tabularRule name="Default Non-Warms cpty threshold" ruleId="87310">
       <argument type="counterparties" />
       <argument type="integer">35</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms DEUTSCHE_BANK cpty threshold" ruleId="64311">
+    <tabularRule name="Non-Warms DEUTSCHE_BANK cpty threshold" ruleId="87311">
       <argument type="counterparties">DEUTSCHE_BANK</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms BANK_OF_IRELAND cpty threshold" ruleId="64312">
+    <tabularRule name="Non-Warms BANK_OF_IRELAND cpty threshold" ruleId="87312">
       <argument type="counterparties">BANK_OF_IRELAND</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms NOMURA cpty threshold" ruleId="64313">
+    <tabularRule name="Non-Warms NOMURA cpty threshold" ruleId="87313">
       <argument type="counterparties">NOMURA</argument>
       <argument type="integer">25</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms JP_MORGAN cpty threshold" ruleId="64314">
+    <tabularRule name="Non-Warms JP_MORGAN cpty threshold" ruleId="87314">
       <argument type="counterparties">JP_MORGAN</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms HSBC cpty threshold" ruleId="64315">
+    <tabularRule name="Non-Warms HSBC cpty threshold" ruleId="87315">
       <argument type="counterparties">HSBC</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms GOLDMAN_SACHS cpty threshold" ruleId="64316">
+    <tabularRule name="Non-Warms GOLDMAN_SACHS cpty threshold" ruleId="87316">
       <argument type="counterparties">GOLDMAN_SACHS</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms MERRILL_LYNCH cpty threshold" ruleId="64317">
+    <tabularRule name="Non-Warms MERRILL_LYNCH cpty threshold" ruleId="87317">
       <argument type="counterparties">MERRILL_LYNCH</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms BANK_OF_AMERICA cpty threshold" ruleId="64318">
+    <tabularRule name="Non-Warms BANK_OF_AMERICA cpty threshold" ruleId="87318">
       <argument type="counterparties">BANK_OF_AMERICA</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms BARCLAYS cpty threshold" ruleId="64319">
+    <tabularRule name="Non-Warms BARCLAYS cpty threshold" ruleId="87319">
       <argument type="counterparties">BARCLAYS</argument>
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
   </table>
   <table description="Country Params Table for Economics" name="Order Economics Country Parameters" ruleGroupId="18000" ruleGroupName="Common Order Checks" templateId="18200">
-    <tabularRule name="Default Warms country threshold" ruleId="64200">
+    <tabularRule name="Default Warms country threshold" ruleId="87200">
       <argument type="countries" />
       <argument type="counterparties" />
       <argument type="integer">15</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms GB country threshold" ruleId="64201">
+    <tabularRule name="Warms GB country threshold" ruleId="87201">
       <argument type="countries">GB</argument>
       <argument type="counterparties" />
       <argument type="integer">100</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms BARCLAYS country threshold" ruleId="64202">
+    <tabularRule name="Warms BARCLAYS country threshold" ruleId="87202">
       <argument type="countries" />
       <argument type="counterparties">BARCLAYS</argument>
       <argument type="integer">10</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms BARCLAYS country threshold -2" ruleId="64203">
+    <tabularRule name="Warms BARCLAYS country threshold -2" ruleId="87203">
       <argument type="countries">GB</argument>
       <argument type="counterparties">BARCLAYS</argument>
       <argument type="integer">50</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Warms BANK_OF_AMERICA country threshold" ruleId="64204">
+    <tabularRule name="Warms BANK_OF_AMERICA country threshold" ruleId="87204">
       <argument type="countries">US</argument>
       <argument type="counterparties">BANK_OF_AMERICA</argument>
       <argument type="integer">10</argument>
       <argument type="kip_codes">kip.warmTrade</argument>
     </tabularRule>
-    <tabularRule name="Default Non-Warms country threshold" ruleId="64205">
+    <tabularRule name="Default Non-Warms country threshold" ruleId="87205">
       <argument type="countries" />
       <argument type="counterparties" />
       <argument type="integer">35</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms GB country threshold" ruleId="64206">
+    <tabularRule name="Non-Warms GB country threshold" ruleId="87206">
       <argument type="countries">GB</argument>
       <argument type="counterparties" />
       <argument type="integer">100</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms BARCLAYS country threshold" ruleId="64207">
+    <tabularRule name="Non-Warms BARCLAYS country threshold" ruleId="87207">
       <argument type="countries" />
       <argument type="counterparties">BARCLAYS</argument>
       <argument type="integer">10</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms BARCLAYS country threshold -2" ruleId="64208">
+    <tabularRule name="Non-Warms BARCLAYS country threshold -2" ruleId="87208">
       <argument type="countries">GB</argument>
       <argument type="counterparties">BARCLAYS</argument>
       <argument type="integer">50</argument>
       <argument type="kip_codes">kip.nonWarmTrade</argument>
     </tabularRule>
-    <tabularRule name="Non-Warms BANK_OF_AMERICA country threshold" ruleId="64209">
+    <tabularRule name="Non-Warms BANK_OF_AMERICA country threshold" ruleId="87209">
       <argument type="countries">US</argument>
       <argument type="counterparties">BANK_OF_AMERICA</argument>
       <argument type="integer">10</argument>
@@ -321,33 +321,33 @@
     </tabularRule>
   </table>
   <table description="Counterparty Groups Table" name="Counterparty Groups" ruleGroupId="1000" ruleGroupName="Setup" templateId="1200">
-    <tabularRule name="Tier 1 Cpty Group" ruleId="47200">
+    <tabularRule name="Tier 1 Cpty Group" ruleId="70200">
       <argument type="string">Tier1</argument>
       <argument type="counterparties">
         NATIONWIDE,TESCO_BANK,SAINSBURYS_BANK,CAPITAL_ONE,POST_OFFICE_MONEY,GOLDMAN_SACHS,JP_MORGAN,BARCLAYS,BANK_OF_AMERICA
       </argument>
     </tabularRule>
-    <tabularRule name="Tier 2 Cpty Group" ruleId="47201">
+    <tabularRule name="Tier 2 Cpty Group" ruleId="70201">
       <argument type="string">Tier2</argument>
       <argument type="counterparties">
         CITIGROUP,CSFBLE,CSFBZE,ALLY_FINANCIAL,CREDIT_SUISSE,MERRILL_LYNCH,BANK_OF_IRELAND,SOCIETE_GENERALE
       </argument>
     </tabularRule>
-    <tabularRule name="Tier 3 Cpty Group" ruleId="47202">
+    <tabularRule name="Tier 3 Cpty Group" ruleId="70202">
       <argument type="string">Tier3</argument>
       <argument type="counterparties">
         BNP_PARIBAS,DEUTSCHE_BANK,RBCLF,ROYAL_BANK_OF_CANADA,TIMBER_HILL
       </argument>
     </tabularRule>
-    <tabularRule name="Tier 4 Cpty Group" ruleId="47203">
+    <tabularRule name="Tier 4 Cpty Group" ruleId="70203">
       <argument type="string">Tier4</argument>
       <argument type="counterparties" />
     </tabularRule>
-    <tabularRule name="DiAccept Cpty Group" ruleId="47204">
+    <tabularRule name="DiAccept Cpty Group" ruleId="70204">
       <argument type="string">DIAccept</argument>
       <argument type="counterparties">BARCLAYCARD,UNIBANK</argument>
     </tabularRule>
-    <tabularRule name="Warm Cpty Group" ruleId="47205">
+    <tabularRule name="Warm Cpty Group" ruleId="70205">
       <argument type="string">Warm</argument>
       <argument type="counterparties">
         CAPITAL_ONE,GOLDMAN_SACHS,MERRILL_LYNCH,BANK_OF_IRELAND,BARCLAYS,BANK_OF_AMERICA
@@ -355,39 +355,39 @@
     </tabularRule>
   </table>
   <table description="Minimum Fee Table" name="Minimum Fee" ruleGroupId="1000" ruleGroupName="Setup" templateId="1400">
-    <tabularRule name="Minimum Fee for USD (Default)" ruleId="47400">
+    <tabularRule name="Minimum Fee for USD (Default)" ruleId="70400">
       <argument type="string">USD</argument>
       <argument type="decimal">200</argument>
       <argument type="decimal">200</argument>
     </tabularRule>
-    <tabularRule name="Minimum Fee for EUR" ruleId="47401">
+    <tabularRule name="Minimum Fee for EUR" ruleId="70401">
       <argument type="string">EUR</argument>
       <argument type="decimal">150</argument>
       <argument type="decimal">200</argument>
     </tabularRule>
-    <tabularRule name="Minimum Fee for CHF" ruleId="47402">
+    <tabularRule name="Minimum Fee for CHF" ruleId="70402">
       <argument type="string">CHF</argument>
       <argument type="decimal">175</argument>
       <argument type="decimal">200</argument>
     </tabularRule>
-    <tabularRule name="Minimum Fee for GBP" ruleId="47403">
+    <tabularRule name="Minimum Fee for GBP" ruleId="70403">
       <argument type="string">GBP</argument>
       <argument type="decimal">150</argument>
       <argument type="decimal">200</argument>
     </tabularRule>
-    <tabularRule name="Minimum Fee for CAD" ruleId="47404">
+    <tabularRule name="Minimum Fee for CAD" ruleId="70404">
       <argument type="string">CAD</argument>
       <argument type="decimal">200</argument>
       <argument type="decimal">200</argument>
     </tabularRule>
-    <tabularRule name="Minimum Fee for AUD" ruleId="47405">
+    <tabularRule name="Minimum Fee for AUD" ruleId="70405">
       <argument type="string">AUD</argument>
       <argument type="decimal">200</argument>
       <argument type="decimal">200</argument>
     </tabularRule>
   </table>
   <table description="Modification Rules" name="Modification Rules" ruleGroupId="-1" ruleGroupName="" templateId="-1">
-    <tabularRule name="Amend Offer Rate To Match Bid when Bid less than Offer" ruleId="69000">
+    <tabularRule name="Amend Offer Rate To Match Bid when Bid less than Offer" ruleId="92000">
       <argument type="outcome">MOD_B1</argument>
       <argument type="originating_systems">INTERNAL, EQUILEND, BLOOMBERG</argument>
       <argument type="product_types">EQUITY,BOND</argument>
@@ -397,7 +397,7 @@
       <argument type="boolean" />
       <argument type="decimal" />
     </tabularRule>
-    <tabularRule name="Amend Offer Rate To Match Bid when Bid greater than Offer" ruleId="69001">
+    <tabularRule name="Amend Offer Rate To Match Bid when Bid greater than Offer" ruleId="92001">
       <argument type="outcome">MOD_A1</argument>
       <argument type="originating_systems">INTERNAL, EQUILEND, BLOOMBERG</argument>
       <argument type="product_types">EQUITY,BOND</argument>
@@ -407,7 +407,7 @@
       <argument type="boolean" />
       <argument type="decimal" />
     </tabularRule>
-    <tabularRule name="Applying Custom Offer Rate - 0.25" ruleId="69002">
+    <tabularRule name="Applying Custom Offer Rate - 0.25" ruleId="92002">
       <argument type="outcome">MOD_C1</argument>
       <argument type="originating_systems">INTERNAL, EQUILEND, BLOOMBERG</argument>
       <argument type="product_types">EQUITY,BOND</argument>
@@ -417,7 +417,7 @@
       <argument type="boolean" />
       <argument type="decimal" />
     </tabularRule>
-    <tabularRule name="Applying Custom Offer Rate - 0.5" ruleId="69003">
+    <tabularRule name="Applying Custom Offer Rate - 0.5" ruleId="92003">
       <argument type="outcome">MOD_C2</argument>
       <argument type="originating_systems">INTERNAL, EQUILEND, BLOOMBERG</argument>
       <argument type="product_types">EQUITY</argument>
@@ -427,7 +427,7 @@
       <argument type="boolean" />
       <argument type="decimal" />
     </tabularRule>
-    <tabularRule name="Applying Custom Offer Rate - 1" ruleId="69004">
+    <tabularRule name="Applying Custom Offer Rate - 1" ruleId="92004">
       <argument type="outcome">MOD_C3</argument>
       <argument type="originating_systems">INTERNAL, EQUILEND, BLOOMBERG</argument>
       <argument type="product_types">EQUITY</argument>
@@ -437,7 +437,7 @@
       <argument type="boolean" />
       <argument type="decimal" />
     </tabularRule>
-    <tabularRule name="Applying Default Min Fee" ruleId="69005">
+    <tabularRule name="Applying Default Min Fee" ruleId="92005">
       <argument type="outcome">MOD_C1</argument>
       <argument type="originating_systems">INTERNAL, EQUILEND, BLOOMBERG</argument>
       <argument type="product_types" />
