@@ -15,9 +15,8 @@
  */
 
 using System;
-using System.ComponentModel;
 
-namespace WebLoader.Annotations
+namespace WebLoader.Properties
 {
   /// <summary>
   /// Indicates that marked element should be localized or not.

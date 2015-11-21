@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 using hk.QuickestRouteFinder.Interfaces;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace hk.QuickestRouteFinder.Tests
 {
@@ -12,7 +12,7 @@ namespace hk.QuickestRouteFinder.Tests
     ///This is a test class for IRouteFinderTest and is intended
     ///to contain all IRouteFinderTest Unit Tests
     ///</summary>
-    [TestClass]
+    [TestFixture]
     public class RouteFinderTest
     {
         private const string TestFileName = "hk.QuickestRouteFinder.Tests.TestFiles.StationRoutesAndTimes.xml";
@@ -20,7 +20,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for GetStations
         ///</summary>
-        [TestMethod]
+        [Test]
         public void GetStationsTest()
         {
             IRouteFinder target = CreateIRouteFinder();
@@ -40,7 +40,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for invalid departure station
         ///</summary>
-        [TestMethod]
+        [Test]
         public void InvalidFrom()
         {
             const int expected = -1;
@@ -52,7 +52,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for invalid departure station
         ///</summary>
-        [TestMethod]
+        [Test]
         public void InvalidTo()
         {
             const int expected = -1;
@@ -64,7 +64,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for invalid departure station
         ///</summary>
-        [TestMethod]
+        [Test]
         public void InvalidFromTo()
         {
             const int expected = -1;
@@ -77,7 +77,7 @@ namespace hk.QuickestRouteFinder.Tests
         ///A test for GetShortestTime from A to A
         ///Should be viewed as not departing 
         ///</summary>
-        [TestMethod]
+        [Test]
         public void GetShortestTimeTest_AA()
         {
             const int expected = 0;
@@ -89,7 +89,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for GetShortestTime from A to B
         ///</summary>
-        [TestMethod]
+        [Test]
         public void GetShortestTimeTest_AB()
         {
             const int expected = 3;
@@ -101,7 +101,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for GetShortestTime from A to C
         ///</summary>
-        [TestMethod]
+        [Test]
         public void GetShortestTimeTest_AC()
         {
             const int expected = 10;
@@ -113,7 +113,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for GetShortestTime from A to E
         ///</summary>
-        [TestMethod]
+        [Test]
         public void GetShortestTimeTest_AE()
         {
             const int expected = 13;
@@ -125,7 +125,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for GetShortestTime from B to D
         ///</summary>
-        [TestMethod()]
+        [Test()]
         public void GetShortestTimeTest_BD()
         {
             const int expected = 9;
@@ -137,7 +137,7 @@ namespace hk.QuickestRouteFinder.Tests
         /// <summary>
         ///A test for GetShortestTime from B to E
         ///</summary>
-        [TestMethod]
+        [Test]
         public void GetShortestTimeTest_BE()
         {
             const int expected = 10;

@@ -1,4 +1,4 @@
-﻿namespace hk.TaxCalculator40
+﻿namespace hk.TaxCalculator
 {
     public class TaxCalculator : ITaxCalculator
     {

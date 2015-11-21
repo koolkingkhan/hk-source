@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
-namespace hk.TaxCalculator40.Tests
+namespace hk.TaxCalculator.Tests
 {
     /// <summary>
     /// Summary description for UnitTestWithoutMocking
     /// </summary>
-    [TestClass]
+    [TestFixture]
     public class UnitTestWithoutMocking
     {
         /// <summary>
@@ -36,8 +36,8 @@ namespace hk.TaxCalculator40.Tests
         //
         #endregion
 
-        [TestMethod]
-        public void TestMethod1()
+        [Test]
+        public void Test1()
         {
             const int expected = 30;
             ITaxCalculator mock = new TaxCalculator();

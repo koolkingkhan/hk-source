@@ -1,0 +1,203 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="settings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="singularRule" type="ruleType" maxOccurs="unbounded"/>
+                <xs:element name="table" type="tableType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="uniqueSingularRuleName">
+            <xs:selector xpath="singularRule"/>
+            <xs:field xpath="@name"/>
+        </xs:unique>
+        <xs:unique name="uniqueSingularRuleId">
+            <xs:selector xpath="singularRule"/>
+            <xs:field xpath="@ruleId"/>
+        </xs:unique>
+        <xs:unique name="uniqueTemplateId">
+            <xs:selector xpath="table"/>
+            <xs:field xpath="@templateId"/>
+        </xs:unique>
+        <xs:unique name="uniqueTabularRuleName">
+            <xs:selector xpath="table/tabularRule"/>
+            <xs:field xpath="@name"/>
+        </xs:unique>
+        <xs:unique name="uniqueTabularRuleId">
+            <xs:selector xpath="table/tabularRule"/>
+            <xs:field xpath="@ruleId"/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="tableType">
+        <xs:sequence>
+            <xs:element name="tabularRule" type="ruleType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="description" type="description"/>
+        <xs:attribute name="name" type="name"/>
+        <xs:attribute name="ruleGroupId" type="id"/>
+        <xs:attribute name="ruleGroupName" type="ruleGroupsEnums"/>
+        <xs:attribute name="templateId" type="xs:int"/>
+    </xs:complexType>
+
+    <xs:complexType name="ruleType">
+        <xs:sequence>
+            <xs:element name="argument" type="argumentType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="name" use="required"/>
+        <xs:attribute name="ruleId" type="id" use="required"/>
+        <xs:attribute name="description" type="description"/>
+        <xs:attribute name="enabled" type="xs:boolean"/>
+        <xs:attribute name="ruleGroupId" type="xs:int"/>
+        <xs:attribute name="ruleGroupName" type="ruleGroupsEnums"/>
+        <xs:attribute name="toggleable" type="xs:boolean"/>
+    </xs:complexType>
+
+    <xs:complexType name="argumentType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="key" type="keyEnums"/>
+                <xs:attribute name="type" type="typeEnums"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="keyEnums">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ruleGroupName"/>
+            <xs:enumeration value="softRejectCountToHardReject"/>
+            <xs:enumeration value="softAcceptCountToHardAccept"/>
+            <xs:enumeration value="checkBidEconomics"/>
+            <xs:enumeration value="bidEconThreshold"/>
+            <xs:enumeration value="cptyGroupName"/>
+            <xs:enumeration value="minFee"/>
+            <xs:enumeration value="minFeeUSD"/>
+            <xs:enumeration value="kipCodes"/>
+            <xs:enumeration value="externalSystems"/>
+            <xs:enumeration value="reasonCodes"/>
+            <xs:enumeration value="counterparties"/>
+            <xs:enumeration value="counterpartyExceptions"/>
+            <xs:enumeration value="productTypes"/>
+            <xs:enumeration value="assetClass"/>
+            <xs:enumeration value="quotationCountries"/>
+            <xs:enumeration value="quotationCountryExceptions"/>
+            <xs:enumeration value="isins"/>
+            <xs:enumeration value="isSpecialSecurity"/>
+            <xs:enumeration value="businessState"/>
+            <xs:enumeration value="straightToFirm"/>
+            <xs:enumeration value="straightToDI"/>
+            <xs:enumeration value="usdValue"/>
+            <xs:enumeration value="requestedUsdValue"/>
+            <xs:enumeration value="bid"/>
+            <xs:enumeration value="offer"/>
+            <xs:enumeration value="feeDifferentFromSoft"/>
+            <xs:enumeration value="allocatedQtyDifferentFromSoft"/>
+            <xs:enumeration value="bidOfferRange"/>
+            <xs:enumeration value="currency"/>
+            <xs:enumeration value="totalAvailable"/>
+            <xs:enumeration value="valueToGo"/>
+            <xs:enumeration value="daysToRecordDate"/>
+            <xs:enumeration value="daysToMaturity"/>
+            <xs:enumeration value="daysToExDividendDate"/>
+            <xs:enumeration value="totalAvailMinusDCCAlloc"/>
+            <xs:enumeration value="DCCAlloc"/>
+            <xs:enumeration value="totalClientsHolding"/>
+            <xs:enumeration value="totalAllocationValue"/>
+            <xs:enumeration value="checkBilateralReceivedGreaterThanDCCAlloc"/>
+            <xs:enumeration value="totalRestricted"/>
+            <xs:enumeration value="percentageAllocated"/>
+            <xs:enumeration value="dividendRate"/>
+            <xs:enumeration value="setNextRuleGroup"/>
+            <xs:enumeration value="outcome"/>
+            <xs:enumeration value="linkedOutcome"/>
+            <xs:enumeration value="kipCode"/>
+            <xs:enumeration value="bidOfferComparisonOperand"/>
+            <xs:enumeration value="amendOfferToMatchBid"/>
+            <xs:enumeration value="setOffer"/>
+            <xs:enumeration value="applyDefaultMinFeeForCCY"/>
+            <xs:enumeration value="setMinFee"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="typeEnums">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="boolean"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="integer"/>
+            <xs:enumeration value="decimal"/>
+            <xs:enumeration value="originating_systems"/>
+            <xs:enumeration value="counterparties"/>
+            <xs:enumeration value="product_types"/>
+            <xs:enumeration value="securities"/>
+            <xs:enumeration value="security_classifications"/>
+            <xs:enumeration value="countries"/>
+            <xs:enumeration value="business_states"/>
+            <xs:enumeration value="kip_codes"/>
+            <xs:enumeration value="reason_codes"/>
+            <xs:enumeration value="outcome"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ruleGroupsEnums">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Setup"/>
+            <xs:enumeration value="Emergency Switch"/>
+            <xs:enumeration value="EQ - Reference Data Check"/>
+            <xs:enumeration value="FI - Reference Data Check"/>
+            <xs:enumeration value="EQ - Availability Restrictions"/>
+            <xs:enumeration value="FI - Availability Restrictions"/>
+            <xs:enumeration value="EQ - Instrument Restrictions"/>
+            <xs:enumeration value="FI - Instrument Restrictions"/>
+            <xs:enumeration value="Common Order Checks"/>
+            <xs:enumeration value="EQ - Warms Trades"/>
+            <xs:enumeration value="EQ - Big Tickets"/>
+            <xs:enumeration value="EQ - Small Tickets"/>
+            <xs:enumeration value="EQ - General Tickets"/>
+            <xs:enumeration value="Offer Restrictions"/>
+            <xs:enumeration value="EQ - Counterparty Restrictions"/>
+            <xs:enumeration value="FI - Counterparty Restrictions"/>
+            <xs:enumeration value="EquiLend Order Checks"/>
+            <xs:enumeration value="BondLend Order Checks"/>
+            <xs:enumeration value="EQ - Bloomberg Order Checks"/>
+            <xs:enumeration value="FI - Bloomberg Order Checks"/>
+            <xs:enumeration value="Highlight"/>
+            <xs:enumeration value="Final Decisions"/>
+            <xs:enumeration value=""/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="id">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base='xs:integer'>
+                    <xs:minInclusive value="-1"/>
+                    <xs:maxInclusive value="-1"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base='xs:integer'>
+                    <xs:minInclusive value="1000"/>
+                    <xs:maxInclusive value="25999"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="nonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="name">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="description">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

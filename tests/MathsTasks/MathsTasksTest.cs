@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace hk.MathsTasks.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class MathsTasksTest
     {
         //TODO: Need to optimize this test
-        [TestMethod]
+        [Test]
         public void TestCalculatePrimeNumbers()
         {
             List<int> primes = MathsTasks.CalculatePrimeNumbers(50);
@@ -19,13 +19,13 @@ namespace hk.MathsTasks.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestNthFibonacciNumber()
         {
             Console.WriteLine(MathsTasks.NthFibonacciNumber(6));
         }
 
-        [TestMethod]
+        [Test]
         public void TestMissingNumberInOrderedList()
         {
             Console.WriteLine(MathsTasks.MissingNumberInSequence(new[] { 0,1, 2, 3, 4, 5, 7, 8, 9 }));

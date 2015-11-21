@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace hk.Randomizer.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class ArrayRandomizerTest
     {
-        [TestMethod]
+        [Test]
         public void TestGetRandomizedArray()
         {
             //As we are using numbers from 1 .. 1000 we can use the formula to calculate the sum of all integers from 1 to N.

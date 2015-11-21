@@ -4,46 +4,44 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using hk.Core.Utilities;
+using NUnit.Framework;
 
 namespace hk.Core.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class HelperMethodsTest
     {
         private Stopwatch _stopwatch;
-        private static readonly string XmlPath = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xml");
-        private static readonly string XsdPath = Path.GetFullPath(@"..\..\..\..\..\Oxford Uni\hk-msc\PROJECT\kip-test-harness\src\main\resources\settings\settings.xsd");
+        private static string XmlPath;
+        private static string XsdPath;
 
         public TestContext TestContext { get; set; }
 
-        [ClassInitialize]
-        public static void ClassInitialise(TestContext context)
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
+            XmlPath = Path.GetFullPath(@"X:\Work\SOURCE\tests\hk.Core\SampleXML\settings.xml");
+            XsdPath = Path.GetFullPath(@"X:\Work\SOURCE\tests\hk.Core\SampleXML\settings.xsd");
             Assert.IsTrue(File.Exists(XmlPath));
             Assert.IsTrue(File.Exists(XsdPath));
         }
 
-        [ClassCleanup]
-        public static void ClassCleanUp()
-        {
-        }
-
-        [TestInitialize]
+        [SetUp]
         public void Setup()
         {
             _stopwatch = new Stopwatch();
             _stopwatch.Start();
         }
 
-        [TestCleanup]
+        [TearDown]
         public void Cleanup()
         {
             _stopwatch.Stop();
-            Debug.WriteLine("{0}: {1}", TestContext.TestName, _stopwatch.Elapsed);
+            Debug.WriteLine("{0}: {1}", TestContext.CurrentContext.Test.MethodName, _stopwatch.Elapsed);
         }
 
-        [TestMethod]
+        [Test]
         public void TestReverseString()
         {
             string test = "qwerty";
@@ -53,7 +51,7 @@ namespace hk.Core.Tests
             Assert.IsTrue(expected.Equals(actual), actual);
         }
 
-        [TestMethod]
+        [Test]
         public void TestMissingNumber()
         {
             int[] test = new int[] { 1, 2, 3, 4, 6 };
@@ -63,7 +61,7 @@ namespace hk.Core.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
+        [Test]
         public void TestMissingNumber2()
         {
             int[] test = new int[] { 0, 1, 2, 3, 4, 6 };
@@ -73,13 +71,13 @@ namespace hk.Core.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
+        [Test]
         public void TestValidateXml()
         {
             Assert.IsTrue(HelperMethods.ValidateXml(XmlPath, XsdPath, string.Empty));
         }
 
-        [TestMethod]
+        [Test]
         public void TestDeserializeSettings()
         {
             using (FileStream stream = new FileStream(XmlPath, FileMode.Open))
@@ -89,7 +87,7 @@ namespace hk.Core.Tests
             }
         }
 
-        [TestMethod, Ignore]
+        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.Ignore]
         public void TestSerializeSettings()
         {
             Settings settings;

@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace hk.Core.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class CsvFormatter
     {
-        [TestMethod]
+        [Test]
         public void TestRead()
         {
             string[] files = new string[]

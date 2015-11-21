@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 using hk.Core;
+using hk.Core.Utilities;
 using hk.QuickestRouteFinder.Interfaces;
 
 namespace hk.QuickestRouteFinder

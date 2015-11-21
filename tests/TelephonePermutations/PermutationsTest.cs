@@ -1,14 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace hk.TelephonePermutations.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class PermutationsTest
     {
-        [TestMethod]
-        public void TestMethod1()
+        [Test]
+        public void Test1()
         {
-            TelephonePermutations.Permutations.PrintPhoneNumberPermutations("02076927361");
+            Permutations.PrintPhoneNumberPermutations("02076927361");
         }
     }
 }
