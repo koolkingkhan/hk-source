@@ -15,7 +15,7 @@ namespace Hussain.Services.Utility
 {
     public class ViewModelServices : IViewModelServices
     {
-        public const string DataFile = @"c:\\tmp\\hussain\\data.txt";
+        public const string DataFile = @"X:\Work\SOURCE\src\BlotterCode\data.txt";
         private IEventAggregator _eventAgg;
         public IObservable<Timestamped<long>> DateTimeTicker
         {
