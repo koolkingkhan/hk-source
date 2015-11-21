@@ -1,9 +1,8 @@
-﻿using System;
-using Prism.Events;
+﻿using Prism.Events;
 
 namespace Hussain.Infra.Events
 {
-    public class StatusEvent:PubSubEvent<String>
+    public class StatusEvent : PubSubEvent<string>
     {
     }
 }

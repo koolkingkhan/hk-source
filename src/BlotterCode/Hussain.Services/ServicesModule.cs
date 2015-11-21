@@ -7,10 +7,13 @@ using Prism.Regions;
 
 namespace Hussain.Services
 {
-    [Module(ModuleName="Services.Module")]
-    public class ServicesModule:BaseModule
+    [Module(ModuleName = "Services.Module")]
+    public class ServicesModule : BaseModule
     {
-        public ServicesModule(IUnityContainer container, IRegionManager region, IEventAggregator evt) : base(container, region, evt) { }
+        public ServicesModule(IUnityContainer container, IRegionManager region, IEventAggregator evt)
+            : base(container, region, evt)
+        {
+        }
 
         protected override void RegisterTypes()
         {
@@ -19,7 +22,6 @@ namespace Hussain.Services
 
         protected override void InitModule()
         {
-        
         }
     }
 }

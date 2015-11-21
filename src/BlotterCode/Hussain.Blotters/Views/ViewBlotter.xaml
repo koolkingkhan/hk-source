@@ -1,9 +1,9 @@
 ﻿<UserControl x:Class="Hussain.Blotters.Views.ViewBlotter"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
              xmlns:selectors="clr-namespace:Hussain.Blotters.TemplateSelectors"
              xmlns:infra="clr-namespace:Hussain.Infra.Utility;assembly=Hussain.Infra"
              x:Name="userControlDS"
@@ -14,45 +14,50 @@
 
     <i:Interaction.Triggers>
         <prism:InteractionRequestTrigger SourceObject="{Binding ViewLatestPricesRequest}">
-            <prism:PopupWindowAction CenterOverAssociatedObject="True" IsModal="True" >
+            <prism:PopupWindowAction CenterOverAssociatedObject="True" IsModal="True">
                 <prism:PopupWindowAction.WindowContent>
-                        <views:ViewBlotterLatestPrices x:Name="LatestPrices"/>
+                    <views:ViewBlotterLatestPrices x:Name="LatestPrices" />
 
                 </prism:PopupWindowAction.WindowContent>
             </prism:PopupWindowAction>
         </prism:InteractionRequestTrigger>
         <prism:InteractionRequestTrigger SourceObject="{Binding ConfirmExitRequest}">
-            <prism:PopupWindowAction CenterOverAssociatedObject="True" IsModal="True"/>
+            <prism:PopupWindowAction CenterOverAssociatedObject="True" IsModal="True" />
         </prism:InteractionRequestTrigger>
 
     </i:Interaction.Triggers>
-    
+
     <UserControl.Resources>
-        <selectors:PriceColourSelector x:Key="PriceSelector"/>
+        <selectors:PriceColourSelector x:Key="PriceSelector" />
         <DataTemplate x:Key="BelowTemplate">
-            <TextBox Text="{Binding TickerPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Background="Firebrick" Foreground="White"/>
+            <TextBox Text="{Binding TickerPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                     Background="Firebrick" Foreground="White" />
         </DataTemplate>
         <DataTemplate x:Key="AboveTemplate">
-            <TextBox Text="{Binding TickerPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Background="Green" Foreground="White"/>
+            <TextBox Text="{Binding TickerPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Background="Green"
+                     Foreground="White" />
         </DataTemplate>
         <DataTemplate x:Key="SameTemplate">
-            <TextBox Text="{Binding TickerPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Background="LightPink" Foreground="Black"/>
+            <TextBox Text="{Binding TickerPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                     Background="LightPink" Foreground="Black" />
         </DataTemplate>
 
     </UserControl.Resources>
     <Grid x:Name="blotterGrid">
-        <ListView SelectedItem="{Binding SelectedRow}" IsSynchronizedWithCurrentItem="True" Margin="5,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="LightPink" 
-                   ItemsSource="{Binding Data}">
-        	<i:Interaction.Triggers>
-        		<i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{x:Static infra:GlobalCommands.GlobalViewCommand}"/>
-        		</i:EventTrigger>
-        	</i:Interaction.Triggers>
+        <ListView SelectedItem="{Binding SelectedRow}" IsSynchronizedWithCurrentItem="True" Margin="5,5"
+                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="LightPink"
+                  ItemsSource="{Binding Data}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{x:Static infra:GlobalCommands.GlobalViewCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ticker Code" DisplayMemberBinding="{Binding TickerCode}"/>
-                    <GridViewColumn Header="Price"   CellTemplateSelector="{Binding TemplateSelector}"/>
-                    <GridViewColumn Header="Avg Price" DisplayMemberBinding="{Binding TickerAvgPrice, UpdateSourceTrigger=PropertyChanged}"/>
+                    <GridViewColumn Header="Ticker Code" DisplayMemberBinding="{Binding TickerCode}" />
+                    <GridViewColumn Header="Price" CellTemplateSelector="{Binding TemplateSelector}" />
+                    <GridViewColumn Header="Avg Price"
+                                    DisplayMemberBinding="{Binding TickerAvgPrice, UpdateSourceTrigger=PropertyChanged}" />
                 </GridView>
             </ListView.View>
         </ListView>

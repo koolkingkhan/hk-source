@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Hussain.Infra.Model
+﻿namespace Hussain.Infra.Model
 {
-   public interface IBlotterData
+    public interface IBlotterData
     {
         double TickerAvgPrice { get; set; }
         double TickerPrice { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Hussain.Infra.Core
 {
-    public class ViewModelBase:BindableBase
+    public class ViewModelBase : BindableBase
     {
     }
 }

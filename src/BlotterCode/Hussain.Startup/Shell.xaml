@@ -5,10 +5,12 @@
         xmlns:prism="http://www.codeplex.com/prism"
         Title="Shell" Height="300" Width="300">
     <Grid>
-        <DockPanel  LastChildFill="True">
-            <ContentControl DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static infra:RegionNames.RegionToolbar}"/>            
-            <ContentControl DockPanel.Dock="Bottom" prism:RegionManager.RegionName="{x:Static infra:RegionNames.RegionStatus}"/>
-            <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.RegionBlotter}"/>
+        <DockPanel LastChildFill="True">
+            <ContentControl DockPanel.Dock="Top"
+                            prism:RegionManager.RegionName="{x:Static infra:RegionNames.RegionToolbar}" />
+            <ContentControl DockPanel.Dock="Bottom"
+                            prism:RegionManager.RegionName="{x:Static infra:RegionNames.RegionStatus}" />
+            <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.RegionBlotter}" />
         </DockPanel>
     </Grid>
 </Window>

@@ -1,13 +1,8 @@
-﻿using System.Reactive.Linq;
-using System.Reactive.Linq;
-using Hussain.Infra.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reactive;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using Hussain.Infra.Model;
 
 namespace Hussain.Infra.Core
 {
@@ -15,10 +10,9 @@ namespace Hussain.Infra.Core
     {
         IObservable<IList<IBlotterData>> BlotterData { get; }
 
-         
 
         IObservable<Timestamped<long>> DateTimeTicker { get; }
 
-        void ContinuouslyReadPricesAsync(CancellationToken token);     
+        void ContinuouslyReadPricesAsync(CancellationToken token);
     }
 }

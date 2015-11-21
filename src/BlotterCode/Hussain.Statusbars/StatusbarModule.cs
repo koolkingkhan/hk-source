@@ -9,14 +9,15 @@ using Prism.Regions;
 
 namespace Hussain.Statusbars
 {
-   [Module(ModuleName="Statusbar.Module")]
+    [Module(ModuleName = "Statusbar.Module")]
     [ModuleDependency("Services.Module")]
-    public class StatusbarModule:BaseModule
+    public class StatusbarModule : BaseModule
     {
-        public StatusbarModule(IUnityContainer container, IRegionManager region, IEventAggregator evt):base(container,region,evt)
+        public StatusbarModule(IUnityContainer container, IRegionManager region, IEventAggregator evt)
+            : base(container, region, evt)
         {
-
         }
+
         protected override void RegisterTypes()
         {
             Container.RegisterType<IViewStatusbarViewModel, ViewStatusbarViewModel>();
@@ -24,7 +25,7 @@ namespace Hussain.Statusbars
 
         protected override void InitModule()
         {
-            RegionManager.RegisterViewWithRegion(RegionNames.RegionStatus, typeof(ViewStatusbar));
+            RegionManager.RegisterViewWithRegion(RegionNames.RegionStatus, typeof (ViewStatusbar));
         }
     }
 }
