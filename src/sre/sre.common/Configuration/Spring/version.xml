@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<build>
-  <RemoveSchemaFilesOnStartup>true</RemoveSchemaFilesOnStartup>
-  <ConfigMajor>1</ConfigMajor>
-  <ConfigMinor>0</ConfigMinor>
-  <ConfigRevision>0</ConfigRevision>
-  <ConfigBuild>76</ConfigBuild>
-</build>
