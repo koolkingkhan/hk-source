@@ -77,7 +77,7 @@ namespace hk.Core.Tests
             }
         }
 
-        //[Ignore("Ignore this test")]
+        [Ignore("Ignore this test")]
         public void TestSerializeSettings()
         {
             Settings settings;
