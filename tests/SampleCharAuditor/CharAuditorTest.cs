@@ -18,6 +18,7 @@ namespace hk.SampleCharAuditor.Tests
     [TestFixture]
     public class CharAuditorTest
     {
+        [Test]
         public void TestGetMostPrevalentChar()
         {
             var mock = new CharAuditor();

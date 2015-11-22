@@ -93,7 +93,7 @@ namespace hk.Core.Utilities
             }
         }
 
-        public static bool ValidateXml(string xml, string xsd, string targetNamespace)
+        public static bool ValidateXml(string xml, string xsd, string targetNamespace, out string message)
         {
             XmlSchemaSet schemas = new XmlSchemaSet();
             schemas.Add(targetNamespace, xsd);
@@ -104,7 +104,8 @@ namespace hk.Core.Utilities
             {
                 msg += e.Message + Environment.NewLine;
             });
-            return string.IsNullOrEmpty(msg);
+            message = msg;
+            return string.IsNullOrEmpty(message);
         }
     }
 }

@@ -24,20 +24,26 @@ namespace hk.Core.Tests
             return Path.Combine(projectPath, testDataFolder);
         }
 
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
-        {
-            string testDataFolder = GetTestDataFolder("SampleXML");
-
-            _xmlPath = Path.Combine(testDataFolder, "settings.xml");
-            _xsdPath = Path.Combine(testDataFolder, "settings.xsd");
-            Assert.IsTrue(File.Exists(_xmlPath));
-            Assert.IsTrue(File.Exists(_xsdPath));
-        }
+        private string _testDataFolder;
 
         [SetUp]
         public void Setup()
         {
+
+            if (string.IsNullOrWhiteSpace(_testDataFolder))
+            {
+                _testDataFolder = GetTestDataFolder("SampleXML");
+            }
+            if (string.IsNullOrWhiteSpace(_xmlPath))
+            {
+                _xmlPath = Path.Combine(_testDataFolder, "settings.xml");
+            }
+
+            if (string.IsNullOrWhiteSpace(_xsdPath))
+            {
+                _xsdPath = Path.Combine(_testDataFolder, "settings.xsd");
+            }
+
             _stopwatch = new Stopwatch();
             _stopwatch.Start();
         }
@@ -46,7 +52,7 @@ namespace hk.Core.Tests
         public void Cleanup()
         {
             _stopwatch.Stop();
-            Debug.WriteLine("{0}: {1}", TestContext.CurrentContext.Test.MethodName, _stopwatch.Elapsed);
+            Debug.WriteLine("{0}: {1}", TestContext.CurrentContext.Test.Name, _stopwatch.Elapsed);
         }
 
         [Test]
@@ -79,10 +85,11 @@ namespace hk.Core.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [Test]
+        
         public void TestValidateXml()
         {
-            Assert.IsTrue(HelperMethods.ValidateXml(_xmlPath, _xsdPath, string.Empty));
+            string failureMessage;
+            Assert.IsTrue(HelperMethods.ValidateXml(_xmlPath, _xsdPath, string.Empty, out failureMessage), failureMessage);
         }
 
         [Test]
@@ -95,7 +102,7 @@ namespace hk.Core.Tests
             }
         }
 
-        [Ignore("Ignore this test")]
+        //[Ignore("Ignore this test")]
         public void TestSerializeSettings()
         {
             Settings settings;
