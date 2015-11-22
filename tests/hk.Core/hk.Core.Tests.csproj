@@ -95,12 +95,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="resources\settings.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\hk.Core\hk.Core.csproj">
       <Project>{e5c32ede-f580-49ad-9cf0-f13ad18c1a1b}</Project>
       <Name>hk.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\settings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
