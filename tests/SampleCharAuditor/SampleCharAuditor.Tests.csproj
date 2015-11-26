@@ -96,6 +96,10 @@
       <Project>{9CCAA584-383A-47D0-859E-D100E80232B3}</Project>
       <Name>SampleCharAuditor</Name>
     </ProjectReference>
+    <ProjectReference Include="..\hk.Core\hk.Core.Tests.csproj">
+      <Project>{63d0d7a6-da88-4e61-a16b-e902f9a84300}</Project>
+      <Name>hk.Core.Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

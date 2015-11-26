@@ -2,7 +2,7 @@
 
 namespace hk.Core.Tests
 {
-    [TestFixture]
+    [TestFixture, ConsoleAction("CsvFormatter")]
     public class CsvFormatter
     {
         [Test]

@@ -1,8 +1,9 @@
-﻿using NUnit.Framework;
+﻿using hk.Core.Tests;
+using NUnit.Framework;
 
 namespace hk.TelephonePermutations.Tests
 {
-    [TestFixture]
+    [TestFixture, ConsoleAction("PermutationsTest")]
     public class PermutationsTest
     {
         [Test]

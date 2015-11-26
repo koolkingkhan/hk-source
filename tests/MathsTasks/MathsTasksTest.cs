@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using hk.Core.Tests;
 using NUnit.Framework;
 
 namespace hk.MathsTasks.Tests
 {
-    [TestFixture]
+    [TestFixture, ConsoleAction("MathsTasksTest")]
     public class MathsTasksTest
     {
         //TODO: Need to optimize this test

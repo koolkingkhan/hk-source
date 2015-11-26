@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
+using hk.Core.Tests;
 using hk.QuickestRouteFinder.Interfaces;
 using NUnit.Framework;
 
@@ -12,7 +13,7 @@ namespace hk.QuickestRouteFinder.Tests
     ///This is a test class for IRouteFinderTest and is intended
     ///to contain all IRouteFinderTest Unit Tests
     ///</summary>
-    [TestFixture]
+    [TestFixture, ConsoleAction("RouteFinderTest")]
     public class RouteFinderTest
     {
         private const string TestFileName = "hk.QuickestRouteFinder.Tests.TestFiles.StationRoutesAndTimes.xml";

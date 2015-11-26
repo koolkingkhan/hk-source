@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using hk.Core.Tests;
+using NUnit.Framework;
 
 namespace hk.SampleCharAuditor.Tests
 {
@@ -15,7 +16,7 @@ namespace hk.SampleCharAuditor.Tests
     /// <summary>
     /// Summary description for CharAuditorTest
     /// </summary>
-    [TestFixture]
+    [TestFixture, ConsoleAction("CharAuditorTest")]
     public class CharAuditorTest
     {
         [Test]

@@ -96,6 +96,10 @@
       <Project>{d1b2b2fc-5d31-450f-bab3-a4b388059d2f}</Project>
       <Name>Randomizer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\hk.Core\hk.Core.Tests.csproj">
+      <Project>{63d0d7a6-da88-4e61-a16b-e902f9a84300}</Project>
+      <Name>hk.Core.Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

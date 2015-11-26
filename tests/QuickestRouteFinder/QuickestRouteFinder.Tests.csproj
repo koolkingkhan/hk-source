@@ -109,6 +109,10 @@
       <Project>{ABFE9F0A-C7AC-4474-BC98-F546395988E2}</Project>
       <Name>QuickestRouteFinder</Name>
     </ProjectReference>
+    <ProjectReference Include="..\hk.Core\hk.Core.Tests.csproj">
+      <Project>{63d0d7a6-da88-4e61-a16b-e902f9a84300}</Project>
+      <Name>hk.Core.Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

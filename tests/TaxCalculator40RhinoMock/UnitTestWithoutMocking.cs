@@ -1,11 +1,12 @@
-﻿using NUnit.Framework;
+﻿using hk.Core.Tests;
+using NUnit.Framework;
 
 namespace hk.TaxCalculator.Tests
 {
     /// <summary>
     /// Summary description for UnitTestWithoutMocking
     /// </summary>
-    [TestFixture]
+    [TestFixture, ConsoleAction("UnitTestWithoutMocking")]
     public class UnitTestWithoutMocking
     {
         /// <summary>

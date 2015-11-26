@@ -97,6 +97,10 @@
       <Project>{A301421F-3C26-4F66-972D-4FA566273792}</Project>
       <Name>MathsTasks</Name>
     </ProjectReference>
+    <ProjectReference Include="..\hk.Core\hk.Core.Tests.csproj">
+      <Project>{63d0d7a6-da88-4e61-a16b-e902f9a84300}</Project>
+      <Name>hk.Core.Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

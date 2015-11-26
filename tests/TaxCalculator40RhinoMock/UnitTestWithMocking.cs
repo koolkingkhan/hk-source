@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using hk.Core.Tests;
+using Moq;
 using NUnit.Framework;
 
 namespace hk.TaxCalculator.Tests
@@ -6,7 +7,7 @@ namespace hk.TaxCalculator.Tests
     /// <summary>
     /// Summary description for UnitTest1
     /// </summary>
-    [TestFixture]
+    [TestFixture, ConsoleAction("UnitTestWithMocking")]
     public class UnitTestWithMocking
     {
         [Test]

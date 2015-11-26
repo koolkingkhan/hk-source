@@ -1,9 +1,10 @@
 ﻿using System.Linq;
+using hk.Core.Tests;
 using NUnit.Framework;
 
 namespace hk.Randomizer.Tests
 {
-    [TestFixture]
+    [TestFixture, ConsoleAction("ArrayRandomizerTest")]
     public class ArrayRandomizerTest
     {
         [Test]

@@ -9,8 +9,7 @@ using NUnit.Framework;
 
 namespace hk.Core.Tests
 {
-    [ConsoleAction("HelperMethodsTest")]
-    [TestFixture]
+    [TestFixture, ConsoleAction("HelperMethodsTest")]
     public class HelperMethodsTest
     {
         private static readonly string XmlPath = Path.GetFullPath(@"resources\settings.xml");
