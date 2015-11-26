@@ -9,6 +9,7 @@ using NUnit.Framework;
 
 namespace hk.Core.Tests
 {
+    [ConsoleAction("HelperMethodsTest")]
     [TestFixture]
     public class HelperMethodsTest
     {
@@ -16,10 +17,15 @@ namespace hk.Core.Tests
         private static readonly string XmlPath = Path.GetFullPath(@"resources\settings.xml");
         private static readonly string XsdPath = Path.GetFullPath(@"resources\settings.xsd");
 
+        [OneTimeSetUp]
+        public void OneTimeSetup()
+        {
+            _stopwatch = new Stopwatch();
+        }
+
         [SetUp]
         public void Setup()
         {
-            _stopwatch = new Stopwatch();
             _stopwatch.Start();
         }
 
