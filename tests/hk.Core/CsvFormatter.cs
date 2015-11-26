@@ -5,7 +5,7 @@ namespace hk.Core.Tests
     [TestFixture, ConsoleAction("CsvFormatter")]
     public class CsvFormatter
     {
-        [Test]
+        [Test, Ignore("")]
         public void TestRead()
         {
             string[] files = new string[]
