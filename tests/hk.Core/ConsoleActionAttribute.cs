@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 
@@ -15,17 +11,32 @@ namespace hk.Core.Tests
     public class ConsoleActionAttribute : Attribute, ITestAction
     {
         private readonly string _message;
+        private readonly Stopwatch _stopwatch;
 
-        public ConsoleActionAttribute(string message) { _message = message; }
+        public ConsoleActionAttribute(string message)
+        {
+            _message = message;
+            _stopwatch = new Stopwatch();
+        }
 
         public void BeforeTest(ITest test)
         {
+            _stopwatch.Start();
             WriteToConsole("Before", test);
         }
 
         public void AfterTest(ITest test)
         {
-            WriteToConsole("After", test);
+            _stopwatch.Stop();
+            if (test.IsSuite)
+            {
+                WriteToConsole("After", test);
+            }
+            else
+            {
+                Console.WriteLine("Time taken: {0}", _stopwatch.Elapsed);
+
+            }
         }
 
         public ActionTargets Targets
@@ -35,7 +46,7 @@ namespace hk.Core.Tests
 
         private void WriteToConsole(string eventMessage, ITest test)
         {
-            Debug.WriteLine("{0} {1}: {2}, from {3}.{4}.",
+            Console.WriteLine("{0} {1}: {2} - {3}.{4}.",
                 eventMessage,
                 test.IsSuite ? "Suite" : "Case",
                 _message,

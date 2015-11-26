@@ -13,28 +13,8 @@ namespace hk.Core.Tests
     [TestFixture]
     public class HelperMethodsTest
     {
-        private Stopwatch _stopwatch;
         private static readonly string XmlPath = Path.GetFullPath(@"resources\settings.xml");
         private static readonly string XsdPath = Path.GetFullPath(@"resources\settings.xsd");
-
-        [OneTimeSetUp]
-        public void OneTimeSetup()
-        {
-            _stopwatch = new Stopwatch();
-        }
-
-        [SetUp]
-        public void Setup()
-        {
-            _stopwatch.Start();
-        }
-
-        [TearDown]
-        public void Cleanup()
-        {
-            _stopwatch.Stop();
-            Debug.WriteLine("{0}: {1}", TestContext.CurrentContext.Test.Name, _stopwatch.Elapsed);
-        }
 
         [Test]
         public void TestReverseString()
@@ -66,14 +46,14 @@ namespace hk.Core.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [Test]
+        [Test, Ignore("")]
         public void TestValidateXml()
         {
             string failureMessage;
             Assert.IsTrue(HelperMethods.ValidateXml(XmlPath, XsdPath, string.Empty, out failureMessage), failureMessage);
         }
 
-        [Test]
+        [Test, Ignore("")]
         public void TestDeserializeSettings()
         {
             using (FileStream stream = new FileStream(XmlPath, FileMode.Open))
