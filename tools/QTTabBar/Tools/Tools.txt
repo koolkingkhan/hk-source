@@ -1,0 +1,41 @@
+extra tools
+
+******************************************
+OpenGroup.exe
+******************************************
+
+opens groups 
+
+        syntax:
+        OpenGroup.exe "groupname1" "groupname2"...
+
+
+
+******************************************
+QTPopup.exe
+******************************************
+
+shows desktop launcher menu at mouse position
+
+        syntax:
+        QTPopup.exe [/x:Xpos /y:Ypos]
+
+        ex:
+        QTPopup.exe /x:300 /y:200
+
+        pops up at mouse position if position not specified.
+
+
+
+******************************************
+ShutDownTool.exe
+******************************************
+
+shows dialog log off dialog.
+        syntax:
+        ShutDownTool.exe -l/-s/-r
+
+             no args       log off
+             -l                log off
+             -s               shut down
+             -r               restart computer

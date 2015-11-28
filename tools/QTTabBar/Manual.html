@@ -1,0 +1,761 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>QTTabBar  Manual</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Style-type" content="text/css">
+		
+	<style type="text/css">
+	<!--
+		
+	body{
+		background-image: URL( Images/bg.png );
+		background-color: MidnightBlue;
+		color: white;
+		padding-left: 2em;
+		padding-right: 2em;
+		font-family: Tahoma;
+		font-size: 10.5pt;
+	}
+
+	blockquote.quote{
+		margin-top: 0.5em;
+	}
+
+	.section{
+		font-family:"Tahoma Bold";
+		font-size: 173%;
+		padding-bottom: 4px;
+		border-bottom:1px solid gray;
+	}
+
+	.subTitle{
+		font-family:"Tahoma";
+		border-bottom:1px solid dimgray;
+		font-weight: bold;
+		padding-left: 6px;
+		width:50%;
+	}
+
+	.appContents{
+		padding: 2em 0 4em 3em;
+	}
+
+	.code{
+		font-family: "Courier New";
+		padding: 0.5em 0em 0.5em 2em;
+		margin-bottom: 0.5em;
+		margin-top: 0.5em;
+		background-image: URL( Images/bgCode.png );
+	}
+
+	a:link, a:visited{
+		color: white;
+	}
+
+	b{
+		color:MistyRose;
+	}
+
+	-->
+	</style>
+</head>
+
+<body>
+<br>
+<div style="text-align:center;">
+	<h1 style="font-family:Palatino Linotype">QTTabBar Manual</h1>
+	
+	<br>
+	
+	<span style="font-family:Palatino Linotype">version 1.0.15</span><br><br>
+	<br>
+	<img src="Images/top.png" alt="screen shot">
+</div>
+
+<br><br><br>
+
+
+<div class="section">
+	Contents
+</div>
+
+<br><br>
+
+<blockquote>
+	<ol type="1">
+		<li><a href="#1">DISCLAIMER OF WARRANTY</a></li>
+		<li><a href="#2">Installation / Uninstallation</a></li>
+		<li><a href="#3">Using QTTabBar</a></li>
+		<li><a href="#4">Version History</a></li>
+		<li><a href="#5">Contact</a></li>
+		<li><a href="#6">BandObjectLib</a></li>
+	</ol>
+</blockquote>
+	
+	<br><br><br>
+
+
+
+<a name="1"></a><br>
+<div class="section">&nbsp;1&nbsp;&nbsp;&nbsp;DISCLAIMER OF WARRANTY</div>
+<div  class="appContents">
+	The software is provided "AS-IS" without warranties of any kind. <!--You bear the risk of using it.--><br>
+</div>
+
+
+
+<a name="2"></a><br>
+<div class="section">&nbsp;2&nbsp;&nbsp;&nbsp;Installation / Uninstallation</div>
+<br>
+<div  class="appContents">
+
+	<div class="subTitle">System Requirements</div>
+	<div  class="appContents">
+		Windows XP, Vista - <br>
+		Microsoft .NET framework 2.0 or later<br>
+		( if you use Vista, no need to install framework. )
+	</div>
+
+	<div class="subTitle">Installation</div>
+	<div  class="appContents">
+		1) Extract zip file and execute 'RegisterQTTabBar.exe' at the folder which contains 'QTTabBar.dll', 'Interop.SHDocVw.dll' and 'Interop.Shell32.dll'.
+
+		<br><br>
+
+		<blockquote>
+			*Required to have more than Power User authority to install.<br>
+			*You can do the same even if you have an older version installed.<br>
+			*When you failed to install...
+			<blockquote class="quote">
+				On XP, make sure Microsoft .NET framework 2.0 or 3.0 is properly installed on your machine.<br>
+				You can get Microsoft .NET framework 3.0 from Windows Update or download from <a href="http://www.microsoft.com/downloads/details.aspx?familyid=10CC340B-F857-4A14-83F5-25634C3BF043&displaylang=en" target="_blank">here</a>( www.microsoft.com ) and install.
+			</blockquote>
+		</blockquote>
+		
+		<br>
+
+		2) After relogon to Windows, open explorer, and right click on toolbar. Check 'QT TabBar'. 'QT Tab Standard Buttons' if you like.<br>
+
+		<blockquote>
+			First time you'll see an empty tab. Close explorer window once, and from next time QTTabBar will work properly.<br>
+			<br>
+
+			*On Vista...
+			 <blockquote class="quote">
+				Click 'Organize' - 'Layout' - check 'Menu bar' to show menu bar of explorer.<br>
+				After enabled QT TabBar, you can show or hide the menu bar by pressing Alt + M.<br>
+			</blockquote>
+		</blockquote>
+
+		<br>
+
+		3) To use 'QT Tab Desktop Tool'<br>
+
+		 <blockquote>
+			Right click on Task bar, check 'QT Tab Desktop Tool' in 'Toolbar' menu.<br>
+			Launcher menu will be shown when double-clicked on Desktop and Taskbar.<br>
+		</blockquote>
+
+	</div>
+	<br>
+
+	<div class="subTitle">Uninstallation</div>
+	<div  class="appContents">
+		1) Execute RegisterQTTabBar.exe at the folder which contains 'QTTabBar.dll', 'Interop.SHDocVw.dll', 'Interop.Shell32.dll'.<br>
+		<br>
+		2) If you used Memo for folder, also delete directory:
+		<blockquote class="quote">
+			XP
+			<blockquote class="code">
+				C:\Documents and Settings\%username%\Application Data\Quizo<br>
+			</blockquote>
+			Vista
+			<blockquote class="code">
+				C:\Users\%username%\AppData\Roaming\Quizo
+			</blockquote>
+		</blockquote>
+		3) Delete files and folders.
+
+	</div>
+	<br><br>
+
+	<div style="font-size:smaller">
+	<div class="subTitle">Installing / Uninstalling manually</div>
+	<div class="appContents">
+		<b>Installing</b><br>
+		1) Register these 3 dll files to GAC. ( Drop files to "C:\WINDOWS\assembly" )<br>
+		<blockquote class="code">
+			QTTabBar.dll, Interop.SHDocVw.dll, Interop.Shell32.dll
+		</blockquote>
+		2) Register QTTabBar.dll to registry.
+		<blockquote class="code">
+			Execute:<br>
+			C:\WINDOWS\Microsoft.NET\Framework\(2.0 version )\regasm.exe QTTabBar.dll
+		</blockquote>
+		3) log off.<br>
+		<br><br>
+		<b>Uninstalling</b><br>
+		1) Remove QTTabBar entry from registry.<br>
+		<blockquote class="code">
+			Execute:<br>
+			C:\WINDOWS\Microsoft.NET\Framework\(2.0 version)\regasm.exe /u QTTabBar.dll
+		</blockquote>
+		2) Delete from GAC. Change directory to "C:\WINDOWS\assembly", select these 3 objects and press delete key.<br>
+		<blockquote class="code">
+			QTTabBar, Interop.SHDocVw, Interop.Shell32 ( also "QTTabBar.resources" if exists )<br><br>
+			(public key token: 78a0cde69b47ca25)
+		</blockquote>
+	</div>
+	</div>
+
+	<div class="subTitle">Containts of zip file</div>
+	<div  class="appContents">
+		Main files
+		<blockquote class="quote">
+			QTTabBar.dll<br>
+			Interop.SHDocVw.dll<br>
+			Interop.Shell32.dll
+		</blockquote>
+
+		Installer
+		<blockquote class="quote">
+			RegisterQTTabBar.exe
+		</blockquote>
+
+		shortcut key editor
+		<blockquote class="quote">
+			QTShortcutKeyEditor.exe
+		</blockquote>
+
+		Tools<br><br>
+
+		Manual
+		<blockquote class="quote">
+			Manual.html<br>
+			Images
+		</blockquote>
+	</div>
+</div>
+
+
+
+<a name="3"></a><br>
+<div class="section">&nbsp;3&nbsp;&nbsp;&nbsp;Using QTTabBar</div>
+<div  class="appContents">
+	<br>
+
+	<!--<div class="subTitle">essentials</div>-->
+	<div  class="appContents">
+
+		Navigation buttons
+		<blockquote class="quote">
+			<img src="Images/ico_navL.png"> On XP, explorer navigation buttons are not available. They navigate to unexpected folder.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please use navigation button of QTTabBar/QT ButtonBar or press Alt + Left/Right.<br><br>
+			<img src="Images/ico_navR.png"> On Vista, explorer navigation buttons work normally.
+		</blockquote>
+		<br>
+
+		Open new tab
+		<blockquote class="quote">
+			<img src="Images/ico_folder.png"> Drop folders onto tab bar.<br>
+			<img src="Images/ico_mouse.png"> Middle click on folder icon (option).<br>
+			<img src="Images/ico_mouse.png"> Double left click / Enter key with <b>Shift</b> key down.<br>
+			<img src="Images/ico_newtab.png"> Click navigation menu item with <b>Shift</b> key down.<br><br>
+			Double left click / Enter key with <b>Control + Shift</b> keys down, then tab opens without activating.
+		</blockquote>
+		<br>
+		
+		Open multiple tabs at once
+		<blockquote class="quote">
+			<img src="Images/ico_fav.png"> <b>Registering</b><br>
+			&nbsp;&nbsp;Right click on a tab to register as a new group -&gt; 'Create new Group'<br>
+			&nbsp;&nbsp;You can add to existing Group.<br>
+			<br>
+			<img src="Images/ico_fav.png"> <b>Open group</b><br>
+			&nbsp;&nbsp;Right click on bar margin to open drop down menu -&gt;  'Groups'<br>
+			&nbsp;&nbsp;or click <img src="Images/ico_fav.png">button on ButtonBar.<br>
+			<br>
+			If you right-click on a Group item, submenu will be shown that contains sub items in the group.<br>
+			<br>
+			To delete or edit groups, 'Option' -&gt; 'Groups'.
+			<br>
+			<br>
+			<img src="Images/ico_folder.png"> Double left click / Enter key with <b>Control + Shift + Alt</b> keys down, all subfolders within selected folders open as tab.<br>
+
+		</blockquote>
+		<br>
+
+		Open new window
+		<blockquote class="quote">
+			<img src="Images/ico_folder.png"> Drop folders onto tab bar with <b>Control</b> key down.<br>
+			<img src="Images/ico_mouse.png"> Middle click on folder icon with <b>Control</b> key down (option).<br>
+			<img src="Images/ico_mouse.png"> Double left click / Enter key with <b>Control</b> key down.<br>
+			<img src="Images/ico_newwindow.png"> Click navigation menu item with <b>Control</b> key down.
+		</blockquote>
+		<br>
+
+		Close tabs
+		<blockquote class="quote">
+			<img src="Images/ico_mouse.png"> Middle click on a tab.<br>
+		</blockquote>
+		<br>
+
+		Lock tab
+		<blockquote class="quote">
+			<img src="Images/ico_lock.png"> Left click on a tab with <b>Control</b> key down.<br>
+		</blockquote>
+		<br>
+
+		Start UP Group
+		<blockquote class="quote">
+			To register a group as Start Up Group, click the menu item of Group Menu with <b>Control + Shift</b> keys down.
+		</blockquote>
+		<br>
+	</div>
+
+
+	<div class="subTitle">Adding applications to launcher menu</div>
+	<blockquote>
+		Drop files to tab bar to add applications to menu.<br>
+		for more detail option, open 'Option' window -&gt; Applications tab.<br>
+		<br>
+		<table border=1 cellpadding="4" cellspacing="0" >
+			<tr><td>Name</td><td colspan=2>display name on menu</td></tr>
+			<tr><td>Path</td><td colspan=2>target file/folder path.<br>separator if empty</td></tr>
+			<tr>
+				<td>Arguments</td><td>arguments to execute.</td>
+				<td rowspan=2>
+					%c% replaced by current folder path.<br>
+					%s% ... selected files and folders in current folder.<br>
+					%f% ... selected files in current folder.(only arguments)<br>
+					%d% ... selected folders in current folder.<br></td></tr>
+			<tr><td>Working folder&nbsp;&nbsp;&nbsp;&nbsp;</td><td>working folder application uses.
+		</table>
+		<br>
+		ex: open command prompt at current folder or at selected folder if a folder is selected.
+		<blockquote class="code">
+			<table border=0 >
+				<tr><td>Name</td><td>&nbsp;&nbsp;Path</td><td>Arguments&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Working folder</td></tr>
+				<tr><td>CMD</td><td>&nbsp;&nbsp;c:\windows\system32\cmd.exe&nbsp;&nbsp;&nbsp;&nbsp;</td><td>(empty)</td><td>%c%%d%</td></tr>
+			</table>
+		</blockquote>
+	</blockquote>
+
+	<br><br><br><br>
+	
+	<div class="subTitle">Key shortcuts (default)</div>
+	<div  class="appContents">
+		You can edit by QTShortcutKeyEditor.exe<br>
+		<br>
+		<table cellpadding="0" cellspacing="0" border="0" style="font-size:11pt;border-top:1px solid;border-bottom:1px solid;">
+			<tr>
+				<td>Ctrl + Tab</td><td>select next tab</td>
+			</tr>
+			<tr>
+				<td>Ctrl + Shift + Tab</td><td>select previous tab</td>
+			</tr>
+			<tr>
+				<td>Ctrl + Num0 - Num9</td><td>select a tab directly</td>
+			</tr>
+			<tr>
+				<td>Ctrl + W</td><td>close current tab</td>
+			</tr>
+			<tr>
+				<td>Ctrl + Shift + W</td><td>close all but current and locked</td>
+			</tr>
+			<tr>
+				<td>Ctrl + Shift + Z</td><td>restore a tab</td>
+			</tr>
+			<tr>
+				<td>Ctrl + O</td><td>open dialog for folder</td>
+			</tr>
+			<tr>
+				<td>Ctrl + L</td><td>lock/unlock current tab</td>
+			</tr>
+			<tr>
+				<td>Ctrl + Shift + L</td><td>lock/unlock all tabs</td>
+			</tr>
+			<tr>
+				<td>Ctrl + N</td><td>clone current tab</td>
+			</tr>
+			<tr>
+				<td>Alt + Left/Right</td><td>go back/forward</td>
+			</tr>
+			<tr>
+				<td>Alt + Ctrl + Left/Right&nbsp;&nbsp;&nbsp;&nbsp;</td><td>go back to the start/forward to the end</td>
+			</tr>
+			<tr>
+				<td>Alt + F4</td><td>close window</td>
+			</tr>
+			<tr>
+				<td>Alt + ,</td><td>show applicaton menu</td>
+			</tr>
+			<tr>
+				<td>Alt + .</td><td>show current tab menu</td>
+			</tr>
+			<tr>
+				<td>Alt + M</td><td>show/hide menu bar (Vista)</td>
+			</tr>
+		</table>
+	</div>
+
+	<br><br>
+
+	<div class="subTitle">ToolBar Buttons Image</div>
+	<blockquote>
+		right click on ToolBar Buttons -&gt; 'Customize...'<br>
+		specify 432 x 40 size image file (PNG, GIF, BMP).<br><br>
+		24 x 24 large buttons from ( 0, 0 ) to ( 431, 23 )<br>
+		16 x 16 small buttons from ( 0, 24 ) to ( 287, 39 )
+		<br><br>
+		
+		in case of bmp file, magenta <span style="background-color:magenta;">&nbsp;&nbsp;&nbsp;&nbsp;</span> (RGB = 255:0:255 ) is tranceparent color.<br><br><br>
+		<img src="Images/ImageStrip.png" alt="Sample" >
+		<br>
+		Sample
+	</blockquote>
+
+	<br><br><br>
+
+	<div class="subTitle">Tab Skin Image</div>
+	<blockquote>
+		Specify image file and its SizingMargins in Option window -&gt; Appearance tab.
+		<br><br>
+		<img src="Images/TabImageEn.png" >
+	</blockquote>
+
+	<br><br><br>
+
+	<div class="subTitle">Other extra toys</div>
+	<blockquote>
+		*Folder memo
+		<blockquote>
+			you can write a simple memo for each folder.<br>
+			color, font size ( Ctrl + "+" / "-" )<br>
+			simple search by Ctrl + F.
+		</blockquote>
+		<br>
+		*Simple password for folder
+		<blockquote>
+			very simple password lock for folders.<br>
+			it becomes harder to access the folder including sub-directories.
+		</blockquote>
+	</blockquote>
+
+
+</div>
+
+
+
+<a name="4"></a><br>
+<div class="section">&nbsp;4&nbsp;&nbsp;&nbsp;History</div>
+<div  class="appContents">
+	1.0.15 (2007/4/16)<br>
+	<blockquote>
+		+Alternate row color in details view<br>
+		+Preview tooltip for image and text file<br>
+		+"Subfolder tip" ( show menu on icon )<br>
+		+option to specify history max size<br>
+		+option to save window transparency<br>
+		<br>
+		*fixed: icon position on tab<br>
+		*fixed: timeout of OpenGroup.exe<br>
+		*fixed: behavior of 'open new window', including Ctrl + double-click<br>
+		*fixed: Group editor in Options window<br>
+		*fixed: and several bugs...
+	</blockquote>
+	<br>
+	1.0.14 (2007/3/14)<br>
+	<blockquote>
+		+MD5 computing in another thread and progress bar<br>
+		+Option added: Select file name without extension when renaming files (XP)<br>
+		<br>
+		*fixed: duplicating branche menues in history<br>
+		*fixed: following functions didn't work in environment using 'Windows classic folders' in Folder Options (XP)<br>
+		<ul type=disc>
+			<li>middle clicking on folder to open new tab<br>
+			<li>double clicking on folder empty area to go up one level<br>
+			<li>search box<br>
+			<li>grid line<br>
+			<li>tab preview<br>
+			<li>file launching history<br>
+			and more maybe
+		</ol>
+	</blockquote>
+	<br>
+	1.0.13.1 ( 2007-3-5 )<br>
+	<blockquote>
+		*fixed: space key in search box<br>
+		*fixed: OpenGroup.exe
+	</blockquote>
+	1.0.13 ( 2007-3-4 )<br>
+	<blockquote>
+		+Start Up Group. Register/unregister by clicking group item with Control + Shift keys down<br>
+		+Simple search box in ButtonBar<br>
+		<br>
+		*fixed: tab icon won't change untill mouse hover (XP, thx Phil)<br>
+		*fixed: problem with virtual folders such as Desktop, MyDocuments, Users<br>
+		*fixed: tabs duplicated when special folder opened from desktop tool<br>
+		*fixed: window vanishes away occasionally (Vista)<br>
+		*fixed: search button on ButtonBar didn't work<br>
+		*fixed: and other several bugs...
+
+	</blockquote>
+	<br>
+	1.0.12.0 ( 2007-2-16 )
+	<blockquote>
+		+ shortcut key editor available<br>
+		+ MD5 hash checker<br>
+		+ option to draw folder icon on tab<br>
+		<br>
+		*fixed: a bug which steals and holds key focus after drop down menu clicked (Vista)<br>
+		*fixed: backSpace key and tab synchronization (Vista)<br>
+		*fixed: several bugs
+	</blockquote>
+	<br>
+	1.0.11.0 ( 2007-2-3 )
+	<blockquote>
+		+ (Vista) option to hide menu bar.<br>
+		+ (Vista) option to change background color.<br>
+		<br>
+		* fixed: activating problem under not English environment.<br>
+		* fixed: navigation buttons on Vista.
+	</blockquote>
+	<br>
+	..............
+	<br><br>
+	0.9.0.0&nbsp;&nbsp;(2006-3-6) β1<br>
+	0.0.0.0&nbsp;&nbsp;(2006-3-3) dev start
+</div>
+
+<!--
+<div  class="appContents">
+	<div class="small">
+
+		1.0.6.1 (2006/8/x)<br>
+		<blockquote>
+			+デスクトップツールのユーザーアプリケーションにセパレータを挿入できるように。<br>
+			　オプション→デスクトップツールで、パスを「separator」と入力するとセパレータになります。<br>
+			
+			○APIまわりのバグ修正。<br>
+		</blockquote>
+		<br>
+		1.0.6 (2006/8/20)<br>
+		<blockquote>
+			+デスクトップツールを実装した。<br>
+			　　タスクバー右クリック→ツールバー→「QT Tab デスクトップツール」で有効化<br>
+			　　デスクトップ or タスクバー ダブルクリックで表示<br>
+			+ホイールクリックでフォルダを開くとき、Shiftキー同時押しで設定と反転するようにした。<br>
+			+グループのメニューの順番を並び替えられるようにした。オプションの方でも。<br>
+			+タブのフォントを選択できるようにした。<br>
+			+タブを常にアクティブなウインドウで開くように仕様変更。。<br>
+			+エクスプローラのプロセスを1つに限定するオプション。(デスクトップツール有効化が必要)<br>
+			+グループ、最近閉じたタブなどをCtrl同時押しで、新規ウインドウを開くようにした。( thx 久保氏 )<br>
+			+zipフォルダ、cabフォルダのサポート。<br>
+			<br>
+			○メニューを開いたとき、接続されていないネットワークフォルダへの項目があると、<br>
+			　エクスプローラがしばらくフリーズしていたのを修正。( thx 久保氏 )<br>
+			○タブをロックしたときの動作を変更。 ( thx プラネット 氏 )<br>
+			○その他バグ修正<br>
+			
+		</blockquote>
+		<br>
+		1.0.5 (2006/7/20)<br>
+		<blockquote>
+			+フォルダアイコンをマウス中クリックで、新規タブ/新規ウインドウを開くオプション追加。 (thx D氏)<br>
+			+ついでに、フォルダの余白ダブルクリックで、1階層上へ移動するオプション追加。<br>
+			+背景をビジュアルスタイルで描画するようにした。<br>
+			+ビジュアルスタイル/Classicの切り替えをできるようにした。<br>
+			+タブ幅の最大・最小を設定できるようになった。<br>
+			+タブの文字色を設定できるようになった。<br>
+			+タブの履歴を残さないオプション。また、履歴を再起動後も残すようにした。<br>
+			+Ctrl + N でタブのクローンができるようにした。 (thx TOBY氏)<br>
+			+explorer.exe のコマンドラインスイッチ( /select )に対応。 (thx foo 氏)<br>
+			+メニューにアイコンを表示するようにした。<br>
+			+Alt + Ctrl + ←/→ で、タブの履歴の最初/最後に移動するようにした。<br>
+			+OpenGroup.exeのバージョンアップ。引数なしで起動したときにグループメニューを出すようにした。<br>
+			<br>
+			○タブのドラッグの修正。<br>
+			○OpenGroup.exe( ver1.1) の名前の変更が動作してなかったバグ修正。<br>
+			○その他バグ修正<br>
+	<br>
+		</blockquote>
+		<br>
+		1.0.4.2(2006/5/16)<br>
+		<blockquote>
+			○1.0.4で、新規タブの挿入位置を「左」または「一番左」にしたときにエラーが発生していたバグを修正。<br>
+			( thx 橘氏 )<br>
+		</blockquote>
+		<br>
+		1.0.4.1(2006/5/14)<br>
+		<blockquote>
+			○1.0.4をアップロードした途端にバグ発見……。<br>
+		</blockquote>
+		<br>
+		1.0.4(2006/5/14)<br>
+		<blockquote>
+			+検索結果や特殊フォルダまわりの動作を変更。<br>
+			　・「存在しない」と閉じられたり、検索結果が初期状態に戻ったりほとんどしなくなった。はず。<br>
+			　・検索画面を常に別ウインドウで開くオプションを廃止。<br>
+			　( thx 中年カルビ氏 )<br>
+
+			+タブの文字色のオプション。(とりあえず非アクティブをグレーに)<br>
+			+ボーダーを描画するオプション<br>
+			+OpenGroup.exeへのショートカットもドロップできるようになった。<br>
+
+			<br>
+			○外観の修正。<br>
+			○オプションダイアログまわりのバグ修正。<br>
+			○その他バグ修正。<br>
+
+		</blockquote>
+		<br>
+		1.0.3(2006/5/1)<br>
+		<blockquote>
+			+戻る/進むボタンを表示するオプションを追加。<br>
+			+4～5ボタンマウスの X1・X2ボタンに戻る/進むを割り当てるオプション。 ( thx GONT氏 )<br>
+			+検索画面を常に別ウインドウで開くオプションを追加。( thx 中年カルビ氏 )<br>
+			+ファイル等右ドラッグ時にタブを選択できるようにした。<br>
+			<br>
+			○「最後にアクティブにしたタブ」の動作修正。<br>
+			○ Ctrl + Shift + Z まわりのバグ修正。<br>
+			○ Ctrl, Shiftキーの動作変更。<br>
+			○ファイル選択状態の修正。<br>
+			○ダイアログを表示しているときにもショートカットキーその他が効いてしまっていたバグを修正。<br>
+			○UNCパスに対応。 ( thx liki 氏 )<br>
+			<br>
+			(タブの一覧機能は開発途上のため見送り)<br><br>
+
+			またK.S氏 その他の皆様、ご指摘感謝。
+
+		</blockquote>
+		<br>
+		1.0.2(2006/4/9)<br>
+		<blockquote>
+			+Ctrl + 0 ～ 9 でタブを直接選択できるようにした。<br>
+			+ウインドウ自体を閉じるメニュー追加。<br>
+			+Alt + F4 でウインドウを閉じるようにした。<br>
+			+タブを新規ウインドウに分離するメニュー追加。<br>
+			+コンテキストメニューを表示するキーボードショートカットを追加(暫定?)<br>
+
+			<br>
+			○β2で直した、修飾キー同時押し状態で開いたときの問題が再発していたのを修正<br>
+			○GroupOpener で開いたときに、不要な項目が「閉じたタブ」メニューに追加されていたのを修正<br>
+		</blockquote>
+		<br>
+		1.0.1(2006/3/29)<br>
+		<blockquote>
+			+タブの複製メニュー追加(thx himajin氏)。また空欄にタブをCtrl+ドロップでもクローンできるようにした。<br>
+			+フォルダ等をドラッグしながらタブを選択するとき、しばらくタブの上にマウスを載せておく必要があるようにした。<br>
+			+グループを開くツールを添付。<br>
+			+タブがあるときはウインドウを閉じない設定のときの、Ctrlキーの動作を変えた。<br>
+			　ロックされたタブも閉じたいときは、Ctrl + Shift を同時に押してください。<br>
+
+			  <br>
+			○閉じたタブの履歴が消去できてなかったバグ修正。<br>
+			○/rootスイッチをつけて起動したexplorerで、そのルート以下ではないフォルダをグループ等から開こうとすると例外がおきていたのを修正。<br>
+			○エクスプローラがビジーなときにタブの位置がずれることがあるのを修正。<br>
+			○メニュー等を開くときにFDDへチェックにいかないようにした。
+		</blockquote>
+		<br>
+		1.0.0(2006/3/20)<br>
+		<blockquote>
+			+タブのロック機能追加<br>
+			○最近閉じたタブのメニューの順番を逆さにした。つまり新しいのを上にした。
+		</blockquote>
+		<br>
+		0.9.7(2006/3/17)　　β8公開
+		<blockquote>
+			+メニュー等にマイコンピュータやコントロールパネルがきちんと表示されるようになった。<br>
+			+タブが複数あるときにウインドウが閉じるのを抑制できるオプションを追加した。<br>
+			（ウインドウの×ボタンを押してもタブ閉じるだけ。Ctrl押しながらだとウインドウ閉じる）<br>
+			+タブをダブルクリックしたときのアクションのオプション。<br>
+			+何もないところをダブルクリックしたときのアクションのオプション。<br>
+			○「常に新しいウインドウで開くフォルダ」が機能するようになった?<br>
+			○存在しないフォルダへのタブが最後に残ると例外だして落ちてたのを修正<br>
+			○選択状態復元の修正<br>
+			・そろそろβとります
+		</blockquote>
+		<br>
+		0.9.6(2006/3/14)　　β7公開
+		<blockquote>
+			+違うタブをアクティブにしても選択状態が戻らないようになった<br>
+			+オプション項目がこれから(もしかしたら)増えそうなのでタブに変更<br>
+			○特殊フォルダ(Font、assembly等)で落ちてたのを修正<br>
+		</blockquote>
+		0.9.5(2006/3/13)　　β6公開
+		<blockquote>
+			+戻る/進むを、エクスプローラの動作に近づけてみた(特殊フォルダでメッセージがでるけど)<br>
+			○タブ履歴が、メニューを出したタブじゃなくてカレントタブで開くバグを修正<br>
+		</blockquote>
+		0.9.4(2006/3/12)　　β5公開
+		<blockquote>
+			+タブのメニューにタブ履歴追加<br>
+			○Ctrl + Shift + Z で、閉じたフォルダの履歴の最新じゃなくて一番古いの復元してたバグ修正<br>
+			○β4で、Ctrl+Wで閉じたとき他のタブがアクティブにならなくなってたバグ修正<br>
+			○フォルダの存在確認の漏れがあったのを修正
+		</blockquote>
+		0.9.3(2006/3/10)　　β4公開
+		<blockquote>
+			+ファイル等をドラッグしながらタブにマウスを載せるとそのタブを選択するようにしてみた<br>
+			○β3で Ctrl+Tab でタブ選択ができなくなっていたのを修正<br>
+		</blockquote>
+		0.9.2(2006/3/9)　　β3公開
+		<blockquote>
+			+Ctrl + Shift + Z で直近に閉じたフォルダ復元するようにしてみる<br>
+			+マウスホイールでタブ選択改良<br>
+			+ウインドウを閉じたときのタブを復元するオプション(仮)<br>
+			○ドロップしてもプロセスが残らないようになった<br>
+		</blockquote>
+		0.9.1(2006/3/7)　　β2公開
+		<blockquote>
+			+マウスホイールでタブ選択<br>
+			+フォルダのドラッグ＆ドロップで新規タブ<br>
+			+閉じたタブ履歴<br>
+			+グループを開くときすべて閉じるオブション<br>
+			+タブにツールチップ<br>
+			○HotkeyReg2000でウインドウが閉じなくなった<br><br>
+
+			×シェルと別プロセスで起動したエクスプローラの場合、フォルダのドラッグ＆ドロップを<br>
+			実行するとプロセスが終了しないで残ってしまうエンバグ(調査中)<br>
+		</blockquote>
+		0.9.0(2006/3/6)　　β1公開<br>
+		(2006/3/3)　　開発開始<br>
+	</div>
+</div>
+-->
+
+
+
+<a name="5"></a><br>
+<div class="section">&nbsp;5&nbsp;&nbsp;&nbsp;Contact</div>
+<div  class="appContents">
+
+	Any comments, questions or bug reports are welcome.<br><br>
+
+	<table>
+		<tr>
+			<td>Mail to Quizo</td><td>:<a href="mailto:qtquizoATSIGNyahoo.co.jp">qtquizoATSIGNyahoo.co.jp</a></td>
+		</tr>
+		<tr>
+			<td>Web site</td><td>:<a href="http://members.at.infoseek.co.jp/Quizo/freeware/indexEn.html">http://members.at.infoseek.co.jp/Quizo/freeware/indexEn.html</a></td>
+		</tr>
+	</table>
+</div>
+
+
+
+<a name="6"></a><br>
+<div class="section">&nbsp;6&nbsp;&nbsp;&nbsp;BandObjectLib</div>
+<div  class="appContents">
+	This software uses <a href="http://www.codeproject.com/csharp/dotnetbandobjects.asp">BandObjectLib</a>.<br>
+	Sincere thanks to the author of BandObjectLib, Pavel Zolnikov.<br>
+	<br>
+	Quizo
+</div>
+
+<br><br>
+
+</body>
+</html>
