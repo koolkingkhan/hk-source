@@ -19,10 +19,7 @@ namespace hk.QuickestRouteFinder
 
         public IEnumerable<string> Stations
         {
-            get
-            {
-                return null != _routeManagement ? _routeManagement.Stations : null;
-            }
+            get { return null != _routeManagement ? _routeManagement.Stations : null; }
         }
 
         public int ShortestTime(string from, string to)

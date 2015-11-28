@@ -4,24 +4,25 @@
         Title="MainWindow3" Height="300" Width="300">
     <Grid Name="grid1" Width="Auto" Height="Auto">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.ColumnSpan="4" Name="textBox1"/>
+        <TextBox Grid.Row="0" Grid.ColumnSpan="4" Name="textBox1" />
         <WebBrowser Grid.Row="1" Grid.ColumnSpan="4" Name="webBrowser1" />
-        <Button Content="EAP" Margin="5,0,0,5"  Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Name="button1" />
+        <Button Content="EAP" Margin="5,0,0,5" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                Name="button1" />
         <WrapPanel Grid.Row="2" Grid.Column="3">
             <Button Content="Thread" Name="button2" />
             <Button Content="TPL" Margin="5,0,0,0" Name="button3" />
         </WrapPanel>
-        
+
     </Grid>
 </Window>

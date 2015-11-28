@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace at.hk.Parser
+﻿namespace at.hk.Parser
 {
     public interface ITweet
     {

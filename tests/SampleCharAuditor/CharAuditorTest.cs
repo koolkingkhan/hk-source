@@ -1,9 +1,8 @@
-﻿using hk.Core.Tests;
+﻿using hk.Common.Tests;
 using NUnit.Framework;
 
 namespace hk.SampleCharAuditor.Tests
 {
-    
     public class Foo
     {
         public string AppendedString(ICharAuditor auditor)
@@ -14,7 +13,7 @@ namespace hk.SampleCharAuditor.Tests
 
 
     /// <summary>
-    /// Summary description for CharAuditorTest
+    ///     Summary description for CharAuditorTest
     /// </summary>
     [TestFixture, ConsoleAction("CharAuditorTest")]
     public class CharAuditorTest

@@ -69,12 +69,6 @@
     <Compile Include="MathsTasks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\hk.Core\hk.Core.csproj">
-      <Project>{e5c32ede-f580-49ad-9cf0-f13ad18c1a1b}</Project>
-      <Name>hk.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

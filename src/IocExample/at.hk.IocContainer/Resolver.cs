@@ -6,16 +6,16 @@ namespace at.hk.IocContainer
 {
     public class Resolver
     {
-        private readonly Dictionary<Type, Type> _dependencyDictionary = new Dictionary<Type, Type>(); 
+        private readonly Dictionary<Type, Type> _dependencyDictionary = new Dictionary<Type, Type>();
 
         public T Resolve<T>()
         {
-            return (T)Resolve(typeof (T));
+            return (T) Resolve(typeof (T));
         }
 
         public void Register<TFrom, TTo>()
         {
-            _dependencyDictionary.Add(typeof(TFrom), typeof(TTo));
+            _dependencyDictionary.Add(typeof (TFrom), typeof (TTo));
         }
 
         private object Resolve(Type typeToResolve)

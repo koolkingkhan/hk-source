@@ -90,9 +90,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\hk.Core\hk.Core.csproj">
-      <Project>{e5c32ede-f580-49ad-9cf0-f13ad18c1a1b}</Project>
-      <Name>hk.Core</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{E5C32EDE-F580-49AD-9CF0-F13AD18C1A1B}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

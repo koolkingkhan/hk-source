@@ -4,5 +4,5 @@
 
     <sys:String x:Key="AppTitle">MDN</sys:String>
     <SolidColorBrush x:Key="BrushKey">Yellow</SolidColorBrush>
-    
+
 </ResourceDictionary>

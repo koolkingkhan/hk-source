@@ -25,7 +25,7 @@ namespace hk.DirectoryComparer
         private void InitialiseDefaultView()
         {
             btnCompare.Enabled = false;
-            
+
             WindowState = FormWindowState.Maximized;
         }
 
@@ -39,10 +39,10 @@ namespace hk.DirectoryComparer
             if (_backgroundWorker == null)
             {
                 _backgroundWorker = new BackgroundWorker
-                                        {
-                                            WorkerReportsProgress = true,
-                                            WorkerSupportsCancellation = true
-                                        };
+                {
+                    WorkerReportsProgress = true,
+                    WorkerSupportsCancellation = true
+                };
             }
 
             _backgroundWorker.DoWork += (s, e) => DoWork();
@@ -52,7 +52,7 @@ namespace hk.DirectoryComparer
 
         private void BrowseDirectory(TextBox textBox)
         {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            var dialog = new FolderBrowserDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -77,8 +77,11 @@ namespace hk.DirectoryComparer
 
             if (dataGridView.Columns[e.ColumnIndex].Name.Equals("Files", StringComparison.OrdinalIgnoreCase))
             {
-                if (!string.IsNullOrEmpty(dataGridView.Rows[e.RowIndex].Cells["Full path in original directory"].Value.ToString()) &&
-                    !string.IsNullOrEmpty(dataGridView.Rows[e.RowIndex].Cells["Full path in modified directory"].Value.ToString()))
+                if (
+                    !string.IsNullOrEmpty(
+                        dataGridView.Rows[e.RowIndex].Cells["Full path in original directory"].Value.ToString()) &&
+                    !string.IsNullOrEmpty(
+                        dataGridView.Rows[e.RowIndex].Cells["Full path in modified directory"].Value.ToString()))
                 {
                     e.CellStyle.BackColor = Color.LightSkyBlue;
                 }
@@ -123,12 +126,8 @@ namespace hk.DirectoryComparer
 
                 foreach (var item in _comparer.Files)
                 {
-                    _table.Rows.Add(new object[]
-                                        {
-                                            Path.GetFileName(item.LatestFile),
-                                            item.FileNameInDirectory1,
-                                            item.FileNameInDirectory2
-                                        });
+                    _table.Rows.Add(Path.GetFileName(item.LatestFile), item.FileNameInDirectory1,
+                        item.FileNameInDirectory2);
                 }
             }
         }

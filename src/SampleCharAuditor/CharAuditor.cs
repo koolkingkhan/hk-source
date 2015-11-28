@@ -8,15 +8,15 @@ namespace hk.SampleCharAuditor
     {
         public string GetMostPrevalentChar(string input)
         {
-            Dictionary<char, int> charactersCount = new Dictionary<char, int>();
+            var charactersCount = new Dictionary<char, int>();
             char? returnVal = null;
 
-            foreach (char c in input)
+            foreach (var c in input)
             {
                 if (charactersCount.ContainsKey(c))
                 {
                     charactersCount[c]++;
-                    int temp = charactersCount[c];
+                    var temp = charactersCount[c];
                     if (returnVal.HasValue && charactersCount[returnVal.Value] < temp)
                     {
                         returnVal = c;
@@ -37,14 +37,14 @@ namespace hk.SampleCharAuditor
 
         public string GetFirstNSortedChars(string input, int topN)
         {
-            List<char> characters = new List<char>(input.ToCharArray());
+            var characters = new List<char>(input.ToCharArray());
             characters.Sort();
 
-            string str = characters.Aggregate(string.Empty, (current, character) => current + character);
-            
+            var str = characters.Aggregate(string.Empty, (current, character) => current + character);
+
             if (topN < str.Length)
             {
-                return str.Substring(0, topN);    
+                return str.Substring(0, topN);
             }
 
             return str;

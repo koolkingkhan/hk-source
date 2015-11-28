@@ -10,7 +10,7 @@ namespace BindingValidation
             var str = value as string;
             if (string.IsNullOrEmpty(str))
             {
-                return new ValidationResult(false,"Value required!");
+                return new ValidationResult(false, "Value required!");
             }
 
             return new ValidationResult(true, null);

@@ -5,8 +5,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/WpfLibrary;component/CustomEffectsDictionary.xaml"/>
-                <ResourceDictionary Source="/WpfLibrary;component/CustomStylesDictionary.xaml"/>
+                <ResourceDictionary Source="/WpfLibrary;component/CustomEffectsDictionary.xaml" />
+                <ResourceDictionary Source="/WpfLibrary;component/CustomStylesDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

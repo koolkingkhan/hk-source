@@ -101,17 +101,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\hk.Core\hk.Core.csproj">
-      <Project>{e5c32ede-f580-49ad-9cf0-f13ad18c1a1b}</Project>
-      <Name>hk.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\QuickestRouteFinder\QuickestRouteFinder.csproj">
       <Project>{ABFE9F0A-C7AC-4474-BC98-F546395988E2}</Project>
       <Name>QuickestRouteFinder</Name>
     </ProjectReference>
-    <ProjectReference Include="..\hk.Core\hk.Core.Tests.csproj">
+    <ProjectReference Include="..\Common\Common.Tests.csproj">
       <Project>{63d0d7a6-da88-4e61-a16b-e902f9a84300}</Project>
-      <Name>hk.Core.Tests</Name>
+      <Name>Common.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

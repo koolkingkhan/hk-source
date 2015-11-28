@@ -1,15 +1,15 @@
 ﻿<Window x:Class="BindingValidation.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="clr-namespace:BindingValidation"
         Title="{StaticResource AppTitle}" Height="300" MinWidth="400">
-    
+
     <Window.Resources>
-        <d:Employee x:Key="emp"/>
-        
+        <d:Employee x:Key="emp" />
+
         <Style x:Key="labelInError" TargetType="{x:Type Label}">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=tbSalary,Path=(Validation.HasError)}" 
+                <DataTrigger Binding="{Binding ElementName=tbSalary,Path=(Validation.HasError)}"
                              Value="True">
                     <Setter Property="Foreground" Value="White" />
                     <Setter Property="Background" Value="Red" />
@@ -17,21 +17,21 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
-        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" >
+
+        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5">
             <TextBox.Text>
                 <Binding Path="EmployeeName" Source="{StaticResource emp}" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -40,7 +40,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbId" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" >
+        <TextBox Name="tbId" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5">
             <TextBox.Text>
                 <Binding Path="EmployeeId" Source="{StaticResource emp}" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -49,7 +49,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Name="tbAge" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" >
+        <TextBox Name="tbAge" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5">
             <TextBox.Text>
                 <Binding Path="EmployeeAge" Source="{StaticResource emp}" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -62,24 +62,29 @@
             <TextBox.Text>
                 <Binding Path="EmployeeSalary" Source="{StaticResource emp}" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <d:NumericRules Min="0" Max="5000"/>
+                        <d:NumericRules Min="0" Max="5000" />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        
-        <Label Content="_Name" Target="{Binding ElementName=tbName}" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblName" Grid.Row="0"/>           
-        <Label Content="_Id" Target="{Binding ElementName=tbId}" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblId" Grid.Row="1" />
-        <Label Content="_Age" Target="{Binding ElementName=tbAge}" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblAge" Grid.Row="2" />
-        <Label Content="_Salary" Target="{Binding ElementName=tbSalary}" HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblSalary" Grid.Row="4" Style="{StaticResource labelInError}"/>
 
-        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblNameErr" Grid.Row="0" Grid.Column="2" 
-               Content="{Binding ElementName=tbName,Path=(Validation.Errors)[0].ErrorContent}"/>
-        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblIdErr" Grid.Row="1" Grid.Column="2" 
-               Content="{Binding ElementName=tbId,Path=(Validation.Errors)[0].ErrorContent}"/>
-        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblAgeErr" Grid.Row="2" Grid.Column="2" 
-               Content="{Binding ElementName=tbAge,Path=(Validation.Errors)[0].ErrorContent}"/>
-        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblSalaryErr" Grid.Row="4" Grid.Column="2" 
-               Content="{Binding ElementName=tbSalary,Path=(Validation.Errors)[0].ErrorContent}" Style="{StaticResource labelInError}"/>
+        <Label Content="_Name" Target="{Binding ElementName=tbName}" HorizontalAlignment="Left"
+               VerticalAlignment="Center" Name="lblName" Grid.Row="0" />
+        <Label Content="_Id" Target="{Binding ElementName=tbId}" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Name="lblId" Grid.Row="1" />
+        <Label Content="_Age" Target="{Binding ElementName=tbAge}" HorizontalAlignment="Left"
+               VerticalAlignment="Center" Name="lblAge" Grid.Row="2" />
+        <Label Content="_Salary" Target="{Binding ElementName=tbSalary}" HorizontalAlignment="Left"
+               VerticalAlignment="Center" Name="lblSalary" Grid.Row="4" Style="{StaticResource labelInError}" />
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblNameErr" Grid.Row="0" Grid.Column="2"
+               Content="{Binding ElementName=tbName,Path=(Validation.Errors)[0].ErrorContent}" />
+        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblIdErr" Grid.Row="1" Grid.Column="2"
+               Content="{Binding ElementName=tbId,Path=(Validation.Errors)[0].ErrorContent}" />
+        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblAgeErr" Grid.Row="2" Grid.Column="2"
+               Content="{Binding ElementName=tbAge,Path=(Validation.Errors)[0].ErrorContent}" />
+        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Name="lblSalaryErr" Grid.Row="4" Grid.Column="2"
+               Content="{Binding ElementName=tbSalary,Path=(Validation.Errors)[0].ErrorContent}"
+               Style="{StaticResource labelInError}" />
     </Grid>
 </Window>

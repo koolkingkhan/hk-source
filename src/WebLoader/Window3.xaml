@@ -3,39 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="{StaticResource AppTitle}" Height="300" Width="300">
     <Grid>
-        <TextBox Grid.Row="0" Name="textBox1" Margin="0,0,0,5"/>
-        <Button Content="Change" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,0,5" Name="buttonChange" Background="{StaticResource BrushKey}">
+        <TextBox Grid.Row="0" Name="textBox1" Margin="0,0,0,5" />
+        <Button Content="Change" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,0,5"
+                Name="buttonChange" Background="{StaticResource BrushKey}">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                    <Grid >
-                        <Ellipse Fill="{TemplateBinding Background}"/>
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid>
+                        <Ellipse Fill="{TemplateBinding Background}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <WebBrowser Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Name="webBrowser"/>
-        <Button Content="THREAD" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="0,20,0,0" Name="buttonThread"/>
+        <WebBrowser Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Name="webBrowser" />
+        <Button Content="THREAD" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="0,20,0,0"
+                Name="buttonThread" />
         <ScrollViewer>
-        <StackPanel Grid.Column="1" Grid.Row="2" Name="stackPanel1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="buttonEclipse" Margin="0,20,5,0" Background="Transparent" BorderBrush="Transparent">
-                <Grid>
-                    <Ellipse Width="40" Height="15" Fill="{StaticResource BrushKey}"/>
-                    <TextBlock HorizontalAlignment="Center">Test</TextBlock>
-                </Grid>
-            </Button>
-            <Button Content="TPL" Name="buttonTPL" Margin="0,20,5,0"/>
-            <Button Content="EAP" Name="buttonEAP" Margin="0,20,0,0"/>
-        </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="2" Name="stackPanel1" Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Name="buttonEclipse" Margin="0,20,5,0" Background="Transparent" BorderBrush="Transparent">
+                    <Grid>
+                        <Ellipse Width="40" Height="15" Fill="{StaticResource BrushKey}" />
+                        <TextBlock HorizontalAlignment="Center">Test</TextBlock>
+                    </Grid>
+                </Button>
+                <Button Content="TPL" Name="buttonTPL" Margin="0,20,5,0" />
+                <Button Content="EAP" Name="buttonEAP" Margin="0,20,0,0" />
+            </StackPanel>
         </ScrollViewer>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
     </Grid>
 </Window>

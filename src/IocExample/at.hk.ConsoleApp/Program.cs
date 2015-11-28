@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
 using at.hk.Connector;
 using at.hk.IocContainer;
 using at.hk.Parser;
@@ -8,11 +6,11 @@ using at.hk.Storage;
 
 namespace at.hk.ConsoleApp
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Resolver resolver = new Resolver();
+            var resolver = new Resolver();
             resolver.Register<IConnector, FileConnector>();
             resolver.Register<IParser<Tweet>, TwitterParser>();
             resolver.Register<IStorageManager, FileStorageManager>();

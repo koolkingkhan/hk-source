@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Globalization;
 
 namespace WebLoader
 {
     /// <summary>
-    /// Interaction logic for Window9.xaml
+    ///     Interaction logic for Window9.xaml
     /// </summary>
     public partial class Window9 : Window
     {
@@ -20,19 +19,19 @@ namespace WebLoader
 
         private void SetUpDataCollection()
         {
-            string[] names = new string[]{"Peter", "Paul", "John", "Sam", "Claire", "Mark"};
-            string[] dept = new string[] { "Sales", "Marketing", "R&D", "Development", "QA", "IT" };
+            string[] names = {"Peter", "Paul", "John", "Sam", "Claire", "Mark"};
+            string[] dept = {"Sales", "Marketing", "R&D", "Development", "QA", "IT"};
 
-            Random randSalary = new Random(2000);
-            Random randNames = new Random(names.Length - 1);
-            Random randDept = new Random(dept.Length-1);
+            var randSalary = new Random(2000);
+            var randNames = new Random(names.Length - 1);
+            var randDept = new Random(dept.Length - 1);
 
-            for (int i = 0; i < 10000; i++)
+            for (var i = 0; i < 10000; i++)
             {
-                string data = string.Format("{0}:{1},{2}", 
-                                            names[randNames.Next(names.Length-1)], 
-                                            randSalary.Next(2000), 
-                                            dept[randDept.Next(dept.Length-1)]);
+                var data = string.Format("{0}:{1},{2}",
+                    names[randNames.Next(names.Length - 1)],
+                    randSalary.Next(2000),
+                    dept[randDept.Next(dept.Length - 1)]);
                 _myCollection.Add(data);
             }
 

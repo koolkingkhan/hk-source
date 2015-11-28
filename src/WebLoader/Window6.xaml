@@ -5,10 +5,10 @@
     <Grid>
         <Viewbox Stretch="UniformToFill">
             <Canvas Name="canvas1" Height="100" Width="100">
-                <Ellipse Width="100" Height="100" Fill="Yellow" Stroke="Black" StrokeThickness="6"/>
-                <Ellipse Canvas.Left="25" Canvas.Top="23" Width="15" Height="20" Fill="Black"/>
-                <Ellipse Canvas.Right="25" Canvas.Top="23" Width="15" Height="20" Fill="Black"/>
-                <Path Stroke="Black" StrokeThickness="4" Data="M20, 60 Q 50, 100 80, 60"/>
+                <Ellipse Width="100" Height="100" Fill="Yellow" Stroke="Black" StrokeThickness="6" />
+                <Ellipse Canvas.Left="25" Canvas.Top="23" Width="15" Height="20" Fill="Black" />
+                <Ellipse Canvas.Right="25" Canvas.Top="23" Width="15" Height="20" Fill="Black" />
+                <Path Stroke="Black" StrokeThickness="4" Data="M20, 60 Q 50, 100 80, 60" />
             </Canvas>
         </Viewbox>
     </Grid>

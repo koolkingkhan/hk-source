@@ -4,7 +4,7 @@
     {
         public decimal GetTax(decimal rawPrice)
         {
-            return 0.2M *rawPrice;
+            return 0.2M*rawPrice;
         }
     }
 }

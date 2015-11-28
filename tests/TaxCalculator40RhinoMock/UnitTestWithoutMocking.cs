@@ -1,21 +1,38 @@
-﻿using hk.Core.Tests;
+﻿using hk.Common.Tests;
 using NUnit.Framework;
 
 namespace hk.TaxCalculator.Tests
 {
     /// <summary>
-    /// Summary description for UnitTestWithoutMocking
+    ///     Summary description for UnitTestWithoutMocking
     /// </summary>
     [TestFixture, ConsoleAction("UnitTestWithoutMocking")]
     public class UnitTestWithoutMocking
     {
         /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
+        ///     Gets or sets the test context which provides
+        ///     information about and functionality for the current test run.
+        /// </summary>
         public TestContext TestContext { get; set; }
 
-        #region Additional test attributes
+        [Test]
+        public void Test1()
+        {
+            const int expected = 30;
+            ITaxCalculator mock = new TaxCalculator();
+
+            var prod = new Product
+            {
+                Id = 123,
+                Name = "Something",
+                RawPrice = 25.0M
+            };
+
+            var calculatedTax = prod.GetPriceWithTax(mock);
+
+            Assert.AreEqual(expected, calculatedTax);
+        }
+
         //
         // You can use the following additional attributes as you write your tests:
         //
@@ -35,24 +52,5 @@ namespace hk.TaxCalculator.Tests
         // [TestCleanup()]
         // public void MyTestCleanup() { }
         //
-        #endregion
-
-        [Test]
-        public void Test1()
-        {
-            const int expected = 30;
-            ITaxCalculator mock = new TaxCalculator();
-
-            Product prod = new Product
-            {
-                Id = 123,
-                Name = "Something",
-                RawPrice = 25.0M
-            };
-
-            decimal calculatedTax = prod.GetPriceWithTax(mock);
-            
-            Assert.AreEqual(expected, calculatedTax);
-        }
     }
 }

@@ -10,7 +10,7 @@
             }
 
             double parsedVal;
-            bool status = double.TryParse(value, out parsedVal);
+            var status = double.TryParse(value, out parsedVal);
             return status ? new Result(false, "Please enter a value without Numerics!") : new Result(true);
         }
 
@@ -22,7 +22,7 @@
             }
 
             double parsedVal;
-            bool status = double.TryParse(value, out parsedVal);
+            var status = double.TryParse(value, out parsedVal);
             return !status ? new Result(false, "Numeric value required!") : new Result(true);
         }
 
@@ -34,15 +34,15 @@
             }
 
             double parsedVal;
-            bool status = double.TryParse(value, out parsedVal);
+            var status = double.TryParse(value, out parsedVal);
 
             if (!status)
             {
                 return new Result(false, "Numeric value required!");
             }
 
-            int min = 0;
-            int max = 1000;
+            var min = 0;
+            var max = 1000;
 
             if (parsedVal < min)
             {

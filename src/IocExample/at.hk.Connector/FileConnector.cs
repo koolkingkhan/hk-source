@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Linq;
 
 namespace at.hk.Connector
 {
@@ -10,9 +9,9 @@ namespace at.hk.Connector
 
         public void Connect(string url)
         {
-            MemoryStream ms = new MemoryStream();
+            var ms = new MemoryStream();
             {
-                using (FileStream fileStream = new FileStream(url, FileMode.Open, FileAccess.Read))
+                using (var fileStream = new FileStream(url, FileMode.Open, FileAccess.Read))
                 {
                     fileStream.CopyTo(ms);
                     fileStream.Flush();
@@ -20,7 +19,7 @@ namespace at.hk.Connector
 
                 if (DataReceivedHandler != null)
                 {
-                    DataReceivedHandler(this,new DataReceivedEventArgs(ms));
+                    DataReceivedHandler(this, new DataReceivedEventArgs(ms));
                 }
             }
         }

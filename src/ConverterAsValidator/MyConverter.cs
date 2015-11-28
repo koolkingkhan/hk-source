@@ -8,46 +8,38 @@ namespace ConverterAsValidator
 {
     public class MyConverter : IValueConverter
     {
-        public SolidColorBrush DefaultValue { get; set; }
-
         private readonly Dictionary<string, Func<string, Result>> _validation;
 
         private bool _initialized;
-
-        private enum Error
-        {
-            Message,
-            Foreground,
-            Background,
-            LblBackground
-        };
 
         public MyConverter()
         {
             if (_validation == null)
             {
                 _validation = new Dictionary<string, Func<string, Result>>
-                    {
-                        {"name", Rules.IsNonNumericString},
-                        {"id", Rules.IsValidNumber},
-                        {"age", Rules.IsValidNumber},
-                        {"salary", Rules.InRange},
-                    };
+                {
+                    {"name", Rules.IsNonNumericString},
+                    {"id", Rules.IsValidNumber},
+                    {"age", Rules.IsValidNumber},
+                    {"salary", Rules.InRange}
+                };
             }
         }
 
+        public SolidColorBrush DefaultValue { get; set; }
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string param = parameter as string;
+            var param = parameter as string;
             if (string.IsNullOrEmpty(param))
             {
                 return Brushes.Black;
             }
 
-            Error returnValType = Error.Message;
+            var returnValType = Error.Message;
 
-            string[] tokens = param.Split(new string[] { "_" }, StringSplitOptions.RemoveEmptyEntries);
-            
+            var tokens = param.Split(new[] {"_"}, StringSplitOptions.RemoveEmptyEntries);
+
             if (tokens.Length > 1)
             {
                 Error errorType;
@@ -61,7 +53,7 @@ namespace ConverterAsValidator
             Func<string, Result> action;
             if (_validation.TryGetValue(param.ToLowerInvariant(), out action))
             {
-                string str = value as string;
+                var str = value as string;
 
                 if (string.IsNullOrEmpty(str) && !_initialized)
                 {
@@ -94,7 +86,7 @@ namespace ConverterAsValidator
                     case Error.Message:
                         return result.Valid ? string.Empty : result.ErrorMessage;
                     case Error.Foreground:
-                        return result.Valid ? Brushes.Black: Brushes.White;
+                        return result.Valid ? Brushes.Black : Brushes.White;
                     case Error.Background:
                         return result.Valid ? Brushes.Black : Brushes.Red;
                     case Error.LblBackground:
@@ -108,6 +100,14 @@ namespace ConverterAsValidator
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+
+        private enum Error
+        {
+            Message,
+            Foreground,
+            Background,
+            LblBackground
         }
     }
 }

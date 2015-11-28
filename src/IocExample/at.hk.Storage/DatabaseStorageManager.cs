@@ -1,3 +1,5 @@
+using System;
+
 namespace at.hk.Storage
 {
     public class DatabaseStorageManager : IStorageManager
@@ -6,7 +8,7 @@ namespace at.hk.Storage
 
         public bool Save<T>(string name, T data)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         #endregion

@@ -4,16 +4,15 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using hk.Core;
-using hk.Core.Utilities;
+using hk.Common.Utilities;
 using hk.QuickestRouteFinder.Interfaces;
 
 namespace hk.QuickestRouteFinder
 {
     internal class RouteManagement<T> where T : IRoutes, new()
     {
-        private T _routes;
         private readonly RouteCalculator _routeCalculator;
+        private T _routes;
 
         public RouteManagement(XmlDocument document)
         {
@@ -35,10 +34,7 @@ namespace hk.QuickestRouteFinder
 
         internal IEnumerable<string> Stations
         {
-            get
-            {
-                return null != _routeCalculator ? _routeCalculator.Stations : null;
-            }
+            get { return null != _routeCalculator ? _routeCalculator.Stations : null; }
         }
 
         internal int ShortestTime(string from, string to)
@@ -61,16 +57,15 @@ namespace hk.QuickestRouteFinder
                 return _routes;
             }
 
-            using (MemoryStream stream = new MemoryStream())
+            using (var stream = new MemoryStream())
             {
                 document.Save(stream);
                 stream.Flush();
                 stream.Position = 0;
                 return HelperMethods.TryDeserialize(stream, out _routes) ? _routes : default(T);
-
             }
         }
-        
+
 
         private bool TrySerialize<TMyType>()
         {
@@ -81,10 +76,10 @@ namespace hk.QuickestRouteFinder
 
             try
             {
-                string saveLocation = Path.Combine(Path.GetPathRoot(Environment.CurrentDirectory), "test.xml");
-                using (StreamWriter writer = new StreamWriter(saveLocation, false))
+                var saveLocation = Path.Combine(Path.GetPathRoot(Environment.CurrentDirectory), "test.xml");
+                using (var writer = new StreamWriter(saveLocation, false))
                 {
-                    XmlSerializer xml = new XmlSerializer(typeof(TMyType));
+                    var xml = new XmlSerializer(typeof (TMyType));
                     xml.Serialize(writer, _routes);
                     return true;
                 }

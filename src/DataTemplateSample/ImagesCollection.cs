@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 
 namespace DataTemplateSample
@@ -14,7 +13,7 @@ namespace DataTemplateSample
             {
                 if (_pathCollection.Count == 0)
                 {
-                    string imagesDirectory = Path.GetFullPath(@"..\..\Images");
+                    var imagesDirectory = Path.GetFullPath(@"..\..\Images");
                     _pathCollection.Add(Path.Combine(imagesDirectory, "Sunset.jpg"));
                     _pathCollection.Add(Path.Combine(imagesDirectory, "Sample1.jpg"));
                     _pathCollection.Add(Path.Combine(imagesDirectory, "Blue hills.jpg"));

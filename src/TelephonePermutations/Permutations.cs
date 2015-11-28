@@ -6,7 +6,7 @@ namespace hk.TelephonePermutations
     {
         public static List<string> PrintPhoneNumberPermutations(string phoneNum)
         {
-            Dictionary<char, string> m = new Dictionary<char, string>(10);
+            var m = new Dictionary<char, string>(10);
             m['0'] = "0";
             m['1'] = "abc";
             m['2'] = "def";
@@ -19,15 +19,15 @@ namespace hk.TelephonePermutations
             m['9'] = "yz";
 
             List<string> finalStrs = null;
-            foreach (char c in phoneNum)
+            foreach (var c in phoneNum)
             {
-                List<string> newStrs = new List<string>();
+                var newStrs = new List<string>();
 
                 // First time in loop
                 if (finalStrs == null)
                 {
                     finalStrs = new List<string>();
-                    foreach (char d in m[c])
+                    foreach (var d in m[c])
                     {
                         finalStrs.Add(d.ToString());
                     }
@@ -35,9 +35,9 @@ namespace hk.TelephonePermutations
                 }
 
                 // Sebsequent times in loop do permutations
-                foreach (char d in m[c])
+                foreach (var d in m[c])
                 {
-                    foreach (string prevStr in finalStrs)
+                    foreach (var prevStr in finalStrs)
                     {
                         newStrs.Add(prevStr + d);
                     }
@@ -52,7 +52,5 @@ namespace hk.TelephonePermutations
             //    System.Diagnostics.Debug.WriteLine(s);
             //}
         }
-
     }
 }
-

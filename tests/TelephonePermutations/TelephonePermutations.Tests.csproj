@@ -98,9 +98,9 @@
       <Project>{8a07c96c-fcb7-4d22-a80d-b73b32465ba0}</Project>
       <Name>TelephonePermutations</Name>
     </ProjectReference>
-    <ProjectReference Include="..\hk.Core\hk.Core.Tests.csproj">
+    <ProjectReference Include="..\Common\Common.Tests.csproj">
       <Project>{63d0d7a6-da88-4e61-a16b-e902f9a84300}</Project>
-      <Name>hk.Core.Tests</Name>
+      <Name>Common.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

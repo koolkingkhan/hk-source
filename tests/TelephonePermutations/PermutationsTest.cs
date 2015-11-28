@@ -1,4 +1,4 @@
-﻿using hk.Core.Tests;
+﻿using hk.Common.Tests;
 using NUnit.Framework;
 
 namespace hk.TelephonePermutations.Tests

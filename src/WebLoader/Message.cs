@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace WebLoader
 {
     public class Message
     {
-        public string Time { get; set; }
-        public string Content { get; set; }
-
         public Message(string time, string content)
         {
             if (string.IsNullOrWhiteSpace(time))
@@ -24,5 +18,8 @@ namespace WebLoader
             Time = time;
             Content = content;
         }
+
+        public string Time { get; set; }
+        public string Content { get; set; }
     }
 }

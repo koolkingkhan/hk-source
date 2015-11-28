@@ -3,19 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dts="clr-namespace:DataTemplateSample"
         Title="MainWindow" Height="350" Width="525">
-    
-    
+
+
     <Window.Resources>
-        <dts:ImagesCollection x:Key="images"/>       
+        <dts:ImagesCollection x:Key="images" />
         <DataTemplate x:Key="stringTemplate">
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="The following file does not exist:" Foreground="Red" FontSize="16"/>
-                <TextBlock Text="{Binding}"/>
+                <TextBlock Text="The following file does not exist:" Foreground="Red" FontSize="16" />
+                <TextBlock Text="{Binding}" />
             </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="imageTemplate">
-            <Image Source="{Binding}" Stretch="UniformToFill" Width="200"/>
+            <Image Source="{Binding}" Stretch="UniformToFill" Width="200" />
         </DataTemplate>
 
         <dts:CustomTemplateSelector x:Key="customTemplateSelector" />
@@ -24,8 +24,7 @@
 
     <Grid>
         <ListView
-              ItemsSource="{Binding Path=PathCollection, Source={StaticResource images}}" 
-              ItemTemplateSelector="{StaticResource customTemplateSelector}">
-        </ListView>
+            ItemsSource="{Binding Path=PathCollection, Source={StaticResource images}}"
+            ItemTemplateSelector="{StaticResource customTemplateSelector}" />
     </Grid>
 </Window>

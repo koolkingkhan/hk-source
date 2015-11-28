@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using hk.Core.Tests;
+using hk.Common.Tests;
 using NUnit.Framework;
 
 namespace hk.MathsTasks.Tests
@@ -12,24 +11,24 @@ namespace hk.MathsTasks.Tests
         [Test]
         public void TestCalculatePrimeNumbers()
         {
-            List<int> primes = MathsTasks.CalculatePrimeNumbers(50);
+            var primes = MathsTasks.CalculatePrimeNumbers(50);
 
-            foreach (int prime in primes)
+            foreach (var prime in primes)
             {
                 Console.WriteLine(prime);
             }
         }
 
         [Test]
-        public void TestNthFibonacciNumber()
+        public void TestMissingNumberInOrderedList()
         {
-            Console.WriteLine(MathsTasks.NthFibonacciNumber(6));
+            Console.WriteLine(MathsTasks.MissingNumberInSequence(new[] {0, 1, 2, 3, 4, 5, 7, 8, 9}));
         }
 
         [Test]
-        public void TestMissingNumberInOrderedList()
+        public void TestNthFibonacciNumber()
         {
-            Console.WriteLine(MathsTasks.MissingNumberInSequence(new[] { 0,1, 2, 3, 4, 5, 7, 8, 9 }));
+            Console.WriteLine(MathsTasks.NthFibonacciNumber(6));
         }
     }
 }

@@ -19,7 +19,7 @@ namespace hk.QuickestRouteFinder
     public class Routes : IRoutes
     {
         [XmlArray("RoutesAndTravelTimes")]
-        [XmlArrayItem(Type = typeof(RouteMetadata), IsNullable = false)]
+        [XmlArrayItem(Type = typeof (RouteMetadata), IsNullable = false)]
         public List<RouteMetadata> RoutesAndTravelTimes { get; set; }
     }
 }

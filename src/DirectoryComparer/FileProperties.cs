@@ -11,26 +11,14 @@ namespace hk.DirectoryComparer
 
         public string FileNameInDirectory1
         {
-            get 
-            { 
-                return null != _fileNameInDirectory1 ? _fileNameInDirectory1.FullName : null;
-            }
-            set
-            {
-                _fileNameInDirectory1 = !string.IsNullOrEmpty(value) ? new FileInfo(value) : null;
-            }
+            get { return null != _fileNameInDirectory1 ? _fileNameInDirectory1.FullName : null; }
+            set { _fileNameInDirectory1 = !string.IsNullOrEmpty(value) ? new FileInfo(value) : null; }
         }
 
         public string FileNameInDirectory2
         {
-            get
-            {
-                return null !=_fileNameInDirectory2 ? _fileNameInDirectory2.FullName : null;
-            }
-            set
-            {
-                _fileNameInDirectory2 = !string.IsNullOrEmpty(value) ? new FileInfo(value) : null;
-            }
+            get { return null != _fileNameInDirectory2 ? _fileNameInDirectory2.FullName : null; }
+            set { _fileNameInDirectory2 = !string.IsNullOrEmpty(value) ? new FileInfo(value) : null; }
         }
 
 
@@ -54,15 +42,15 @@ namespace hk.DirectoryComparer
                 if (Identical.HasValue)
                 {
                     return _fileNameInDirectory1.LastWriteTime > _fileNameInDirectory2.LastWriteTime
-                         ? FileNameInDirectory1
-                         : FileNameInDirectory2;
+                        ? FileNameInDirectory1
+                        : FileNameInDirectory2;
                 }
-                
+
                 if (null != _fileNameInDirectory1)
                 {
                     return _fileNameInDirectory1.FullName;
                 }
-                
+
                 return null != _fileNameInDirectory2 ? _fileNameInDirectory2.FullName : null;
             }
         }

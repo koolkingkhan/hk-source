@@ -5,16 +5,10 @@ namespace hk.DirectoryComparer
 {
     public class Comparer
     {
-        private enum Directories
-        {
-            Directory1 = 1, Directory2
-        }
-
         public Comparer()
             : this(string.Empty, string.Empty)
-        { }
-
-        public List<FileProperties> Files { get; set; }
+        {
+        }
 
         public Comparer(string path1, string path2)
         {
@@ -23,6 +17,8 @@ namespace hk.DirectoryComparer
 
             Files = new List<FileProperties>();
         }
+
+        public List<FileProperties> Files { get; set; }
 
         public string DirectoryPath1 { get; set; }
 
@@ -33,10 +29,10 @@ namespace hk.DirectoryComparer
             if (string.IsNullOrEmpty(DirectoryPath1) || string.IsNullOrEmpty(DirectoryPath2))
                 return;
 
-            DirectoryTree directory1 = new DirectoryTree(DirectoryPath1);
+            var directory1 = new DirectoryTree(DirectoryPath1);
             directory1.CreateDirectoryTree();
 
-            DirectoryTree directory2 = new DirectoryTree(DirectoryPath2);
+            var directory2 = new DirectoryTree(DirectoryPath2);
             directory2.CreateDirectoryTree();
 
             CompareDirectories(directory1, directory2);
@@ -45,18 +41,19 @@ namespace hk.DirectoryComparer
         private void CompareDirectories(DirectoryTree directoryTree1, DirectoryTree directoryTree2)
         {
             //Iterate through the various folder levels from the initial directory supplied
-            for (int folderLevel = 0; folderLevel < directoryTree1.Count; folderLevel++)
+            for (var folderLevel = 0; folderLevel < directoryTree1.Count; folderLevel++)
             {
                 List<DirectoryInfo> listDirectory1, listDirectory2;
-                if (!directoryTree2.TryGetValue(folderLevel, out listDirectory2) || !directoryTree1.TryGetValue(folderLevel, out listDirectory1))
+                if (!directoryTree2.TryGetValue(folderLevel, out listDirectory2) ||
+                    !directoryTree1.TryGetValue(folderLevel, out listDirectory1))
                 {
                     //Continue if current folder level doesn't exist, as we only wish to compare files that share the same hierarchy
                     continue;
                 }
 
-                foreach (DirectoryInfo directoryInfo1 in listDirectory1)
+                foreach (var directoryInfo1 in listDirectory1)
                 {
-                    foreach (DirectoryInfo directoryInfo2 in listDirectory2)
+                    foreach (var directoryInfo2 in listDirectory2)
                     {
                         if (FolderHierarchyMatch(directoryInfo2, directoryInfo1))
                         {
@@ -67,7 +64,8 @@ namespace hk.DirectoryComparer
             }
         }
 
-        private bool FolderHierarchyMatch(DirectoryInfo directoriesFromDirectoryPath1, DirectoryInfo directoriesFromDirectoryPath2)
+        private bool FolderHierarchyMatch(DirectoryInfo directoriesFromDirectoryPath1,
+            DirectoryInfo directoriesFromDirectoryPath2)
         {
             //string path1 = GetPathWithoutRootComparisonFolder(directoriesFromDirectoryPath1.FullName);
             //string path2 = GetPathWithoutRootComparisonFolder(directoriesFromDirectoryPath2.FullName);
@@ -89,14 +87,15 @@ namespace hk.DirectoryComparer
 
         private void CompareFilesInDirectories(DirectoryInfo directoryInfo1, DirectoryInfo directoryInfo2)
         {
-            FileInfo[] files = directoryInfo1.GetFiles("*", SearchOption.AllDirectories);
+            var files = directoryInfo1.GetFiles("*", SearchOption.AllDirectories);
 
             SearchForFilesInDirectory(files, directoryInfo2, Directories.Directory1);
         }
 
-        private void SearchForFilesInDirectory(IEnumerable<FileInfo> files, DirectoryInfo directoryInfo, Directories directories)
+        private void SearchForFilesInDirectory(IEnumerable<FileInfo> files, DirectoryInfo directoryInfo,
+            Directories directories)
         {
-            foreach (FileInfo file in files)
+            foreach (var file in files)
             {
                 string fileNameInCompareDirectory;
                 if (TryFindFile(file.Name, directoryInfo, out fileNameInCompareDirectory))
@@ -113,16 +112,16 @@ namespace hk.DirectoryComparer
 
         private void AddFiles(string fileNameInDirectory1, string fileNameInDirectory2)
         {
-                Files.Add(new FileProperties
-                                {
-                                    FileNameInDirectory1 = fileNameInDirectory1,
-                                    FileNameInDirectory2 = fileNameInDirectory2
-                                });
+            Files.Add(new FileProperties
+            {
+                FileNameInDirectory1 = fileNameInDirectory1,
+                FileNameInDirectory2 = fileNameInDirectory2
+            });
         }
 
         private string GetCommonFolderName(string fileNameInDirectory1, string fileNameInDirectory2)
         {
-            string commonName = fileNameInDirectory1.Remove(0, DirectoryPath1.Length);
+            var commonName = fileNameInDirectory1.Remove(0, DirectoryPath1.Length);
 
             //TODO: Fix
             //if (!fileNameInDirectory2.EndsWith(commonName))
@@ -131,11 +130,12 @@ namespace hk.DirectoryComparer
             return commonName;
         }
 
-        private static bool TryFindFile(string searchPattern, DirectoryInfo directoryInfo, out string fileNameInDirectory2)
+        private static bool TryFindFile(string searchPattern, DirectoryInfo directoryInfo,
+            out string fileNameInDirectory2)
         {
             fileNameInDirectory2 = string.Empty;
 
-            FileInfo[] fileInfo = directoryInfo.GetFiles(searchPattern, SearchOption.AllDirectories);
+            var fileInfo = directoryInfo.GetFiles(searchPattern, SearchOption.AllDirectories);
             if (fileInfo.Length > 0)
             {
                 fileNameInDirectory2 = fileInfo[0].FullName;
@@ -147,6 +147,12 @@ namespace hk.DirectoryComparer
         private static string FileInfoToFullName(FileInfo fileInfo)
         {
             return fileInfo.FullName;
+        }
+
+        private enum Directories
+        {
+            Directory1 = 1,
+            Directory2
         }
     }
 }

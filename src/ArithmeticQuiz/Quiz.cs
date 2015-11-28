@@ -1,31 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArithmeticQuiz
 {
     public class Quiz
     {
         private string name;
-        private Random random = new Random(Environment.TickCount);
-
-        private enum Operands
-        {
-            Addtion = 0,
-            Subtraction = 1,
-            Multiplcation = 2,
-            Division = 3
-        };
+        private readonly Random random = new Random(Environment.TickCount);
 
         public void EnterName()
         {
             Console.WriteLine("Enter your full name:");
             name = Console.ReadLine();
             Console.Write("Hello {0}. ", name);
-
         }
 
         public void AskQuestions(int noOfQuestions)
@@ -33,15 +19,15 @@ namespace ArithmeticQuiz
             Console.WriteLine("You will now be asked {0} random questions.", noOfQuestions);
             Console.WriteLine(Environment.NewLine);
 
-            int correctlyAnswered = 0;
+            var correctlyAnswered = 0;
 
-            for (int i = 1; i <= noOfQuestions; i++)
+            for (var i = 1; i <= noOfQuestions; i++)
             {
                 Console.WriteLine("Question {0}: ", i);
-                int firstNumber = random.Next(10);
-                int secondNumber = random.Next(10);
+                var firstNumber = random.Next(10);
+                var secondNumber = random.Next(10);
 
-                bool correct = AskQuestion(firstNumber, secondNumber);
+                var correct = AskQuestion(firstNumber, secondNumber);
 
                 if (correct)
                 {
@@ -57,16 +43,16 @@ namespace ArithmeticQuiz
             }
 
             Console.WriteLine("You have correctly answered {0} out of {1} questions.", correctlyAnswered, noOfQuestions);
-            Console.WriteLine("With a score of: {0}%", (((double)correctlyAnswered / (double)noOfQuestions) * 100.0).ToString("#.##"));
+            Console.WriteLine("With a score of: {0}%", (correctlyAnswered/(double) noOfQuestions*100.0).ToString("#.##"));
         }
 
         private bool AskQuestion(int firstNumber, int secondNumber)
         {
-            int getOperand = random.Next(0, 3);
+            var getOperand = random.Next(0, 3);
             string operand;
             int correctAnswer;
 
-            switch ((Operands)getOperand)
+            switch ((Operands) getOperand)
             {
                 case Operands.Subtraction:
                     operand = "-";
@@ -74,7 +60,7 @@ namespace ArithmeticQuiz
                     break;
                 case Operands.Multiplcation:
                     operand = "*";
-                    correctAnswer = firstNumber * secondNumber;
+                    correctAnswer = firstNumber*secondNumber;
                     break;
                 default:
                 case Operands.Addtion:
@@ -83,20 +69,20 @@ namespace ArithmeticQuiz
                     break;
             }
 
-            int theirAnswer = GetTheirAnswer(firstNumber, secondNumber, operand);
+            var theirAnswer = GetTheirAnswer(firstNumber, secondNumber, operand);
 
             return correctAnswer == theirAnswer;
         }
 
         private int GetTheirAnswer(int firstNumber, int secondNumber, string operand)
         {
-            bool validNumber = false;
+            var validNumber = false;
             int a;
             do
             {
                 Console.WriteLine("What is {0} {1} {2}?", firstNumber, operand, secondNumber);
                 var input = Console.ReadLine();
-                if (Int32.TryParse(input, out a))
+                if (int.TryParse(input, out a))
                 {
                     validNumber = true;
                 }
@@ -107,6 +93,14 @@ namespace ArithmeticQuiz
             } while (!validNumber);
 
             return a;
+        }
+
+        private enum Operands
+        {
+            Addtion = 0,
+            Subtraction = 1,
+            Multiplcation = 2,
+            Division = 3
         }
     }
 }

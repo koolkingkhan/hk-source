@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace Test
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
 /*
 Remove the next line 'args' if you want to specifiy command lines via DOS
@@ -22,64 +20,66 @@ Also >=3 command lines args means run in AUTO MODE (NO PAUSING)
 // [1] = file types you want to change
 // [2] = any non null -> Means only change creation date/modified date of directories and not files.
 */
-            args = new string[] { @"K:\My Documents\_x", ".bak,.log,.settings,.exe,.zip,.wmv,.doc,.pdf,.cs,.dll,.sln,.csproj,.resx,.bak,.part,.msi,.rar,.pdb,.resources,.txt,.xls", "run" };
+            args = new[]
+            {
+                @"K:\My Documents\_x",
+                ".bak,.log,.settings,.exe,.zip,.wmv,.doc,.pdf,.cs,.dll,.sln,.csproj,.resx,.bak,.part,.msi,.rar,.pdb,.resources,.txt,.xls",
+                "run"
+            };
             if (args.Length < 2)
             {
                 return;
             }
 
-            var p=args[0];
-            var f=args[1];
-            
-          
+            var p = args[0];
+            var f = args[1];
+
+
             if (!Directory.Exists(p))
             {
-                System.Console.Write(String.Format("Not found - {0}",p));
+                Console.Write("Not found - {0}", p);
                 return;
             }
-            System.Console.Write(String.Format("Start - {0}, Filter - {1}, Continue ?",p,f));
-            System.Console.ReadLine();
-            string[] items=f.Split(new String[] {"," },StringSplitOptions.RemoveEmptyEntries);
+            Console.Write("Start - {0}, Filter - {1}, Continue ?", p, f);
+            Console.ReadLine();
+            var items = f.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries);
             IDictionary<string, string> di = new SortedDictionary<string, string>();
-            foreach (string a in items)
+            foreach (var a in items)
             {
                 if (!di.ContainsKey(a))
                 {
                     di.Add(a, a);
                 }
-                
             }
-            Scan(p, di,args.Length>=3);
-            
-                
+            Scan(p, di, args.Length >= 3);
         }
 
-        private static void Scan(string p, IDictionary<string,string> ext,bool auto)
+        private static void Scan(string p, IDictionary<string, string> ext, bool auto)
         {
-            Random r = new Random(10);
-            
-           var files = Directory.EnumerateFileSystemEntries(p, "*.*", SearchOption.AllDirectories);
-           int x = 0;
-            int y=0;
+            var r = new Random(10);
+
+            var files = Directory.EnumerateFileSystemEntries(p, "*.*", SearchOption.AllDirectories);
+            var x = 0;
+            var y = 0;
             foreach (var i in files)
             {
                 x++;
                 y++;
-                if (x % 100 == 0)
+                if (x%100 == 0)
                 {
-                    System.Console.WriteLine(y);
+                    Console.WriteLine(y);
                     x = 0;
                 }
-                var e=Path.GetExtension(i);
+                var e = Path.GetExtension(i);
                 if (ext.ContainsKey(e) && File.Exists(i) && new FileInfo(i).Length != 0)
                 {
-                 //   System.Console.WriteLine(i);
+                    //   System.Console.WriteLine(i);
 
-                 //   System.Console.Write(String.Format("Change {0}", i));
-                    bool cnt = auto;
+                    //   System.Console.Write(String.Format("Change {0}", i));
+                    var cnt = auto;
                     if (!auto)
                     {
-                        var k = System.Console.ReadKey(false);
+                        var k = Console.ReadKey(false);
                         if (k.Key == ConsoleKey.Y)
                         {
                             cnt = true;
@@ -89,10 +89,10 @@ Also >=3 command lines args means run in AUTO MODE (NO PAUSING)
                     {
                         try
                         {
-                            FileStream ff = File.Create(i, 1, FileOptions.None);
+                            var ff = File.Create(i, 1, FileOptions.None);
                             ff.SetLength(0L);
                             ff.Close();
-                            int v = r.Next(10);
+                            var v = r.Next(10);
                             var ct = File.GetCreationTime(i);
                             if (File.GetLastWriteTime(i) < File.GetCreationTime(i))
                             {
@@ -100,14 +100,12 @@ Also >=3 command lines args means run in AUTO MODE (NO PAUSING)
                             }
                             if (v <= 5)
                             {
+                                var newFile = string.Format("~{0}.tmp", Path.GetFileName(i));
+                                var newPath = string.Format("{0}\\{1}", Path.GetDirectoryName(i), newFile);
 
-                                string newFile = String.Format("~{0}.tmp", Path.GetFileName(i));
-                                string newPath = String.Format("{0}\\{1}", Path.GetDirectoryName(i), newFile);
 
-
-                                if (!String.IsNullOrEmpty(newFile))
+                                if (!string.IsNullOrEmpty(newFile))
                                 {
-
                                     File.Move(i, newPath);
                                     File.SetLastWriteTime(newPath, ct);
                                 }
@@ -119,16 +117,12 @@ Also >=3 command lines args means run in AUTO MODE (NO PAUSING)
                         }
                         catch (Exception _e)
                         {
-                            System.Console.WriteLine(String.Format(" ** In Use {0} **", i));
+                            Console.WriteLine(" ** In Use {0} **", i);
                         }
                     }
                 }
-                else
-                {
-                 //   System.Console.WriteLine(String.Format(" - Skipping {0} ", i));
-                }
             }
-            System.Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }

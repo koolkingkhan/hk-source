@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace at.hk.Storage
 {
-    public class FileStorageManager : IStorageManager 
+    public class FileStorageManager : IStorageManager
     {
         #region Implementation of IStorageManager
 
@@ -20,7 +20,7 @@ namespace at.hk.Storage
                 name += ".txt";
             }
 
-            string outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\StorageHandlerOutputFiles\");
+            var outputPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\StorageHandlerOutputFiles\");
             if (!Directory.Exists(outputPath))
             {
                 Directory.CreateDirectory(outputPath);
@@ -48,7 +48,7 @@ namespace at.hk.Storage
 
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(TMyType));
+                var serializer = new XmlSerializer(typeof (TMyType));
                 serializer.Serialize(stream, data);
                 stream.Flush();
 

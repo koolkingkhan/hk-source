@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Globalization;
+using System.Windows.Controls;
 
 namespace BindingValidation
 {
@@ -7,7 +8,7 @@ namespace BindingValidation
         public int? Min { get; set; }
         public int? Max { get; set; }
 
-        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             var str = value as string;
             if (string.IsNullOrEmpty(str))

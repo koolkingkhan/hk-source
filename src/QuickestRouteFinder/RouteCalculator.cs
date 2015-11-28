@@ -20,14 +20,19 @@ namespace hk.QuickestRouteFinder
             _weight = new Dictionary<Edge<string>, int>();
         }
 
+        internal IEnumerable<string> Stations
+        {
+            get { return _graph.Vertices; }
+        }
+
         internal void AddRoutes(IEnumerable<RouteMetadata> routes)
         {
             Debug.Assert(null != routes, "Routes is null");
 
-            foreach (RouteMetadata route in routes)
+            foreach (var route in routes)
             {
-                string from = route.From.ToLowerInvariant();
-                string to = route.To.ToLowerInvariant();
+                var from = route.From.ToLowerInvariant();
+                var to = route.To.ToLowerInvariant();
 
                 if (!_graph.ContainsVertex(from))
                 {
@@ -39,7 +44,7 @@ namespace hk.QuickestRouteFinder
                     _graph.AddVertex(to);
                 }
 
-                Edge<string> edge = new Edge<string>(from, to);
+                var edge = new Edge<string>(from, to);
 
                 if (!_graph.ContainsEdge(edge))
                 {
@@ -47,11 +52,6 @@ namespace hk.QuickestRouteFinder
                     _weight.Add(edge, route.Time);
                 }
             }
-        }
-
-        internal IEnumerable<string> Stations 
-        {
-            get { return _graph.Vertices; }
         }
 
         internal int CalculateShortestRoute(string from, string to)
@@ -69,7 +69,7 @@ namespace hk.QuickestRouteFinder
                 _algorithm = new DijkstraShortestPathAlgorithm<string, Edge<string>>(_graph, e => _weight[e]);
             }
 
-            if (null == _predecessorObserver )
+            if (null == _predecessorObserver)
             {
                 _predecessorObserver = new VertexPredecessorRecorderObserver<string, Edge<string>>();
             }
@@ -79,9 +79,8 @@ namespace hk.QuickestRouteFinder
                 // Run the algorithm with "from" set to be the source
                 _algorithm.Compute(from);
 
-                return Convert.ToInt32(_algorithm.Distances[to]);    
+                return Convert.ToInt32(_algorithm.Distances[to]);
             }
         }
     }
 }
-

@@ -1,7 +1,7 @@
 ﻿namespace hk.TaxCalculator
 {
-    public interface ITaxCalculator 
-    { 
-        decimal GetTax(decimal rawPrice); 
+    public interface ITaxCalculator
+    {
+        decimal GetTax(decimal rawPrice);
     }
 }

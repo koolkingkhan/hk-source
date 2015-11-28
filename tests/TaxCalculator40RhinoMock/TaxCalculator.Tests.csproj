@@ -96,9 +96,9 @@
       <Project>{2E3EECA4-F54F-460A-97FF-EEC9CDBB16CF}</Project>
       <Name>TaxCalculator</Name>
     </ProjectReference>
-    <ProjectReference Include="..\hk.Core\hk.Core.Tests.csproj">
+    <ProjectReference Include="..\Common\Common.Tests.csproj">
       <Project>{63d0d7a6-da88-4e61-a16b-e902f9a84300}</Project>
-      <Name>hk.Core.Tests</Name>
+      <Name>Common.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
