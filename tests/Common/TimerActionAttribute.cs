@@ -8,12 +8,12 @@ namespace hk.Common.Tests
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class |
                     AttributeTargets.Interface | AttributeTargets.Assembly,
         AllowMultiple = true)]
-    public class ConsoleActionAttribute : Attribute, ITestAction
+    public class TimerActionAttribute : Attribute, ITestAction
     {
         private readonly string _message;
         private readonly Stopwatch _stopwatch;
 
-        public ConsoleActionAttribute(string message)
+        public TimerActionAttribute(string message)
         {
             _message = message;
             _stopwatch = new Stopwatch();

@@ -15,7 +15,7 @@ namespace hk.SampleCharAuditor.Tests
     /// <summary>
     ///     Summary description for CharAuditorTest
     /// </summary>
-    [TestFixture, ConsoleAction("CharAuditorTest")]
+    [TestFixture, TimerAction("CharAuditorTest")]
     public class CharAuditorTest
     {
         [Test]

@@ -1,16 +1,18 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace ArithmeticQuiz
 {
     public class Quiz
     {
-        private IConsoleReader _reader;
+        private readonly IConsoleReader _reader;
         private string _name;
-        private readonly Random random = new Random(Environment.TickCount);
+        private readonly IRandomQuestionGenerator _randomQuestionGenerator;
 
-        public Quiz(IConsoleReader reader)
+        public Quiz(IConsoleReader reader, IRandomQuestionGenerator randomQuestionGenerator)
         {
             _reader = reader;
+            _randomQuestionGenerator = randomQuestionGenerator;
         }
 
         public void EnterName()
@@ -22,9 +24,18 @@ namespace ArithmeticQuiz
 
         public string User { get { return _name; } }
 
+        public int CorrectAnswer
+        {
+            get { return _randomQuestionGenerator.Answer; }
+        }
+
+        public int TheirAnswer { get; set; }
+
+
         public void AskQuestions(int noOfQuestions)
         {
-            Console.WriteLine("You will now be asked {0} random questions.", noOfQuestions);
+            var questions = "You will now be asked {0} random question" + (noOfQuestions == 1?  "." : "s.");
+            Console.WriteLine(questions, noOfQuestions);
             Console.WriteLine(Environment.NewLine);
 
             var correctlyAnswered = 0;
@@ -32,8 +43,8 @@ namespace ArithmeticQuiz
             for (var i = 1; i <= noOfQuestions; i++)
             {
                 Console.WriteLine("Question {0}: ", i);
-                var firstNumber = random.Next(10);
-                var secondNumber = random.Next(10);
+                var firstNumber = _randomQuestionGenerator.Lhs;
+                var secondNumber = _randomQuestionGenerator.Rhs;
 
                 var correct = AskQuestion(firstNumber, secondNumber);
 
@@ -51,35 +62,14 @@ namespace ArithmeticQuiz
             }
 
             Console.WriteLine("You have correctly answered {0} out of {1} questions.", correctlyAnswered, noOfQuestions);
-            Console.WriteLine("With a score of: {0}%", (correctlyAnswered/(double) noOfQuestions*100.0).ToString("#.##"));
+            Console.WriteLine("With a score of: {0}%", (correctlyAnswered / (double)noOfQuestions * 100.0).ToString("#.##"));
         }
 
         private bool AskQuestion(int firstNumber, int secondNumber)
         {
-            var getOperand = random.Next(0, 3);
-            string operand;
-            int correctAnswer;
+            TheirAnswer = GetTheirAnswer(firstNumber, secondNumber, _randomQuestionGenerator.OperandAsString);
 
-            switch ((Operands) getOperand)
-            {
-                case Operands.Subtraction:
-                    operand = "-";
-                    correctAnswer = firstNumber - secondNumber;
-                    break;
-                case Operands.Multiplcation:
-                    operand = "*";
-                    correctAnswer = firstNumber*secondNumber;
-                    break;
-                default:
-                case Operands.Addtion:
-                    operand = "+";
-                    correctAnswer = firstNumber + secondNumber;
-                    break;
-            }
-
-            var theirAnswer = GetTheirAnswer(firstNumber, secondNumber, operand);
-
-            return correctAnswer == theirAnswer;
+            return CorrectAnswer == TheirAnswer;
         }
 
         private int GetTheirAnswer(int firstNumber, int secondNumber, string operand)
@@ -92,6 +82,7 @@ namespace ArithmeticQuiz
                 var input = _reader.Read();
                 if (int.TryParse(input, out a))
                 {
+                    Console.WriteLine("You answered: {0}", input);
                     validNumber = true;
                 }
                 else
@@ -103,12 +94,25 @@ namespace ArithmeticQuiz
             return a;
         }
 
-        private enum Operands
+        public enum Operands
         {
+            [Description("+")]
             Addtion = 0,
+
+            [Description("-")]
             Subtraction = 1,
+
+            [Description("*")]
             Multiplcation = 2,
+
+            [Description("/")]
             Division = 3
+        }
+
+        public void QuestionsAndAnswers()
+        {
+
+
         }
     }
 }

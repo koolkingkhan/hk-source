@@ -2,7 +2,7 @@
 
 namespace hk.Common.Tests
 {
-    [TestFixture, ConsoleAction("CsvFormatter")]
+    [TestFixture, TimerAction("CsvFormatter")]
     public class CsvFormatterTest
     {
         [Test, Ignore("")]

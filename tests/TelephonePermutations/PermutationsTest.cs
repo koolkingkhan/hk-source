@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace hk.TelephonePermutations.Tests
 {
-    [TestFixture, ConsoleAction("PermutationsTest")]
+    [TestFixture, TimerAction("PermutationsTest")]
     public class PermutationsTest
     {
         [Test]

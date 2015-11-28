@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace hk.Randomizer.Tests
 {
-    [TestFixture, ConsoleAction("ArrayRandomizerTest")]
+    [TestFixture, TimerAction("ArrayRandomizerTest")]
     public class ArrayRandomizerTest
     {
         [Test]

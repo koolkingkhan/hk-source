@@ -7,7 +7,7 @@ namespace hk.TaxCalculator.Tests
     /// <summary>
     ///     Summary description for UnitTest1
     /// </summary>
-    [TestFixture, ConsoleAction("UnitTestWithMocking")]
+    [TestFixture, TimerAction("UnitTestWithMocking")]
     public class UnitTestWithMocking
     {
         [Test]

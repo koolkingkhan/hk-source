@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace hk.MathsTasks.Tests
 {
-    [TestFixture, ConsoleAction("MathsTasksTest")]
+    [TestFixture, TimerAction("MathsTasksTest")]
     public class MathsTasksTest
     {
         //TODO: Need to optimize this test
