@@ -4,15 +4,23 @@ namespace ArithmeticQuiz
 {
     public class Quiz
     {
-        private string name;
+        private IConsoleReader _reader;
+        private string _name;
         private readonly Random random = new Random(Environment.TickCount);
+
+        public Quiz(IConsoleReader reader)
+        {
+            _reader = reader;
+        }
 
         public void EnterName()
         {
             Console.WriteLine("Enter your full name:");
-            name = Console.ReadLine();
-            Console.Write("Hello {0}. ", name);
+            _name = _reader.Read();
+            Console.Write("Hello {0}. ", _name);
         }
+
+        public string User { get { return _name; } }
 
         public void AskQuestions(int noOfQuestions)
         {
@@ -81,7 +89,7 @@ namespace ArithmeticQuiz
             do
             {
                 Console.WriteLine("What is {0} {1} {2}?", firstNumber, operand, secondNumber);
-                var input = Console.ReadLine();
+                var input = _reader.Read();
                 if (int.TryParse(input, out a))
                 {
                     validNumber = true;

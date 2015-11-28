@@ -6,7 +6,7 @@ namespace ArithmeticQuiz
     {
         private static void Main(string[] args)
         {
-            var quiz = new Quiz();
+            var quiz = new Quiz(new ConsoleReader());
             quiz.EnterName();
             quiz.AskQuestions(5);
             Console.Read();
