@@ -1,5 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ArithmeticQuiz
 {
@@ -7,12 +8,10 @@ namespace ArithmeticQuiz
     {
         private readonly IConsoleReader _reader;
         private string _name;
-        private readonly IRandomQuestionGenerator _randomQuestionGenerator;
 
-        public Quiz(IConsoleReader reader, IRandomQuestionGenerator randomQuestionGenerator)
+        public Quiz(IConsoleReader reader)
         {
             _reader = reader;
-            _randomQuestionGenerator = randomQuestionGenerator;
         }
 
         public void EnterName()
@@ -24,34 +23,22 @@ namespace ArithmeticQuiz
 
         public string User { get { return _name; } }
 
-        public int CorrectAnswer
+        public double PercentageScore { get; set; }
+
+        public void AskQuestions(IList<IQuestion> questions)
         {
-            get { return _randomQuestionGenerator.Answer; }
-        }
-
-        public int TheirAnswer { get; set; }
-
-
-        public void AskQuestions(int noOfQuestions)
-        {
-            var questions = "You will now be asked {0} random question" + (noOfQuestions == 1?  "." : "s.");
-            Console.WriteLine(questions, noOfQuestions);
+            var initialOutput = "You will now be asked {0} random question" + (questions.Count == 1 ? "." : "s.");
+            Console.WriteLine(initialOutput, questions.Count);
             Console.WriteLine(Environment.NewLine);
 
-            var correctlyAnswered = 0;
-
-            for (var i = 1; i <= noOfQuestions; i++)
+            for (var i = 1; i <= questions.Count; i++)
             {
                 Console.WriteLine("Question {0}: ", i);
-                var firstNumber = _randomQuestionGenerator.Lhs;
-                var secondNumber = _randomQuestionGenerator.Rhs;
 
-                var correct = AskQuestion(firstNumber, secondNumber);
+                var correct = AskQuestion(questions[i-1]);
 
                 if (correct)
                 {
-                    correctlyAnswered = correctlyAnswered + 1;
-
                     Console.WriteLine("That is correct! Well done.");
                 }
                 else
@@ -61,15 +48,23 @@ namespace ArithmeticQuiz
                 Console.WriteLine(Environment.NewLine);
             }
 
-            Console.WriteLine("You have correctly answered {0} out of {1} questions.", correctlyAnswered, noOfQuestions);
-            Console.WriteLine("With a score of: {0}%", (correctlyAnswered / (double)noOfQuestions * 100.0).ToString("#.##"));
+            CalculateScore(questions);
         }
 
-        private bool AskQuestion(int firstNumber, int secondNumber)
+         void CalculateScore(IList<IQuestion> questions)
         {
-            TheirAnswer = GetTheirAnswer(firstNumber, secondNumber, _randomQuestionGenerator.OperandAsString);
+            int correctlyAnswered = questions.TakeWhile(q => q.TheirAnswer.HasValue && q.CorrectAnswer == q.TheirAnswer.Value).Count();
+            PercentageScore = (correctlyAnswered / (double)questions.Count * 100.0);
 
-            return CorrectAnswer == TheirAnswer;
+            Console.WriteLine("You have correctly answered {0} out of {1} Questions.", correctlyAnswered, questions.Count);
+            Console.WriteLine("With a score of: {0}%", PercentageScore.ToString("#.##"));
+        }
+
+        private bool AskQuestion(IQuestion question)
+        {
+            question.TheirAnswer = GetTheirAnswer(question.Lhs, question.Rhs, question.OperandAsString);
+
+            return question.CorrectAnswer == question.TheirAnswer;
         }
 
         private int GetTheirAnswer(int firstNumber, int secondNumber, string operand)
@@ -92,27 +87,6 @@ namespace ArithmeticQuiz
             } while (!validNumber);
 
             return a;
-        }
-
-        public enum Operands
-        {
-            [Description("+")]
-            Addtion = 0,
-
-            [Description("-")]
-            Subtraction = 1,
-
-            [Description("*")]
-            Multiplcation = 2,
-
-            [Description("/")]
-            Division = 3
-        }
-
-        public void QuestionsAndAnswers()
-        {
-
-
         }
     }
 }
