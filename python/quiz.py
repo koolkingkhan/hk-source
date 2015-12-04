@@ -1,38 +1,36 @@
+"""
+Nishat H.
+Computing Coursework
+Task 1: Arithmentic Quiz
+"""
 import random
 import operator
+import os
+
+from scoretracker import *
 
 #We create a dictionary defined as dict, for storing operators. A dictionary is a list of key-value pairs, separated by the colon and placed inside curly braces
 #e.g "+" is the key, operator.add is the value
 #Dictionaries do not store values in the order inserted
 operators = {"+" : operator.add, "-" : operator.sub, "*" : operator.mul }
 operator_keys = list(operators)
-
-#Create a set to store students. Sets are also defined using curly braces, the empty set is defined by set().
-#Sets are unordered and unique
-class1 = {"nishat"}
-class2 = set()
-class3 = set()
-
-#Create a dict of class names to the sets of students defined above
-classes = {"lion" : class1, "tiger" : class2, "zebra" : class3}
-
-#Tuples are created using parentheses, i.e. ("a","b","c"). But we are not using them in this program
+noOfQuestionsToAsk = 10
 
 
 def main():
-    noOfQuestionsToAsk = 10
-    name = input("Enter your name:").lower()
+    """ Main body of program. This should be used as the entry point.
+    It controls the flow of the program and creates a loop of 10 questions to ask to the user.
     
-    if (name not in class1 or name not in class2 or name not in class3):
-        print("You are not currently registered in the system.")
-        while True:    
-            className = input("What class are you in (lion,tiger or zebra)? ").lower()                
-            if (className in classes.keys()):
-                classes[className].add(name)
-                break
-            else:
-                print("You have not entered a valid class name")
+    Arguments:
+        None
         
+    Returns:
+        None
+    """
+        
+    name = input("Enter your name: ").lower()
+    determine_class(name)
+    
     #Formatting the output, {} are replaced by each variable, i.e. name and noOfQuestionsToAsk
     print("Hello {}, you will be asked {} questions".format(name, noOfQuestionsToAsk))
     
@@ -53,8 +51,16 @@ def main():
     print("You have correctly answered {} out of {} questions".format(correctlyAnswered, noOfQuestionsToAsk))
     score = (correctlyAnswered / noOfQuestionsToAsk) * 100
     print("With a score of: {}%".format(score))
+    store_result(name, score)
 
 def ask_random_question():
+    """ Asks a single random question to the user
+    Arguments:
+        None
+        
+    Returns:
+        Returns True or False depending on whether the user answered the question correctly
+    """
     operator = random.choice(operator_keys)
     fistNumber = random.randint(1,11)
     secondNumber = random.randint(1,11)
@@ -77,13 +83,19 @@ def ask_random_question():
 
 
 def convert(s):
+    """ Provides a safe way to convert a string to an integer
+    Arguments:
+        s: Value to convert
+        
+    Returns:
+        An integer converted from the argument s. If conversion fails returns string "conversion error"
+    """
     try:
         x = int(s)
     except ValueError as ex:
         print("Invalid input, try again") 
         x = "conversion error"
-    return x   
-        
+    return x        
         
 #Run the program from the REPL
 #This is importable and executable        
