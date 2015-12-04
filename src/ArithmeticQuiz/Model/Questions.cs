@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ArithmeticQuiz
@@ -17,17 +18,15 @@ namespace ArithmeticQuiz
             }
         }
 
-        public IQuestion this[int index]
+        //Question numbers start at 1
+        public IQuestion GetQuestion(int questionNo)
         {
-            get
+            int actual = questionNo - 1;
+            if (actual >= 0 && actual <= _questions.Count)
             {
-                int actual = index - 1;
-                if (actual >= 0 && actual <= _questions.Count)
-                {
-                    return _questions[actual];
-                }
-                return null;
+                return _questions[actual];
             }
+            return null;
         }
 
         public void AddQuestion(IQuestion question)

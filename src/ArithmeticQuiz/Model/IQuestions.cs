@@ -4,7 +4,7 @@
     {
         int TestNumber { get; set; }
         int Count { get; }
-        IQuestion this[int index] { get; }
+        IQuestion GetQuestion(int questionNo);
         void AddQuestion(IQuestion question);
         int GetCorrectlyAnswered();
         double CalculateScorePercentage();

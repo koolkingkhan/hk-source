@@ -44,7 +44,7 @@ namespace ArithmeticQuiz
             {
                 Console.WriteLine("Question {0}: ", i);
 
-                var correct = AskQuestion(questions[i]);
+                var correct = AskQuestion(questions.GetQuestion(i));
 
                 Console.WriteLine(correct ? "That is correct! Well done." : "That is incorrect.");
 
@@ -56,7 +56,7 @@ namespace ArithmeticQuiz
             student.AddScore(questions.TestNumber, score);
 
             Console.WriteLine("You have correctly answered {0} out of {1} Questions.", correctlyAnswered, questions.Count);
-            Console.WriteLine("With a score of: {0}%", score.ToString("#.##"));
+            Console.WriteLine("With a score of: {0}%", (score.CompareTo(0) == 0? "0": score.ToString("#.##")));
         }
 
         private bool AskQuestion(IQuestion question)
