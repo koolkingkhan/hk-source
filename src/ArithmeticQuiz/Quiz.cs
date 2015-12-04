@@ -7,25 +7,34 @@ namespace ArithmeticQuiz
     public class Quiz
     {
         private readonly IConsoleReader _reader;
-        private string _name;
+        private Student _currentStudent;
 
         public Quiz(IConsoleReader reader)
         {
             _reader = reader;
         }
 
-        public void EnterName()
+        public Student EnterName()
         {
-            Console.WriteLine("Enter your full name:");
-            _name = _reader.Read();
-            Console.Write("Hello {0}. ", _name);
+            Console.WriteLine("Enter your first name:");
+            string firstName = _reader.Read();
+
+            Console.WriteLine("Enter your second name:");
+            string lastName = _reader.Read();
+            Console.Write("Hello {0} {1}. ", firstName, lastName);
+
+            return _currentStudent = new Student(firstName, lastName);
         }
 
-        public string User { get { return _name; } }
+        public string User
+        {
+            get
+            {
+                return _currentStudent.FullName;
+            }
+        }
 
-        public double PercentageScore { get; set; }
-
-        public void AskQuestions(IList<IQuestion> questions)
+        public void AskQuestionsToStudent(IQuestions questions, Student student)
         {
             var initialOutput = "You will now be asked {0} random question" + (questions.Count == 1 ? "." : "s.");
             Console.WriteLine(initialOutput, questions.Count);
@@ -35,35 +44,24 @@ namespace ArithmeticQuiz
             {
                 Console.WriteLine("Question {0}: ", i);
 
-                var correct = AskQuestion(questions[i-1]);
+                var correct = AskQuestion(questions[i]);
 
-                if (correct)
-                {
-                    Console.WriteLine("That is correct! Well done.");
-                }
-                else
-                {
-                    Console.WriteLine("That is incorrect.");
-                }
+                Console.WriteLine(correct ? "That is correct! Well done." : "That is incorrect.");
+
                 Console.WriteLine(Environment.NewLine);
             }
 
-            CalculateScore(questions);
-        }
-
-         void CalculateScore(IList<IQuestion> questions)
-        {
-            int correctlyAnswered = questions.TakeWhile(q => q.TheirAnswer.HasValue && q.CorrectAnswer == q.TheirAnswer.Value).Count();
-            PercentageScore = (correctlyAnswered / (double)questions.Count * 100.0);
+            var correctlyAnswered = questions.GetCorrectlyAnswered();
+            var score = questions.CalculateScorePercentage();
+            student.AddScore(questions.TestNumber, score);
 
             Console.WriteLine("You have correctly answered {0} out of {1} Questions.", correctlyAnswered, questions.Count);
-            Console.WriteLine("With a score of: {0}%", PercentageScore.ToString("#.##"));
+            Console.WriteLine("With a score of: {0}%", score.ToString("#.##"));
         }
 
         private bool AskQuestion(IQuestion question)
         {
             question.TheirAnswer = GetTheirAnswer(question.Lhs, question.Rhs, question.OperandAsString);
-
             return question.CorrectAnswer == question.TheirAnswer;
         }
 

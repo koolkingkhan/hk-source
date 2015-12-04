@@ -8,18 +8,18 @@ namespace ArithmeticQuiz
     {
         private readonly Random _random = new Random(Environment.TickCount);
 
-        public List<IQuestion> GenerateQuestions(int i)
+        public IQuestions GenerateQuestions(int i)
         {
             if (i <= 0)
             {
                 throw new ArgumentException("Count must be greater than 0");
             }
 
-            List<IQuestion> questions = new List<IQuestion>(i);
+            IQuestions questions = new Questions();
 
             for (int j = 1; j <= i; j++)
             {
-                questions.Add(new Question(
+                questions.AddQuestion(new Question(
                                 lhs: _random.Next(10),
                                 rhs: _random.Next(10),
                                 operand: (Operands) _random.Next(0, 3)

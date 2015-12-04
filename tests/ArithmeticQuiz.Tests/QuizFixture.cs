@@ -8,6 +8,9 @@ namespace ArithmeticQuiz.Tests
     [TestFixture, TimerAction("QuizFixture")]
     public class QuizFixture
     {
+        const int QuestionOne = 1;
+        const int QuestionTwo = 2;
+
         [Test]
         public void TestEnterName()
         {
@@ -17,7 +20,7 @@ namespace ArithmeticQuiz.Tests
             Quiz quiz = new Quiz(reader.Object);
             quiz.EnterName();
 
-            Assert.That(quiz.User, Is.EqualTo("Hussain"));
+            Assert.That(quiz.User, Is.EqualTo("Hussain Hussain"));
         }
 
         [Test]
@@ -26,16 +29,16 @@ namespace ArithmeticQuiz.Tests
             Mock<IConsoleReader> reader = new Mock<IConsoleReader>();
             reader.Setup(r => r.Read()).Returns("15");
 
-            IList<IQuestion> questions = new List<IQuestion>()
-            {
-                new Question(10, 5, Operands.Addition)
-            };
+            Questions questions = new Questions();
+            questions.AddQuestion(new Question(10, 5, Operands.Addition));
+
+            Student student = new Student("Hussain", "Khan");
 
             Quiz quiz = new Quiz(reader.Object);
-            quiz.AskQuestions(questions);
+            quiz.AskQuestionsToStudent(questions, student);
 
-            Assert.That(questions[0].CorrectAnswer, Is.EqualTo(questions[0].TheirAnswer));
-            Assert.That(quiz.PercentageScore, Is.EqualTo(100));
+            Assert.That(questions[QuestionOne].CorrectAnswer, Is.EqualTo(questions[QuestionOne].TheirAnswer));
+            Assert.That(questions.CalculateScorePercentage(), Is.EqualTo(100));
 
         }
 
@@ -45,16 +48,16 @@ namespace ArithmeticQuiz.Tests
             Mock<IConsoleReader> reader = new Mock<IConsoleReader>();
             reader.Setup(r => r.Read()).Returns("5");
 
-            IList<IQuestion> questions = new List<IQuestion>()
-            {
-                new Question(10, 5, Operands.Subtraction)
-            };
+            Questions questions = new Questions();
+            questions.AddQuestion(new Question(10, 5, Operands.Subtraction));
+
+            Student student = new Student("Hussain", "Khan");
 
             Quiz quiz = new Quiz(reader.Object);
-            quiz.AskQuestions(questions);
+            quiz.AskQuestionsToStudent(questions, student);
 
-            Assert.That(questions[0].CorrectAnswer, Is.EqualTo(questions[0].TheirAnswer));
-            Assert.That(quiz.PercentageScore, Is.EqualTo(100));
+            Assert.That(questions[QuestionOne].CorrectAnswer, Is.EqualTo(questions[QuestionOne].TheirAnswer));
+            Assert.That(questions.CalculateScorePercentage(), Is.EqualTo(100));
         }
 
         [Test]
@@ -63,16 +66,16 @@ namespace ArithmeticQuiz.Tests
             Mock<IConsoleReader> reader = new Mock<IConsoleReader>();
             reader.Setup(r => r.Read()).Returns("50");
 
-            IList<IQuestion> questions = new List<IQuestion>()
-            {
-                new Question(10, 5, Operands.Multiplication)
-            };
+            Student student = new Student("Hussain", "Khan");
 
+            Questions questions = new Questions();
+            questions.AddQuestion(new Question(10, 5, Operands.Multiplication));
+                
             Quiz quiz = new Quiz(reader.Object);
-            quiz.AskQuestions(questions);
+            quiz.AskQuestionsToStudent(questions, student);
 
-            Assert.That(questions[0].CorrectAnswer, Is.EqualTo(questions[0].TheirAnswer));
-            Assert.That(quiz.PercentageScore, Is.EqualTo(100));
+            Assert.That(questions[QuestionOne].CorrectAnswer, Is.EqualTo(questions[QuestionOne].TheirAnswer));
+            Assert.That(questions.CalculateScorePercentage(), Is.EqualTo(100));
         }
 
         [Test]
@@ -81,16 +84,16 @@ namespace ArithmeticQuiz.Tests
             Mock<IConsoleReader> reader = new Mock<IConsoleReader>();
             reader.Setup(r => r.Read()).Returns("5");
 
-            IList<IQuestion> questions = new List<IQuestion>()
-            {
-                new Question(10, 5, Operands.Addition)
-            };
+            Student student = new Student("Hussain", "Khan");
+
+            Questions questions = new Questions();
+            questions.AddQuestion(new Question(10, 5, Operands.Addition));
 
             Quiz quiz = new Quiz(reader.Object);
-            quiz.AskQuestions(questions);
+            quiz.AskQuestionsToStudent(questions, student);
 
-            Assert.That(questions[0].CorrectAnswer, Is.Not.EqualTo(questions[0].TheirAnswer));
-            Assert.That(quiz.PercentageScore, Is.EqualTo(0));
+            Assert.That(questions[QuestionOne].CorrectAnswer, Is.Not.EqualTo(questions[QuestionOne].TheirAnswer));
+            Assert.That(questions.CalculateScorePercentage(), Is.EqualTo(0));
         }
 
         [Test]
@@ -99,18 +102,18 @@ namespace ArithmeticQuiz.Tests
             Mock<IConsoleReader> reader = new Mock<IConsoleReader>();
             reader.Setup(r => r.Read()).Returns("15");
 
-            IList<IQuestion> questions = new List<IQuestion>()
-            {
-                new Question(10, 5, Operands.Addition),
-                new Question(3, 5, Operands.Multiplication)
-            };
+            Student student = new Student("Hussain", "Khan");
+
+            Questions questions = new Questions();
+            questions.AddQuestion(new Question(10, 5, Operands.Addition));
+            questions.AddQuestion(new Question(3, 5, Operands.Multiplication));
 
             Quiz quiz = new Quiz(reader.Object);
-            quiz.AskQuestions(questions);
+            quiz.AskQuestionsToStudent(questions, student);
 
-            Assert.That(questions[0].CorrectAnswer, Is.EqualTo(questions[0].TheirAnswer));
-            Assert.That(questions[1].CorrectAnswer, Is.EqualTo(questions[1].TheirAnswer));
-            Assert.That(quiz.PercentageScore, Is.EqualTo(100));
+            Assert.That(questions[QuestionOne].CorrectAnswer, Is.EqualTo(questions[QuestionOne].TheirAnswer));
+            Assert.That(questions[QuestionTwo].CorrectAnswer, Is.EqualTo(questions[QuestionTwo].TheirAnswer));
+            Assert.That(questions.CalculateScorePercentage(), Is.EqualTo(100));
         }
 
         [Test]
@@ -119,18 +122,18 @@ namespace ArithmeticQuiz.Tests
             Mock<IConsoleReader> reader = new Mock<IConsoleReader>();
             reader.Setup(r => r.Read()).Returns("15");
 
-            IList<IQuestion> questions = new List<IQuestion>()
-            {
-                new Question(10, 5, Operands.Addition),
-                new Question(4, 5, Operands.Multiplication)
-            };
+            Student student = new Student("Hussain", "Khan");
+
+            Questions questions = new Questions();
+            questions.AddQuestion(new Question(10, 5, Operands.Addition));
+            questions.AddQuestion(new Question(4, 5, Operands.Multiplication));
 
             Quiz quiz = new Quiz(reader.Object);
-            quiz.AskQuestions(questions);
+            quiz.AskQuestionsToStudent(questions, student);
 
-            Assert.That(questions[0].CorrectAnswer, Is.EqualTo(questions[0].TheirAnswer));
-            Assert.That(questions[1].CorrectAnswer, Is.Not.EqualTo(questions[1].TheirAnswer));
-            Assert.That(quiz.PercentageScore, Is.EqualTo(50));
+            Assert.That(questions[QuestionOne].CorrectAnswer, Is.EqualTo(questions[QuestionOne].TheirAnswer));
+            Assert.That(questions[QuestionTwo].CorrectAnswer, Is.Not.EqualTo(questions[QuestionTwo].TheirAnswer));
+            Assert.That(questions.CalculateScorePercentage(), Is.EqualTo(50));
         }
     }
 }

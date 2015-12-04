@@ -10,8 +10,8 @@ namespace ArithmeticQuiz
             var questions = randomQuestionGenerator.GenerateQuestions(5);
 
             var quiz = new Quiz(new ConsoleReader());
-            quiz.EnterName();
-            quiz.AskQuestions(questions);
+            Student student = quiz.EnterName();
+            quiz.AskQuestionsToStudent(questions, student);
 
             Console.Read();
         }

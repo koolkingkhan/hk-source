@@ -1,17 +1,7 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace ArithmeticQuiz
 {
-    public interface IQuestion
-    {
-        int Lhs { get; }
-        int Rhs { get; }
-        Operands Operand { get; }
-        string OperandAsString { get; }
-        int CorrectAnswer { get; }
-        int? TheirAnswer { get; set; }
-    }
-
     public class Question : IQuestion
     {
         public int Lhs { get; private set; }

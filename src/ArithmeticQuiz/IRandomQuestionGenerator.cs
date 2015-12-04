@@ -7,6 +7,6 @@ namespace ArithmeticQuiz
 {
     public interface IRandomQuestionGenerator
     {
-        List<IQuestion> GenerateQuestions(int noOfQuestions);
+        IQuestions GenerateQuestions(int noOfQuestions);
     }
 }
