@@ -10,6 +10,7 @@ import csv
 result_path = "quiz_results/"
 
 class Student:
+    """ Student class to represent each student """
     def __init__(self, name):
         self.name = name
         self.scores = []
@@ -17,10 +18,15 @@ class Student:
     def add_score(self, score):
         self.scores.append(score)
         
+    def highest_score(self):
+        return sorted(self.scores, reverse=True)[0]
+        
+    def average_score(self):
+        return sum(self.scores) / float(len(self.scores))
+        
 
 #Create a dict of class names to the sets of students defined above
 classes = {"lion" : [], "tiger" : [], "zebra" : []}
-
 
 #Tuples are created using parentheses, i.e. ("a","b","c"). But we are not using them in this program
 
@@ -35,9 +41,9 @@ def determine_class(student_name):
         None
     """
     
-    read_from_file()
+    load_data_from_files()
     
-    if not student_exists(student_name):
+    if get_class_name(student_name) == "class not found":
         print("You are not currently registered in the system.")
         while True:    
             className = input("What class are you in (lion,tiger or zebra)? ").lower()                
@@ -50,14 +56,6 @@ def determine_class(student_name):
     else:
         pass
             
-     
-def student_exists(student_name):
-    for students in classes.values():
-        if (any(str(x.name) == student_name for x in students)):
-            return True
-        else:
-            pass
-    return False
      
 def get_class_name(student_name):
     """ Calculates the class the student is in from the existing stored data. If the student is not found a blank class name is returned
@@ -73,7 +71,7 @@ def get_class_name(student_name):
             return name
         else:
             pass
-    return ""
+    return "class not found"
     
 def store_result(student_name, score):
     """ Stores the score of the specified in a file named after the class he is in
@@ -92,7 +90,9 @@ def store_result(student_name, score):
     
     index = [ x.name for x in classes[class_name] ].index(student_name)
     classes[class_name][index].add_score(score)
-    results_file = get_student_file_name(student_name, class_name)
+    
+    #get the file name to store results in
+    results_file = "".join([result_path, class_name, '.csv'])
     
     print("\n")
     print("Storing score in file: ", results_file)
@@ -100,7 +100,7 @@ def store_result(student_name, score):
         for student in classes[class_name]:
             temp = []
             temp.append(student.name)
-            temp.extend(student.scores)
+            temp.extend(student.scores[-3:]) #Storing last 3 results only as part of Task 3
             resultswriter = csv.writer(csvfile, delimiter =',', quoting=csv.QUOTE_NONE)
             resultswriter.writerow(temp)
     
@@ -118,19 +118,16 @@ def create_directory():
     else:
         pass
 
-def get_student_file_name(student_name, class_name):
-    """ Gets the appropriate results file for the current student
+
+def load_data_from_files():
+    """ Loads current data from files
     
     Arguments:
-        student_name: The name of the student
+        None
         
     Returns:
-        The results file name
+        Current data
     """
-    #get the file name to store results in
-    return "".join([result_path, class_name, '.csv'])
-
-def read_from_file():
     for class_name in classes.keys():
         try:
             file = "".join([result_path, class_name, '.csv'])        
@@ -146,4 +143,5 @@ def read_from_file():
                         col_number += 1             
                     classes[class_name].append(student)
         except (OSError, IOError) as ex:
-            print("File doesnt currently exist for class: ", class_name)
+            print("File doesnt currently exist for class: ", class_name, "\n")
+    return classes

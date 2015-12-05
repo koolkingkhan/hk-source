@@ -7,6 +7,7 @@ import random
 import operator
 import os
 
+#Import all functions from scoretracker.py
 from scoretracker import *
 
 #We create a dictionary defined as dict, for storing operators. A dictionary is a list of key-value pairs, separated by the colon and placed inside curly braces
