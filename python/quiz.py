@@ -28,7 +28,7 @@ def main():
         None
     """
         
-    name = input("Enter your name: ").lower()
+    name = input("Enter your name: ").strip().lower()
     determine_class(name)
     
     #Formatting the output, {} are replaced by each variable, i.e. name and no_of_questions
