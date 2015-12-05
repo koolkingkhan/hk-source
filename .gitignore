@@ -163,6 +163,7 @@ ClientBin/
 node_modules/
 bower_components/
 __pycache__/
+quiz_results/
 
 # RIA/Silverlight projects
 Generated_Code/
