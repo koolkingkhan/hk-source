@@ -92,7 +92,6 @@ def store_result(student_name, score):
     
     index = [ x.name for x in classes[class_name] ].index(student_name)
     classes[class_name][index].add_score(score)
-    print("Student in class ", class_name)
     results_file = get_student_file_name(student_name, class_name)
     
     print("\n")
@@ -102,7 +101,6 @@ def store_result(student_name, score):
             temp = []
             temp.append(student.name)
             temp.extend(student.scores)
-            print(temp)
             resultswriter = csv.writer(csvfile, delimiter =',', quoting=csv.QUOTE_NONE)
             resultswriter.writerow(temp)
     
@@ -116,10 +114,9 @@ def create_directory():
         None
     """
     if not os.path.exists(result_path):
-        print("Creating directory", os.getcwd(), result_path)
         os.mkdir(result_path)
     else:
-        print("Found results directory")
+        pass
 
 def get_student_file_name(student_name, class_name):
     """ Gets the appropriate results file for the current student
