@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml.Serialization;
+using hk.Common.Model;
 using hk.Common.Utilities;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
+using Assert = NUnit.Framework.Assert;
 
 namespace hk.Common.Tests
 {
@@ -13,7 +18,7 @@ namespace hk.Common.Tests
         private static readonly string XmlPath = Path.GetFullPath(@"resources\settings.xml");
         private static readonly string XsdPath = Path.GetFullPath(@"resources\settings.xsd");
 
-        [Ignore("Ignore this test")]
+        [NUnit.Framework.Ignore("Ignore this test")]
         public void TestSerializeSettings()
         {
             Settings settings;
@@ -151,7 +156,7 @@ namespace hk.Common.Tests
             }
         }
 
-        [Test, Ignore("")]
+        [Test, NUnit.Framework.Ignore("")]
         public void TestDeserializeSettings()
         {
             using (var stream = new FileStream(XmlPath, FileMode.Open))
@@ -191,11 +196,80 @@ namespace hk.Common.Tests
             Assert.IsTrue(expected.Equals(actual), actual);
         }
 
-        [Test, Ignore("")]
+        [Test, NUnit.Framework.Ignore("")]
         public void TestValidateXml()
         {
             string failureMessage;
             Assert.IsTrue(HelperMethods.ValidateXml(XmlPath, XsdPath, string.Empty, out failureMessage), failureMessage);
+        }
+
+        [Test]
+        public void TestSerializeJsonMetadata_1()
+        {
+            GlsRequest metadata = new GlsRequest
+            {
+                Analysts = new List<IUser>
+                {
+                    new User
+                    {
+                        Gpin = 43273257
+                    },
+                    new User
+                    {
+                        Gpin = 43451553
+                    },
+                    new User
+                    {
+                        Gpin = 00458789
+                    }
+                },
+                Issuers = new List<IIssuer>
+                {
+                    new Issuer
+                    {
+                        AssetType = AssetType.FixedIncome,
+                        UbsPartyId = 100138
+                    },
+                    new Issuer
+                    {
+                        AssetType = AssetType.Governments,
+                        UbsPartyId = 100339
+                    },
+                    new Issuer
+                    {
+                        AssetType = AssetType.FixedIncome,
+                        UbsPartyId = 100631
+                    }
+                }
+            };
+
+            HelperMethods.WriteToJsonFile(metadata);
+        }
+
+        [Test]
+        public void TestSerializeJsonMetadata_2()
+        {
+            GlsRequest metadata = new GlsRequest();
+
+            HelperMethods.WriteToJsonFile(metadata);
+        }
+
+        [Test]
+        public void TestValidateJson()
+        {
+            IList<string> errorList;
+            Assert.IsTrue(HelperMethods.IsValid(@"C:\Users\Hussain\Desktop\SOURCE\hk-source\tests\TestData\sample.json", @"C:\Users\Hussain\Desktop\SOURCE\hk-source\schemas\schema.json", out errorList),
+                ProcessErrors(errorList));
+        }
+
+        private string ProcessErrors(IList<string> errorList)
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (var error in errorList)
+            {
+                builder.Append(error).AppendLine();
+            }
+            return builder.ToString();
         }
     }
 }

@@ -1,0 +1,43 @@
+{
+  "supervisoryAnalyst": {
+    "gpin": 43336426
+  },
+    "supervisoryAnalyst": {
+    "gpin": 43336426
+  },
+  "documentTitle": "Sample RAP document",
+  "issuers": [
+    {
+      "ubsPartyId": 100339
+    },
+    {
+      "ubsPartyId": 100338
+    },
+    {
+      "ubsPartyId": 100631
+    }
+  ],
+  "analysts": [
+    {
+      "gpin": 43451553
+    },
+    {
+      "gpin": 43451552
+    },
+    {
+      "gpin": 458789
+    }
+  ],
+    "analysts": [
+    {
+      "gpin": 43451553
+    },
+    {
+      "gpin": 43451551
+    },
+    {
+      "gpin": 458789
+    }
+  ],
+  "clientId": "RAP"
+}

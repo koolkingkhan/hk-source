@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Schema for a GLS request",
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "gpin": {
+          "type": "integer",
+          "maximum": 99999999.0,
+          "minimum": 0.0
+        }
+      },
+      "required": [
+        "gpin"
+      ]
+    },
+    "Issuer": {
+      "type": "object",
+      "properties": {
+        "ubsPartyId": {
+          "type": "integer",
+          "minimum": 0.0
+        }
+      },
+      "required": [
+        "ubsPartyId"      
+      ]
+    },
+  },
+  "type": "object",
+  "properties": {
+    "supervisoryAnalyst": {
+      "$ref": "#/definitions/User"
+    },
+    "documentTitle": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 50
+    },
+    "clientId": {
+      "type": "string",
+      "minLength": 3
+    },
+    "issuers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/Issuer"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "analysts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/User"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "supervisoryAnalyst",
+    "documentTitle",
+    "clientId",
+    "issuers",
+    "analysts"
+  ]
+}
