@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reactive;
 using System.Reactive.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,8 +16,6 @@ namespace Hussain.Services.Utility
 {
     public class ViewModelServices : IViewModelServices
     {
-        public const string DataFile = @"X:\Work\SOURCE\src\BlotterCode\data.txt";
-
         private readonly char[] Delimiter = {':'};
         private readonly IEventAggregator _eventAgg;
 
@@ -50,11 +49,14 @@ namespace Hussain.Services.Utility
         public void ContinuouslyReadPricesAsync(CancellationToken token)
         {
             double id = 0;
+
+            string file = Path.GetFullPath(Path.Combine(Assembly.GetExecutingAssembly().Location, @"..\..\..\..\data.txt"));
+
             Task.Factory.StartNew(() =>
             {
-                if (File.Exists(DataFile))
+                if (File.Exists(file))
                 {
-                    using (var reader = new BinaryReader(File.Open(DataFile, FileMode.Open, FileAccess.Read)))
+                    using (var reader = new BinaryReader(File.Open(file, FileMode.Open, FileAccess.Read)))
                     {
                         var ms = new MemoryStream();
                         var sb = new StringBuilder();
@@ -104,7 +106,7 @@ namespace Hussain.Services.Utility
                 }
                 else
                 {
-                    throw new FileNotFoundException(DataFile);
+                    throw new FileNotFoundException(file);
                 }
             }, token);
         }

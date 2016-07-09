@@ -46,10 +46,10 @@ def determine_class(student_name):
     if get_class_name(student_name) == "class not found":
         print("You are not currently registered in the system.")
         while True:    
-            className = input("What class are you in (lion,tiger or zebra)? ").lower()                
-            if (className in classes.keys()):
+            class_name = input("What class are you in (lion,tiger or zebra)? ").lower()                
+            if (class_name in classes.keys()):
                 student = Student(student_name)
-                classes[className].append(student)
+                classes[class_name].append(student)
                 break
             else:
                 print("You have not entered a valid class name")
