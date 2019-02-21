@@ -1,4 +1,0 @@
-sample1.bmp
-	{ 1, 1, 1, 0 }
-sample2.bmp
-	{ 5, 4, 5, 3 }
